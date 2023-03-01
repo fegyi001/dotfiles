@@ -6,11 +6,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export JAVA_HOME=/opt/jdk-17.0.5+8
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:$PATH
+# export JAVA_HOME=/opt/jdk-17.0.5+8
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:$PATH
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -114,8 +118,12 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias tn="tmux -u -f new"
+alias ta="tmux -u -f attach"
+alias tt="nvim ~/.tmux.conf"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -125,7 +133,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias pip=pip3
-source /home/pgg/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/padanyi-gulyasgergely/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # if [ -z "$TMUX" ]
 # then

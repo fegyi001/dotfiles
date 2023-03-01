@@ -1,4 +1,8 @@
-.idea
-.DS_Store
-plugged
-plugins
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
