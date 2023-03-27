@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export JAVA_HOME=/opt/jdk-17.0.5+8
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # Path to your oh-my-zsh installation.
@@ -82,10 +82,20 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+#
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+
 plugins=(
   git 
+  # npm
+  # z
+  # node
+  # brew
   zsh-autosuggestions 
   zsh-syntax-highlighting 
+  fast-syntax-highlighting
+  # vi-mode
   web-search
   docker
   colorize
@@ -123,7 +133,17 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tn="tmux -u -f new"
 alias ta="tmux -u -f attach"
 alias tt="nvim ~/.tmux.conf"
-
+alias lg="lazygit"
+alias cbr='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always" --pointer="" | xargs git checkout'
+alias ls="exa"
+alias ll="exa --long --header --git --icons --all --group-directories-first" 
+alias tree="ll --tree --level=4 -I=.git --git-ignore"
+alias weather="curl http://wttr.in/budapest"
+alias n="nvim"
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
+# brew install tealdeer
+# https://www.youtube.com/watch?v=4EE7qlTaO7c
+alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -140,3 +160,4 @@ source /Users/padanyi-gulyasgergely/zsh-syntax-highlighting/zsh-syntax-highlight
 #     tmux attach -t TMUX || tmux new -s TMUX
 # fi
 
+export PATH="${HOME}/.pyenv/shims:${PATH}"
