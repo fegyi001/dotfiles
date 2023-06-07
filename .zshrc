@@ -10,7 +10,10 @@ fi
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
-
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  #
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -141,6 +144,8 @@ alias tree="ll --tree --level=4 -I=.git --git-ignore"
 alias weather="curl http://wttr.in/budapest"
 alias n="nvim"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
+alias prunebranches="git branch | grep -v \"develop\" | xargs git branch -D"
+
 # brew install tealdeer
 # https://www.youtube.com/watch?v=4EE7qlTaO7c
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
