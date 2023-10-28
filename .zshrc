@@ -1,14 +1,14 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export JAVA_HOME=/opt/jdk-17.0.5+8
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:/$HOME/.local/share/bob/nvim-bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -17,13 +17,13 @@ export NVM_DIR="$HOME/.nvm"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+# typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -143,8 +143,14 @@ alias ll="exa --long --header --git --icons --all --group-directories-first"
 alias tree="ll --tree --level=4 -I=.git --git-ignore"
 alias weather="curl http://wttr.in/budapest"
 alias n="nvim"
+alias vim="nvim"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
-alias prunebranches="git branch | grep -v \"develop\" | xargs git branch -D"
+alias prune="git branch | grep -v \"develop\" | xargs git branch -D"
+alias gpd="git pull origin develop"
+alias gp="git pull"
+alias gP="git push"
+alias grh="git reset --hard"
+alias gpc="git pull && git checkout "
 
 # brew install tealdeer
 # https://www.youtube.com/watch?v=4EE7qlTaO7c
@@ -166,3 +172,5 @@ source /Users/padanyi-gulyasgergely/zsh-syntax-highlighting/zsh-syntax-highlight
 # fi
 
 export PATH="${HOME}/.pyenv/shims:${PATH}"
+eval "$(starship init zsh)"
+
