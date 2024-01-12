@@ -13,7 +13,7 @@ sketchybar --bar height=32        \
                  padding_right=5 \
                  color=$BAR_COLOR 
 
-sketchybar --default icon.font="SF Pro:Semibold:13.0"  \
+sketchybar --default icon.font="JetBrainsMono Nerd Font:Semibold:13.0"  \
                      icon.color=$WHITE                 \
                      label.font="SF Pro:Semibold:13.0" \
                      label.color=$WHITE                 \
