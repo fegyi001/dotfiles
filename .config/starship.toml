@@ -7,6 +7,8 @@
 # The minimal, blazing-fast, and infinitely customizable prompt
 # https://starship.rs
 
+"$schema" = 'https://starship.rs/config-schema.json'
+
 [character]
 success_symbol = "[](white)"
 error_symbol = "[](red)"
@@ -40,7 +42,7 @@ disabled = true
 disabled = true
 
 [git_metrics]
-disabled = true
+disabled = false
 
 [git_status]
 disabled = false

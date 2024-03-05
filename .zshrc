@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:/$HOME/.local/share/bob/nvim-bin:$PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:/$HOME/.local/share/bob/nvim-bin:/$HOME/development/flutter/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -63,10 +63,11 @@ alias ta="tmux -u -f attach"
 alias tt="nvim ~/.tmux.conf"
 alias lg="lazygit"
 alias cbr='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always" --pointer="" | xargs git checkout'
-alias ls="exa"
-alias ll="exa --long --header --git --icons --all --group-directories-first" 
+alias ls="eza"
+alias ll="eza --long --header --git --icons --all --group-directories-first"
 alias tree="ll --tree --level=4 -I=.git --git-ignore"
 alias weather="curl http://wttr.in/budapest"
+alias c="clear"
 alias n="nvim"
 alias vim="nvim"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
@@ -86,7 +87,7 @@ alias gpc="git pull && git checkout "
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias pip=pip3
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # if [ -z "$TMUX" ]
 # then
@@ -98,4 +99,7 @@ bindkey -v
 
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 eval "$(starship init zsh)"
+export PNPM_HOME="$HOME/.pnpm"
+export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
+
 
