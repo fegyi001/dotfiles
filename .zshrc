@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:/$HOME/.local/share/bob/nvim-bin:/$HOME/development/flutter/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:/$HOME/.local/share/bob/v0.9.5/nvim-macos/bin:/$HOME/development/flutter/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -43,12 +43,13 @@ plugins=(
   zsh-autosuggestions 
   zsh-syntax-highlighting 
   fast-syntax-highlighting
-  # vi-mode
+  vi-mode
   web-search
   docker
   colorize
   colored-man-pages
   tmux
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -67,9 +68,12 @@ alias ls="eza"
 alias ll="eza --long --header --git --icons --all --group-directories-first"
 alias tree="ll --tree --level=4 -I=.git --git-ignore"
 alias weather="curl http://wttr.in/budapest"
+alias s="source ~/.zshrc"
 alias c="clear"
 alias n="nvim"
+alias e="exit"
 alias vim="nvim"
+alias cd="z" 
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
 alias prune="git branch | grep -v \"develop\" | xargs git branch -D"
 alias gpd="git pull origin develop"
@@ -89,6 +93,42 @@ alias gpc="git pull && git checkout "
 alias pip=pip3
 source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+# Use fd insstead of fzf
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# Use fd to generate the list for path completion
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude .git . "$1"
+}
+
+source ~/fzf-git.sh/fzf-git.sh
+
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
+
 # if [ -z "$TMUX" ]
 # then
 #     tmux attach -t TMUX || tmux new -s TMUX
@@ -97,9 +137,20 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highli
 # Enable vi mode
 bindkey -v
 
+export BAT_THEME="Monokai Extended Origin"
+export STARSHIP_CONFIG=~/.config/starship.toml
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 eval "$(starship init zsh)"
 export PNPM_HOME="$HOME/.pnpm"
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
+
+export DKFKFT_DATA_DIR="$HOME/data/DKFKFT_DATA_02"
+ 
+# thefuck alias
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
+# zoxide (better cd)
+eval "$(zoxide init zsh)"
 
 
