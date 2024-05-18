@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/install/nvim/bin:/$HOME/.local/share/bob/v0.9.5/nvim-macos/bin:/$HOME/development/flutter/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -72,8 +72,11 @@ alias s="source ~/.zshrc"
 alias c="clear"
 alias n="nvim"
 alias e="exit"
+alias t="tmux"
+alias to="tokei"
 alias vim="nvim"
 alias cd="z" 
+alias cat="bat"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
 alias prune="git branch | grep -v \"develop\" | xargs git branch -D"
 alias gpd="git pull origin develop"
@@ -144,7 +147,7 @@ eval "$(starship init zsh)"
 export PNPM_HOME="$HOME/.pnpm"
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
 
-export DKFKFT_DATA_DIR="$HOME/data/DKFKFT_DATA_02"
+export DKFKFT_DATA_DIR="$HOME/data/DKFKFT_DATA"
  
 # thefuck alias
 eval $(thefuck --alias)
