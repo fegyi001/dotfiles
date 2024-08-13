@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
@@ -80,10 +80,14 @@ alias cat="bat"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
 alias prune="git branch | grep -v \"develop\" | xargs git branch -D"
 alias gpd="git pull origin develop"
+alias gpn="git pull origin next"
 alias gp="git pull"
-alias gP="git push"
+alias gP="git push --follow-tags"
 alias grh="git reset --hard"
 alias gpc="git pull && git checkout "
+alias y="yazi"
+alias python="python3"
+alias sed="gsed"
 
 # brew install tealdeer
 # https://www.youtube.com/watch?v=4EE7qlTaO7c
@@ -148,6 +152,7 @@ export PNPM_HOME="$HOME/.pnpm"
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
 
 export DKFKFT_DATA_DIR="$HOME/data/DKFKFT_DATA"
+export SPRING_PROFILES_ACTIVE=local,debug
  
 # thefuck alias
 eval $(thefuck --alias)
