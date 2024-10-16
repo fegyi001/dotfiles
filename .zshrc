@@ -74,7 +74,7 @@ alias n="nvim"
 alias e="exit"
 alias t="tmux"
 alias to="tokei"
-alias vim="nvim"
+# alias vim="nvim"
 alias cd="z" 
 alias cat="bat"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
@@ -88,6 +88,11 @@ alias gpc="git pull && git checkout "
 alias y="yazi"
 alias python="python3"
 alias sed="gsed"
+alias dc="docker compose"
+alias dcb="docker compose build"
+alias dcd="docker compose down"
+alias dcu="docker compose up"
+alias dcl="docker compose logs -f"
 
 # brew install tealdeer
 # https://www.youtube.com/watch?v=4EE7qlTaO7c
@@ -152,6 +157,7 @@ export PNPM_HOME="$HOME/.pnpm"
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
 
 export DKFKFT_DATA_DIR="$HOME/data/DKFKFT_DATA"
+export PREUR_DATA_DIR="$HOME/data/PREUR_DATA"
 export SPRING_PROFILES_ACTIVE=local,debug
  
 # thefuck alias
