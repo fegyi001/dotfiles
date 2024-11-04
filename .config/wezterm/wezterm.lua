@@ -6,9 +6,25 @@ config = {
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = "Monokai Pro (Gogh)",
 	colors = {
-		-- background = "#2d2a2c",
-		background = "#303030",
+		background = "#2d2a2c",
+		tab_bar = {
+			background = "#3A3A3A",
+			active_tab = {
+				bg_color = "#3A3A3A",
+				fg_color = "#FBDE65",
+			},
+			inactive_tab = {
+				bg_color = "#3A3A3A",
+				fg_color = "#aaaaaa",
+			},
+			inactive_tab_hover = {
+				bg_color = "#3A3A3A",
+				fg_color = "#f8f8f2",
+			},
+		},
 	},
+	use_fancy_tab_bar = true,
+	tab_max_width = 20,
 	font = wezterm.font_with_fallback({
 		{
 			family = "JetBrains Mono",
@@ -18,17 +34,29 @@ config = {
 			family = "JetBrains Mono Nerd Font Mono",
 		},
 	}),
-	font_size = 13.5,
+	font_size = 15,
 	line_height = 1.2,
 	window_padding = {
-		left = 0,
-		right = 0,
+		left = 5,
+		right = 5,
 		top = 0,
 		bottom = 0,
 	},
-	enable_scroll_bar = false,
+	enable_scroll_bar = true,
 	enable_tab_bar = true,
+	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",
+	window_background_opacity = 1,
+	-- macos_window_background_blur = 10,
+	native_macos_fullscreen_mode = false,
+
+	keys = {
+		{
+			key = "P",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.QuickSelect,
+		},
+	},
 }
 
 return config
