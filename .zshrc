@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH:/$HOME/.cargo/bin
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -93,6 +93,9 @@ alias dcb="docker compose build"
 alias dcd="docker compose down"
 alias dcu="docker compose up"
 alias dcl="docker compose logs -f"
+# Rust
+alias cr="cargo run"
+alias cw="cargo watch"
 
 # brew install tealdeer
 # https://www.youtube.com/watch?v=4EE7qlTaO7c
@@ -156,7 +159,7 @@ eval "$(starship init zsh)"
 export PNPM_HOME="$HOME/.pnpm"
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
 
-export DKFKFT_DATA_DIR="$HOME/data/DKFKFT_DATA"
+export DKFKFT_DATA_DIR="$HOME/data/dkfkft/DKFKFT_DATA"
 export PREUR_DATA_DIR="$HOME/data/PREUR_DATA"
 export SPRING_PROFILES_ACTIVE=local,debug
  
@@ -167,4 +170,15 @@ eval $(thefuck --alias fk)
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
 
+# automatically move into the directory I'm in when exiting yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+# Set the editor to neovim for yazi
+export EDITOR=nvim
 
