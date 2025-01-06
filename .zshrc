@@ -164,8 +164,8 @@ export PREUR_DATA_DIR="$HOME/data/PREUR_DATA"
 export SPRING_PROFILES_ACTIVE=local,debug
  
 # thefuck alias
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
+# eval $(thefuck --alias)
+# eval $(thefuck --alias fk)
 
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
