@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH:/$HOME/.cargo/bin
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH:/$HOME/.cargo/bin:/$HOME/go/bin
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -83,7 +83,7 @@ alias gpd="git pull origin develop"
 alias gpn="git pull origin next"
 alias gp="git pull"
 alias gP="git push --follow-tags"
-alias grh="git reset --hard"
+alias grh="git reset --hard && git clean -fd"
 alias gpc="git pull && git checkout "
 alias y="yazi"
 alias python="python3"
@@ -158,6 +158,8 @@ export PATH="${HOME}/.pyenv/shims:${PATH}"
 eval "$(starship init zsh)"
 export PNPM_HOME="$HOME/.pnpm"
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.pnpm:$PATH"
+export SZENTPETERYFOTO_DATA_DIR="$HOME/data/SZENTPETERYFOTO_DATA"
+export CERTS_DIR="$HOME/data/digitalocean/certs"
 
 export DKFKFT_DATA_DIR="$HOME/data/dkfkft/DKFKFT_DATA"
 export PREUR_DATA_DIR="$HOME/data/PREUR_DATA"
