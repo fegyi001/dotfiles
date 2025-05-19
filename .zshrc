@@ -72,6 +72,7 @@ alias tn="tmux -u -f new"
 alias ta="tmux -u -f attach"
 alias tt="nvim ~/.tmux.conf"
 alias lg="lazygit"
+alias ldo="lazydocker"
 alias cbr='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always" --pointer="" | xargs git checkout'
 alias ls="eza"
 alias ll="eza --long --header --git --icons --all --group-directories-first"
