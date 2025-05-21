@@ -60,3 +60,9 @@
   remote = yellow
   upstream = green
   plain = blue
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = -taggerdate
