@@ -1,0 +1,32 @@
+[user]
+  name = "Gergely Padányi-Gulyás"
+  email = "gergely.padanyi-gulyas@idomsoft.hu"
+
+[core]
+  compression = 9
+  whiteSpace = "error"
+  preloadindex = true
+
+[advice]
+  addEmptyPathspec = false
+  pushNonFastForward = false
+  statusHints = false
+
+[init]
+  defaultBranch = "main"
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[diff]
+  context = 3
+  renames = copies
+  interHunkContext = 10 
+
+[pager]
+  diff = "diff-so-fancy | $PAGER"
+
+[diff-so-fancy]
+  markEmptyLines = false
