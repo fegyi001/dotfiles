@@ -83,6 +83,8 @@ config = {
 			mods = "CTRL|SHIFT",
 			action = wezterm.action.ActivateCopyMode,
 		},
+		{ key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
+		{ key = "+", mods = "CMD", action = wezterm.action.IncreaseFontSize },
 	},
 }
 
