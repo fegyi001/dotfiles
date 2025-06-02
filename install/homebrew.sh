@@ -231,7 +231,6 @@ brew install unbound
 brew install unibilium
 brew install utf8proc
 brew install uthash
-brew install vacuum
 brew install vips
 brew install viu
 brew install webp
@@ -250,3 +249,4 @@ brew install zsh-autosuggestions
 brew install zstd
 
 brew install jstkdng/programs/ueberzugpp 
+brew install daveshanley/vacuum/vacuum
