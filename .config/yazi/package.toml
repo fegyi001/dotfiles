@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "55bf699"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "55bf699"
+hash = "104fa2ce07d8890b07fcff68b0aaf923"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "695dac6"
+hash = "a8f426ea0d9cb843b081d62ab01364c8"

@@ -1,0 +1,25 @@
+[credential]
+	helper = store
+[user]
+	name = Gergely Padányi-Gulyás
+	email = work@gpadanyig.com
+	signingkey = FB00327ACF12F75A
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[push]
+	followTags = true
+[core]
+  pager = delta
+	editor = vim
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true # Use n and N to move between diff sections
+  side-by-side = true # Start with side-by-side view
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
