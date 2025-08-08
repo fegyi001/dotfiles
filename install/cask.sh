@@ -1,3 +1,5 @@
+#!/bin/bash
+
 brew install --cask dbeaver-community
 brew install --cask gimp
 brew install --cask obsidian
