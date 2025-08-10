@@ -116,7 +116,7 @@ alias dcl="docker compose logs -f"
 alias cr="cargo run"
 alias cw="cargo watch"
 # Homebrew
-alias u="brew update && brew upgrade --greedy && brew cleanup"
+alias u="brew update && brew upgrade && brew cleanup"
 
 # brew install tealdeer
 # https://www.youtube.com/watch?v=4EE7qlTaO7c
