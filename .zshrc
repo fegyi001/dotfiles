@@ -1,11 +1,9 @@
 # zmodload zsh/zprof
 
-# If you come from bash you might have to change your $PATH.
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH:/$HOME/.cargo/bin:/$HOME/go/bin
 export ANDROID_HOME=$HOME/Library/Android/sdk
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+
 export BW_SESSION="rzVkMk0522cnJjRNBWKJ5j2OzQSxudfYkZfKB12SNjPCxVngkaiMDpojDos6K68mqLlpn3i7OLiiBx4bQGVtmw=="
 
 export NVM_DIR="$HOME/.nvm"
@@ -19,36 +17,10 @@ else
   compinit -C
 fi
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 2
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 
 plugins=(
   git 
-  # npm
-  # z
-  # node
-  # brew
   zsh-autosuggestions 
   zsh-syntax-highlighting 
   fast-syntax-highlighting
@@ -61,13 +33,7 @@ plugins=(
   fzf
 )
 
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tn="tmux -u -f new"
 alias ta="tmux -u -f attach"
 alias tt="nvim ~/.tmux.conf"
@@ -112,25 +78,14 @@ alias dcb="docker compose build"
 alias dcd="docker compose down"
 alias dcu="docker compose up"
 alias dcl="docker compose logs -f"
-# Rust
 alias cr="cargo run"
 alias cw="cargo watch"
-# Homebrew
 alias u="brew update && brew upgrade && brew cleanup"
-
-# brew install tealdeer
-# https://www.youtube.com/watch?v=4EE7qlTaO7c
-# alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias pip=pip3
-source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-# Use fd insstead of fzf
+# Use fd instead of fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
@@ -165,11 +120,6 @@ _fzf_comprun() {
   esac
 }
 
-# if [ -z "$TMUX" ]
-# then
-#     tmux attach -t TMUX || tmux new -s TMUX
-# fi
-
 # Enable vi mode
 bindkey -v
 
@@ -186,12 +136,19 @@ export DKFKFT_DATA_DIR="$HOME/data/dkfkft/DKFKFT_DATA"
 export PREUR_DATA_DIR="$HOME/data/PREUR_DATA"
 export SPRING_PROFILES_ACTIVE=local,debug
  
-# thefuck alias
-# eval $(thefuck --alias)
-# eval $(thefuck --alias fk)
-
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
+
+# Activate syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Disable underline
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
+# Activate autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # automatically move into the directory I'm in when exiting yazi
 function y() {
