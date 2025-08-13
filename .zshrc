@@ -6,10 +6,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 
 export BW_SESSION="rzVkMk0522cnJjRNBWKJ5j2OzQSxudfYkZfKB12SNjPCxVngkaiMDpojDos6K68mqLlpn3i7OLiiBx4bQGVtmw=="
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
   compinit
@@ -114,8 +110,8 @@ _fzf_comprun() {
 
   case "$command" in
     cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
@@ -123,7 +119,7 @@ _fzf_comprun() {
 # Enable vi mode
 bindkey -v
 
-export BAT_THEME="Monokai Extended Origin"
+export BAT_THEME="tokyonight_night"
 export STARSHIP_CONFIG=~/.config/starship.toml
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 eval "$(starship init zsh)"
@@ -138,6 +134,9 @@ export SPRING_PROFILES_ACTIVE=local,debug
  
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
+
+# fnm (node version manager)
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Activate syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
