@@ -2,6 +2,9 @@ return {
   {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", lazy = true },
+    },
     keys = {
       {
         "<leader>yy",
@@ -20,7 +23,6 @@ return {
       },
     },
     opts = {
-      -- if you want to open yazi instead of netrw, see below for more info
       open_for_directories = true,
       floating_window_scaling_factor = 1,
       yazi_floating_window_winblend = 0,
@@ -37,6 +39,10 @@ return {
         change_working_directory = "<C-\\>",
       },
     },
+    init = function()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+    end,
     highlight_hovered_buffers_in_same_directory = true,
   },
 }
