@@ -171,4 +171,7 @@ cd() {
   fi
 }
 
+# fzf, this is needed for C-r and C-t and so on
+source <(fzf --zsh)
+
 # zprof
