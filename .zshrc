@@ -45,7 +45,6 @@ alias n="nvim"
 alias e="exit"
 alias t="tmux a"
 alias to="tokei"
-alias cd="z" 
 alias cat="bat"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
 alias prune="git branch | grep -v \"develop\" | xargs git branch -D"
@@ -158,5 +157,18 @@ function y() {
 }
 # Set the editor to neovim for yazi
 export EDITOR=nvim
+
+# make zoxide smarter to enable `cd ...` and `cd ....`
+unalias cd 2>/dev/null
+
+cd() {
+  if [[ "$1" == "..." ]]; then
+    builtin cd ../..
+  elif [[ "$1" == "...." ]]; then
+    builtin cd ../../..
+  else
+    z "$@"
+  fi
+}
 
 # zprof
