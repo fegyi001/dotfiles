@@ -3,6 +3,7 @@
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH:/$HOME/.cargo/bin:/$HOME/go/bin
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export PKG_CONFIG_PATH="/usr/local/opt/proj/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export BW_SESSION="rzVkMk0522cnJjRNBWKJ5j2OzQSxudfYkZfKB12SNjPCxVngkaiMDpojDos6K68mqLlpn3i7OLiiBx4bQGVtmw=="
 
@@ -38,6 +39,7 @@ alias e="exit"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
 alias y="yazi"
 alias t="tmux a"
+alias f="fastfetch"
 alias tn="tmux -u -f new"
 alias ta="tmux -u -f attach"
 alias lg="lazygit"
