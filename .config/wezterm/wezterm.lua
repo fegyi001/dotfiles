@@ -70,7 +70,7 @@ config = {
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",
 	window_background_opacity = 1,
-	-- macos_window_background_blur = 10,
+	-- macos_window_background_blur = 8,
 	native_macos_fullscreen_mode = false,
 	keys = {
 		{
