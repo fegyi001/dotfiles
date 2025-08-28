@@ -7,20 +7,20 @@ return {
     },
     keys = {
       {
-        "<leader>yy",
+        "<leader>y",
         "<Cmd>Yazi<CR>",
         desc = "Open yazi at the current file",
       },
-      {
-        "<leader>ye",
-        "<Cmd>Yazi cwd<CR>",
-        desc = "Open the file manager in nvim's working directory",
-      },
-      {
-        "<leader>yr",
-        "<Cmd>Yazi toggle<CR>",
-        desc = "Resume the last yazi session",
-      },
+      -- {
+      --   "<leader>ye",
+      --   "<Cmd>Yazi cwd<CR>",
+      --   desc = "Open the file manager in nvim's working directory",
+      -- },
+      -- {
+      --   "<leader>yr",
+      --   "<Cmd>Yazi toggle<CR>",
+      --   desc = "Resume the last yazi session",
+      -- },
     },
     opts = {
       open_for_directories = true,
