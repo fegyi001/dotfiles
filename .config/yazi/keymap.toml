@@ -229,6 +229,10 @@ keymap = [
   ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
   { on = [
     "g",
+    "r",
+  ], run = "plugin git-root", desc = "Go to git root" },
+  { on = [
+    "g",
     "<Space>",
   ], run = "cd --interactive", desc = "Jump interactively" },
 
