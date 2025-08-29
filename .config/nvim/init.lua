@@ -15,3 +15,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.fn.setreg("l", "yoconsole.log('" .. esc .. "pa:" .. esc .. "la, " .. esc .. "pl")
   end,
 })
+
+vim.api.nvim_create_augroup("RustLogMacro", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = "RustLogMacro",
+  pattern = { "rust" },
+  callback = function()
+    vim.fn.setreg("l", "yoprintln!(\"" .. esc .. "pa: {:?}\", " .. esc .. "pa);" .. esc)
+  end,
+})
