@@ -18,6 +18,9 @@ keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save", noremap = true, silent = tru
 -- 6:26
 keymap.set("x", "<leader>P", '"_dP', { desc = "Paste without replacing register", noremap = true, silent = true })
 
+-- Disable comma default behavior (reverse character search)
+keymap.set("n", ",", "<nop>", { desc = "Disabled for beam.nvim", noremap = true, silent = true })
+
 -- Other stuff
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
