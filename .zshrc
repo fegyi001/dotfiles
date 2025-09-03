@@ -76,6 +76,7 @@ alias dcu="docker compose up"
 alias dcl="docker compose logs -f"
 alias cr="cargo run"
 alias cw="cargo watch"
+alias cb="cargo build"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias pip=pip3
