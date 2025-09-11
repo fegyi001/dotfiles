@@ -1,0 +1,34 @@
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+
+[language-server.angular]
+command = "ngserver"
+args = [
+  "--stdio",
+  "--tsProbeLocations",
+  "$(npm -g root)",
+  "--ngProbeLocations",
+  "$(npm -g root)",
+]
+
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = [
+  "--write",
+  "--parser",
+  "typescript",
+] }
+auto-format = true
+language-servers = ["typescript-language-server", "angular", "eslint"]
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
+auto-format = true
+language-servers = ["vscode-html-language-server", "angular"]
+

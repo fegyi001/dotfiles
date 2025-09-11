@@ -1,0 +1,440 @@
+{
+  "profiles": [
+    {
+      "complex_modifications": {
+        "parameters": { "basic.to_if_alone_timeout_milliseconds": 500 },
+        "rules": [
+          {
+            "description": "Post Esc if Caps is tapped, Control if held.",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control",
+                    "lazy": true
+                  }
+                ],
+                "to_if_alone": [{ "key_code": "escape" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+K to open WezTerm",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a wezterm" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+J to open Firefox Developer Edition",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [
+                  { "shell_command": "open -a \"Firefox Developer Edition\"" }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+I to open Chrome",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Google Chrome\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+H to open Keymapp",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Keymapp\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+N to open Outlook",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Microsoft Outlook\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+M to open Teams",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Microsoft Teams\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+L to open Webstorm",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Webstorm\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+U to open Bitwarden",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Bitwarden\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+P to open Edge",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Microsoft Edge\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+F to open Finder",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Finder\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+E to open AnyConnect",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"AnyConnect\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+W to open Karabiner-Elements",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Karabiner-Elements\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+O to open Obsidian",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Obsidian\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+R to open OpenVPN",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"OpenVPN Connect\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+S to open Sublime Text",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Sublime Text\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+D to open System Settings",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"System Settings\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper+Y to open Termius",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Termius\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change CMD+H to left arrow",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "left_arrow" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change CMD+J to down arrow",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "down_arrow" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change CMD+K to up arrow",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "up_arrow" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change CMD+L to right arrow",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "right_arrow" }],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+    }
+  ]
+}
+
