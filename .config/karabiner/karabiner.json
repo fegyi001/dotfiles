@@ -346,7 +346,7 @@
             ]
           },
           {
-            "description": "Press Hyper+Y to open Termius",
+            "description": "Press Hyper+Y to open Neo-Server",
             "manipulators": [
               {
                 "from": {
@@ -360,7 +360,7 @@
                     "optional": ["left_shift"]
                   }
                 },
-                "to": [{ "shell_command": "open -a \"Termius\"" }],
+                "to": [{ "shell_command": "open -a \"NeoServer\"" }],
                 "type": "basic"
               }
             ]
@@ -437,4 +437,3 @@
     }
   ]
 }
-
