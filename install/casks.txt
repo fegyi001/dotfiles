@@ -1,0 +1,9 @@
+dbeaver-community
+font-sf-mono-nerd-font-ligaturized
+font-symbols-only-nerd-font
+gimp
+google-chrome
+karabiner-elements
+keycastr
+obsidian
+wezterm
