@@ -85,29 +85,8 @@ config = {
 		},
 		{ key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
 		{ key = "+", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+		{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 	},
-	-- background = {
-	-- 	{
-	-- 		source = {
-	-- 			File = "/Users/" .. os.getenv("USER") .. "/.config/wezterm/background.png",
-	-- 		},
-	-- 		hsb = {
-	-- 			hue = 1.0,
-	-- 			saturation = 1.02,
-	-- 			brightness = 0.25,
-	-- 		},
-	-- 		vertical_align = "Middle",
-	-- 		horizontal_align = "Center",
-	-- 	},
-	-- 	{
-	-- 		source = {
-	-- 			Color = "#26283F",
-	-- 		},
-	-- 		width = "100%",
-	-- 		height = "100%",
-	-- 		opacity = 0.55,
-	-- 	},
-	-- },
 }
 
 return config
