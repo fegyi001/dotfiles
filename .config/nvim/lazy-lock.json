@@ -1,5 +1,5 @@
 {
-  "CopilotChat.nvim": { "branch": "main", "commit": "418562ef83fba5c155a06f27c144fcb28c5ff815" },
+  "CopilotChat.nvim": { "branch": "main", "commit": "19a4d2990fe1f8c0697636059500d521793cede0" },
   "LazyVim": { "branch": "main", "commit": "25abbf546d564dc484cf903804661ba12de45507" },
   "SchemaStore.nvim": { "branch": "main", "commit": "3146720ee3a0c6e2446eedd492fb519d16f2e467" },
   "beam.nvim": { "branch": "main", "commit": "5c59b89ed8287ecb69467eb52326b1d83bc8d377" },
@@ -70,5 +70,5 @@
   "volt": { "branch": "main", "commit": "7b8c5e790120d9f08c8487dcb80692db6d2087a1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" },
-  "yazi.nvim": { "branch": "main", "commit": "f3b810d647730906f5c60a5a67a095d20e8cfe5d" }
+  "yazi.nvim": { "branch": "main", "commit": "45362b590c8aefb1c573cc935784d723ff1c0188" }
 }
