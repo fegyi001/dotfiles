@@ -231,6 +231,7 @@ tlrc
 tmux
 tokei
 tree-sitter
+tree-sitter-cli
 trivy
 trufflehog
 ueberzugpp

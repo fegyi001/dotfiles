@@ -38,7 +38,6 @@ return {
         },
         tsserver = {
           cmd = { "typescript-language-server", "--stdio" },
-          -- enabled = false,
         },
         eslint = {
           on_attach = function(client, bufnr)
