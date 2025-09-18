@@ -110,15 +110,10 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = true -- Disable line wrap
 
-if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
-  opt.foldexpr = "v:lua.require'lazyvim.util'.treesitter.foldexpr()"
-  opt.foldmethod = "expr"
-  opt.foldtext = ""
-else
-  opt.foldmethod = "indent"
-  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
-end
+opt.foldexpr = "v:lua.LazyVim.treesitter.foldexpr()" -- treesitter folds
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldtext = ""
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
