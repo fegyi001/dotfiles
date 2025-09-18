@@ -8,4 +8,5 @@ google-chrome
 karabiner-elements
 keycastr
 obsidian
+stats
 wezterm

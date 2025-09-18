@@ -5,6 +5,7 @@ augeas
 bash
 bat
 bc
+berkeley-db@5
 brotli
 btop
 c-ares
@@ -18,6 +19,7 @@ cgif
 chafa
 cjson
 cli11
+clisp
 cmake
 colima
 coreutils
@@ -45,6 +47,8 @@ fribidi
 fzf
 gawk
 gcc
+gd
+gdbm
 gdk-pixbuf
 gettext
 gh
@@ -63,6 +67,7 @@ go
 gpgme
 gpgmepp
 graphite2
+grpcurl
 harfbuzz
 hdf5
 helix
@@ -121,6 +126,7 @@ libraw
 librist
 librsvg
 libsamplerate
+libsigsegv
 libsixel
 libsndfile
 libsodium
@@ -145,6 +151,7 @@ libxau
 libxcb
 libxdmcp
 libxext
+libxft
 libxml2
 libxrender
 libyaml
@@ -177,7 +184,7 @@ nspr
 nss
 oniguruma
 open-mpi
-opencode
+sst/tap/opencode
 opencore-amr
 openexr
 openjdk
@@ -189,14 +196,18 @@ opus
 p11-kit
 pango
 pcre2
+perl
 pinentry
 pinentry-mac
 pipx
 pixman
 pkgconf
+plotutils
 pmix
 poppler
+potrace
 proj
+pstoedit
 pycparser
 python-packaging
 python@3.12
@@ -209,7 +220,6 @@ rubberband
 ruby
 screenresolution
 sdl2
-sesh
 sevenzip
 shared-mime-info
 simdjson
@@ -225,6 +235,7 @@ stow
 svt-av1
 tbb
 tesseract
+texlive
 thefuck
 theora
 tlrc
@@ -245,6 +256,7 @@ vacuum
 vips
 viu
 webp
+websocat
 wget
 x264
 x265
