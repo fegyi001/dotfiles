@@ -110,9 +110,8 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = true -- Disable line wrap
 
-opt.foldexpr = "v:lua.LazyVim.treesitter.foldexpr()" -- treesitter folds
 opt.foldlevel = 99
-opt.foldmethod = "expr"
+opt.foldmethod = "indent"
 opt.foldtext = ""
 
 -- Fix markdown indentation settings
