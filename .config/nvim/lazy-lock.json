@@ -47,7 +47,7 @@
   "nvim-material-icon": { "branch": "main", "commit": "6d74dad837490fc41c9180840d03b7e8b3189035" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
   "nvim-rip-substitute": { "branch": "main", "commit": "42c4494386ed33af84424c9a249ab7a20f8a2a51" },
-  "nvim-treesitter": { "branch": "main", "commit": "6ac9f2e51270cd6f57c4783a36c60cd03e4cfb94" },
+  "nvim-treesitter": { "branch": "main", "commit": "5a70b1eb8cbdf6c7f0a59dfb7356ad198421b620" },
   "nvim-treesitter-context": { "branch": "master", "commit": "41847d3dafb5004464708a3db06b14f12bde548a" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "1b2d85d3de6114c4bcea89ffb2cd1ce9e3a19931" },
   "nvim-ts-autotag": { "branch": "main", "commit": "c4ca798ab95b316a768d51eaaaee48f64a4a46bc" },
@@ -70,5 +70,5 @@
   "volt": { "branch": "main", "commit": "620de1321f275ec9d80028c68d1b88b409c0c8b1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" },
-  "yazi.nvim": { "branch": "main", "commit": "acaa305ce150d426a7fa8aa3064213d17f8af69f" }
+  "yazi.nvim": { "branch": "main", "commit": "1fbc01cbebb513e00e1b29bec41b67df7fd4bf8f" }
 }
