@@ -366,6 +366,26 @@
             ]
           },
           {
+            "description": "Press Hyper+A to open Spotify",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Spotify\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Change CMD+H to left arrow",
             "manipulators": [
               {
