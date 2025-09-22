@@ -215,6 +215,7 @@ python@3.13
 range-v3
 rav1e
 readline
+reattach-to-user-namespace
 ripgrep
 rubberband
 ruby
@@ -269,6 +270,7 @@ yyjson
 zeromq
 zimg
 zoxide
+zsh
 zsh-autosuggestions
 zsh-fast-syntax-highlighting
 zsh-syntax-highlighting
