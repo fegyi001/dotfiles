@@ -21,7 +21,6 @@ cjson
 cli11
 clisp
 cmake
-colima
 coreutils
 cowsay
 cryptography
