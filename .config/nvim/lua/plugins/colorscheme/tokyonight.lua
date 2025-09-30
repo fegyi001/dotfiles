@@ -12,17 +12,17 @@ return {
       keywords = { italic = true },
       functions = { italic = true },
       variables = {},
-      -- sidebars = "dark",
-      -- floats = "dark",
       sidebars = "transparent",
       floats = "transparent",
     },
     on_colors = function(colors)
       colors.border = "#565f89"
-      colors.bg_float = "#27283f"
     end,
     on_highlights = function(hl, _c)
+      -- local Util = require("tokyonight.util")
       hl.CursorLine = { bg = "NONE" }
+      -- hl.Normal = { fg = c.fg, bg = "NONE" }
+      -- hl.NormalNC = { fg = c.fg, bg = Util.blend_bg(c.bg, 0.2) }
     end,
   },
 }
