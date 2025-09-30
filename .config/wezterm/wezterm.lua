@@ -69,8 +69,8 @@ config = {
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",
-	window_background_opacity = 1,
-	-- macos_window_background_blur = 20,
+	window_background_opacity = 0.9,
+	-- macos_window_background_blur = 10,
 	native_macos_fullscreen_mode = false,
 	keys = {
 		{

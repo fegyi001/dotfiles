@@ -21,5 +21,8 @@ return {
       colors.border = "#565f89"
       colors.bg_float = "#27283f"
     end,
+    on_highlights = function(hl, _c)
+      hl.CursorLine = { bg = "NONE" }
+    end,
   },
 }

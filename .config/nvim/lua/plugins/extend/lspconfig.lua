@@ -6,7 +6,17 @@ return {
       inlay_hints = {
         enabled = false,
       },
-      servers = {},
+      servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                unusedLocalExclude = { "_*" },
+              },
+            },
+          },
+        },
+      },
     },
   },
 }
