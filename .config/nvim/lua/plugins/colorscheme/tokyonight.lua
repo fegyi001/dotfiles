@@ -18,11 +18,9 @@ return {
     on_colors = function(colors)
       colors.border = "#565f89"
     end,
-    on_highlights = function(hl, _c)
-      -- local Util = require("tokyonight.util")
+    on_highlights = function(hl, colors)
       hl.CursorLine = { bg = "NONE" }
-      -- hl.Normal = { fg = c.fg, bg = "NONE" }
-      -- hl.NormalNC = { fg = c.fg, bg = Util.blend_bg(c.bg, 0.2) }
+      hl.LspInLayHint = { bg = "NONE", fg = colors.dark3 }
     end,
   },
 }

@@ -16,6 +16,13 @@ return {
             },
           },
         },
+        bashls = {
+          settings = {
+            bashIde = {
+              shellcheckArguments = { "-e", "SC2034" },
+            },
+          },
+        },
       },
     },
   },
