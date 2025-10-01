@@ -27,6 +27,25 @@ config = {
 			},
 		},
 	},
+	background = {
+		{
+			source = {
+				Color = "#222439",
+			},
+			width = "100%",
+			height = "100%",
+		},
+		{
+			source = {
+				File = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png",
+			},
+			width = "Cover",
+			height = "Cover",
+			horizontal_align = "Center",
+			vertical_align = "Middle",
+			opacity = 0.08,
+		},
+	},
 	use_fancy_tab_bar = true,
 	tab_max_width = 20,
 	bold_brightens_ansi_colors = true,
@@ -69,7 +88,8 @@ config = {
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",
-	window_background_opacity = 0.93,
+	-- window_background_opacity = 0.93,
+	window_background_opacity = 1,
 	-- macos_window_background_blur = 10,
 	native_macos_fullscreen_mode = false,
 	keys = {
