@@ -2,6 +2,8 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 local colorscheme = wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/tokyonight_moon.toml")
+local backgroundImage = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png"
+local backgroundColor = "#222437"
 
 config = {
 	color_schemes = {
@@ -10,19 +12,19 @@ config = {
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = "tokyonight_moon",
 	colors = {
-		background = "#222437",
+		background = backgroundColor,
 		tab_bar = {
-			background = "#3A3A3A",
+			background = backgroundColor,
 			active_tab = {
-				bg_color = "#3A3A3A",
-				fg_color = "#FBDE65",
+				bg_color = "#1B1D2C",
+				fg_color = "#ffc777",
 			},
 			inactive_tab = {
-				bg_color = "#3A3A3A",
+				bg_color = backgroundColor,
 				fg_color = "#aaaaaa",
 			},
 			inactive_tab_hover = {
-				bg_color = "#3A3A3A",
+				bg_color = "#1B1D2C",
 				fg_color = "#f8f8f2",
 			},
 		},
@@ -30,14 +32,14 @@ config = {
 	background = {
 		{
 			source = {
-				Color = "#222439",
+				Color = backgroundColor,
 			},
 			width = "100%",
 			height = "100%",
 		},
 		{
 			source = {
-				File = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png",
+				File = backgroundImage,
 			},
 			width = "Cover",
 			height = "Cover",
@@ -89,7 +91,7 @@ config = {
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",
 	-- window_background_opacity = 0.93,
-	window_background_opacity = 1,
+	-- window_background_opacity = 1,
 	-- macos_window_background_blur = 10,
 	native_macos_fullscreen_mode = false,
 	keys = {

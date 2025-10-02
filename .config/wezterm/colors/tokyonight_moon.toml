@@ -51,7 +51,7 @@ bg_color = "#2f334d"
 [colors.tab_bar.new_tab_hover]
 fg_color = "#82aaff"
 bg_color = "#222436"
-intensity = "Bold"
+# intensity = "Bold"
 
 [colors.tab_bar.new_tab]
 fg_color = "#82aaff"
