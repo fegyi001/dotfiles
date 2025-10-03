@@ -3,7 +3,7 @@ vim.g.ai_cmp = false
 vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
 
 local opt = vim.opt
-opt.wrap = true -- Disable line wrap
+opt.wrap = true
 opt.syntax = "off"
 opt.foldenable = false
 
