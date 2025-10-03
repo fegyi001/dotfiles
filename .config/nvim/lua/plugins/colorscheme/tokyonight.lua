@@ -24,6 +24,7 @@ return {
       hl.BufferLineSeparator = { fg = colors.bg, bg = colors.bg }
       hl.BufferLineSeparatorSelected = { fg = colors.bg, bg = colors.bg }
       hl.BufferLineSeparatorVisible = { fg = colors.bg, bg = colors.bg }
+      hl.StatusLine = { bg = "NONE" }
     end,
   },
 }
