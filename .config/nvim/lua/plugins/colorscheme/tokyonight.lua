@@ -21,6 +21,7 @@ return {
     on_highlights = function(hl, colors)
       hl.CursorLine = { bg = "NONE" }
       hl.LspInLayHint = { bg = "NONE", fg = colors.dark3 }
+      hl.AerialLine = { bg = "NONE", fg = colors.dark3 }
       hl.BufferLineSeparator = { fg = colors.bg, bg = colors.bg }
       hl.BufferLineSeparatorSelected = { fg = colors.bg, bg = colors.bg }
       hl.BufferLineSeparatorVisible = { fg = colors.bg, bg = colors.bg }
