@@ -20,6 +20,17 @@ keymap.set("x", "<leader>P", '"_dP', { desc = "Paste without replacing register"
 
 -- Disable comma default behavior (reverse character search)
 keymap.set("n", ",", "<nop>", { desc = "Disabled for beam.nvim", noremap = true, silent = true })
+keymap.set("n", "<leader>l", "<nop>", { desc = "Disabled lazy default" })
+keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Open lazy" })
+
+if vim.fn.executable("lazygit") == 1 then
+  keymap.set("n", "<leader>lg", function()
+    Snacks.lazygit({ cwd = LazyVim.root.git() })
+  end, { desc = "Lazygit (Root Dir)" })
+  keymap.set("n", "<leader>lG", function()
+    Snacks.lazygit()
+  end, { desc = "Lazygit (cwd)" })
+end
 
 -- Other stuff
 keymap.set("n", "<C-d>", "<C-d>zz")
