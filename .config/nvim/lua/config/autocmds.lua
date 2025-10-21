@@ -34,19 +34,19 @@ end
 
 -- Create Angular component navigation commands
 vim.api.nvim_create_user_command("AngularOpenComponentHtml", open_angular_component_file("html", "Template"), {
-  desc = "Open corresponding Angular component template (HTML) file",
+  desc = "Open Angular html file",
 })
 
 vim.api.nvim_create_user_command("AngularOpenComponentTs", open_angular_component_file("ts", "TypeScript"), {
-  desc = "Open corresponding Angular component TypeScript file",
+  desc = "Open Angular typescript file",
 })
 
 vim.api.nvim_create_user_command("AngularOpenComponentScss", open_angular_component_file("scss", "SCSS"), {
-  desc = "Open corresponding Angular component SCSS file",
+  desc = "Open Angular scss file",
 })
 
 vim.api.nvim_create_user_command("AngularOpenComponentSpec", open_angular_component_file("spec.ts", "Spec"), {
-  desc = "Open corresponding Angular component spec file",
+  desc = "Open Angular spec file",
 })
 
 -- Angular component navigation keymaps
@@ -56,19 +56,19 @@ wk.add({
 })
 
 vim.keymap.set("n", "<leader>aj", ":AngularOpenComponentTs<CR>", {
-  desc = "Open Angular TypeScript file",
+  desc = "Open Angular typescript file",
   noremap = true,
   silent = true,
 })
 
 vim.keymap.set("n", "<leader>ak", ":AngularOpenComponentHtml<CR>", {
-  desc = "Open Angular template file",
+  desc = "Open Angular html file",
   noremap = true,
   silent = true,
 })
 
 vim.keymap.set("n", "<leader>al", ":AngularOpenComponentScss<CR>", {
-  desc = "Open Angular SCSS file",
+  desc = "Open Angular scss file",
   noremap = true,
   silent = true,
 })
