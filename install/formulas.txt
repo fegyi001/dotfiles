@@ -69,11 +69,9 @@ graphite2
 grpcurl
 harfbuzz
 hdf5
-helix
 helm
 helmsman
 highway
-htop
 hwloc
 icu4c@76
 icu4c@77
@@ -154,6 +152,7 @@ libxft
 libxml2
 libxrender
 libyaml
+libzip
 lima
 little-cms2
 lpeg
@@ -203,6 +202,7 @@ pixman
 pkgconf
 plotutils
 pmix
+pngpaste
 poppler
 potrace
 proj
@@ -236,7 +236,6 @@ svt-av1
 tbb
 tesseract
 texlive
-thefuck
 theora
 tlrc
 tmux
@@ -266,6 +265,7 @@ xz
 yazi
 yq
 yyjson
+zellij
 zeromq
 zimg
 zoxide
