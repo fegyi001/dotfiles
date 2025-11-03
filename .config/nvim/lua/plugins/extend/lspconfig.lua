@@ -16,6 +16,37 @@ return {
             },
           },
         },
+        tailwindcss = {
+          enabled = false,
+        },
+        tsserver = {
+          cmd = { "typescript-language-server", "--stdio" },
+        },
+        vtsls = {
+          cmd = { "typescript-language-server", "--stdio" },
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+          },
+          init_options = {
+            preferences = {
+              includeInlayParameterNameHints = "literals",
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayVariableTypeHints = false,
+              includeInlayFunctionLikeReturnTypeHints = false,
+              includeInlayEnumMemberValueHints = false,
+            },
+          },
+          -- root_dir = function(fname)
+          --   return find_root(fname)
+          -- end,
+        },
         bashls = {
           settings = {
             bashIde = {
