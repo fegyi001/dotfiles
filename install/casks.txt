@@ -9,5 +9,4 @@ karabiner-elements
 keycastr
 localsend
 obsidian
-stats
 wezterm
