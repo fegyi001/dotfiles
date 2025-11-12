@@ -266,6 +266,26 @@
             ]
           },
           {
+            "description": "Press Hyper+B to open Figma",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Figma\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Press Hyper+O to open Obsidian",
             "manipulators": [
               {
