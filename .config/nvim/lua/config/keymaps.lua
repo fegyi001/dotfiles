@@ -46,3 +46,11 @@ keymap.set("n", "<leader>e", LazyVim.pick("explorer", { root = false }), { desc 
 keymap.set("n", "<leader>fe", LazyVim.pick("explorer", { root = false }), { desc = "Explorer Snacks" })
 keymap.set("n", "<leader>E", LazyVim.pick("explorer"), { desc = "Explorer Snacks (cwd)" })
 keymap.set("n", "<leader>fE", LazyVim.pick("explorer"), { desc = "Explorer Snacks (cwd)" })
+
+keymap.set("n", "<leader>tl", "<cmd>tablast<cr>", { desc = "Last Tab" })
+keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+keymap.set("n", "<leader>tf", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+keymap.set("n", "<leader>tt>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+keymap.set("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+keymap.set("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
