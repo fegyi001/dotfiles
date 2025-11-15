@@ -1,11 +1,12 @@
 local wezterm = require("wezterm")
-
 local config = wezterm.config_builder()
 local colorscheme = wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/tokyonight_moon.toml")
 local backgroundImage = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png"
 local backgroundColor = "#222437"
 
 config = {
+	initial_rows = 999,
+	initial_cols = 999,
 	color_schemes = {
 		["tokyonight_moon"] = colorscheme,
 	},
@@ -81,8 +82,8 @@ config = {
 	font_size = 14,
 	line_height = 1.3,
 	window_padding = {
-		left = 5,
-		right = 5,
+		left = 0,
+		right = 1,
 		top = 0,
 		bottom = 0,
 	},
