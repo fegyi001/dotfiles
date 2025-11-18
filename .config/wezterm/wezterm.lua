@@ -82,9 +82,9 @@ config = {
 	font_size = 14,
 	line_height = 1.3,
 	window_padding = {
-		left = 0,
+		left = 16,
 		right = 1,
-		top = 0,
+		top = 16,
 		bottom = 0,
 	},
 	enable_scroll_bar = true,
