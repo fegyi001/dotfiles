@@ -1,5 +1,6 @@
 return {
   "pmizio/typescript-tools.nvim",
+  -- enabled = false,
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   ft = {
     "javascript",
@@ -10,10 +11,9 @@ return {
     "typescript.tsx",
   },
   opts = {
-    -- Use .git as the root directory for the project
-    root_dir = function(fname)
+    root_dir = function(bufnr, onDir)
       local util = require("lspconfig.util")
-      return util.root_pattern(".git")(fname)
+      return onDir(util.root_pattern(".git")(bufnr))
     end,
     settings = {
       -- spawn additional tsserver instance to calculate diagnostics on it
@@ -68,4 +68,3 @@ return {
     },
   },
 }
-
