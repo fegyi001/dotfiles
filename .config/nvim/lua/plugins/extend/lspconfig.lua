@@ -16,19 +16,22 @@ return {
             },
           },
         },
+        eslint = {
+          flags = {
+            allow_incremental_sync = false,
+            debounce_text_changes = 1000,
+          },
+        },
         tailwindcss = {
           enabled = false,
         },
-        -- angularls = {
-        --   -- enabled = false,
-        --   filetypes = { "html", "htmlangular" },
-        -- },
         tsserver = {
+          -- enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
         vtsls = {
-          -- enabled = false,
-          -- cmd = { "typescript-language-server", "--stdio" },
+          enabled = false,
+          cmd = { "typescript-language-server", "--stdio" },
           filetypes = {
             "javascript",
             "javascriptreact",
