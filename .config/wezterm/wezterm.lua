@@ -5,8 +5,6 @@ local backgroundImage = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarc
 local backgroundColor = "#222437"
 
 config = {
-	initial_rows = 30,
-	initial_cols = 120,
 	color_schemes = {
 		["tokyonight_moon"] = colorscheme,
 	},
