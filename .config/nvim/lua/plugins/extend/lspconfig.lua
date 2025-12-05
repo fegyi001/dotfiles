@@ -30,7 +30,7 @@ return {
           cmd = { "typescript-language-server", "--stdio" },
         },
         vtsls = {
-          enabled = false,
+          -- enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
           filetypes = {
             "javascript",
