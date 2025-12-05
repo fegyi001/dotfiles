@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local colorscheme = wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/tokyonight_moon.toml")
-local backgroundImage = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png"
+-- local backgroundImage = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png"
 local backgroundColor = "#222437"
 
 config = {
@@ -36,16 +36,16 @@ config = {
 			width = "100%",
 			height = "100%",
 		},
-		{
-			source = {
-				File = backgroundImage,
-			},
-			width = "Cover",
-			height = "Cover",
-			horizontal_align = "Center",
-			vertical_align = "Middle",
-			opacity = 0.08,
-		},
+		-- {
+		-- 	source = {
+		-- 		File = backgroundImage,
+		-- 	},
+		-- 	width = "Cover",
+		-- 	height = "Cover",
+		-- 	horizontal_align = "Center",
+		-- 	vertical_align = "Middle",
+		-- 	opacity = 0.08,
+		-- },
 	},
 	use_fancy_tab_bar = true,
 	tab_max_width = 20,
