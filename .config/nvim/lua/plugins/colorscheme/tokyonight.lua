@@ -6,14 +6,14 @@ return {
     style = "moon",
     cache = true,
     dim_inactive = true,
-    transparent = true,
+    -- transparent = true,
     styles = {
       comments = { italic = true },
       keywords = { italic = true },
       functions = { italic = true },
       variables = {},
-      sidebars = "transparent",
-      floats = "transparent",
+      -- sidebars = "transparent",
+      -- floats = "transparent",
     },
     on_colors = function(colors)
       colors.border = "#565f89"
