@@ -286,6 +286,26 @@
             ]
           },
           {
+            "description": "Press Hyper+V to open Activity Monitor",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "left_option",
+                      "left_command"
+                    ],
+                    "optional": ["left_shift"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a \"Activity Monitor\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Press Hyper+O to open Obsidian",
             "manipulators": [
               {
