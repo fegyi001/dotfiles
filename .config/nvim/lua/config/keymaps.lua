@@ -54,3 +54,46 @@ keymap.set("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New Tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- Custom function to delete buffers that are not visible in any window
+local function delete_non_visible_buffers()
+  -- Get all buffer numbers
+  local all_buffers = vim.api.nvim_list_bufs()
+  -- Get all visible buffers (buffers shown in windows)
+  local visible_buffers = {}
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    visible_buffers[buf] = true
+  end
+  -- Count deleted buffers for feedback
+  local deleted_count = 0
+  -- Delete buffers that are not visible and are valid/loaded
+  for _, buf in ipairs(all_buffers) do
+    if not visible_buffers[buf] and vim.api.nvim_buf_is_valid(buf) then
+      local buf_name = vim.api.nvim_buf_get_name(buf)
+      local buf_modified = vim.bo[buf].modified
+      -- Only delete if buffer is not modified and is not a special buffer
+      if not buf_modified and buf_name ~= "" and not buf_name:match("^%w+://") then
+        -- Use pcall to safely delete buffer
+        local success, _ = pcall(vim.api.nvim_buf_delete, buf, { force = false })
+        if success then
+          deleted_count = deleted_count + 1
+        end
+      end
+    end
+  end
+  -- Provide feedback
+  if deleted_count > 0 then
+    vim.notify("Deleted " .. deleted_count .. " non-visible buffer" .. (deleted_count == 1 and "" or "s"))
+  else
+    vim.notify("No non-visible buffers to delete")
+  end
+end
+
+-- Override the default <leader>bo keybinding
+keymap.set(
+  "n",
+  "<leader>bo",
+  delete_non_visible_buffers,
+  { desc = "Delete Non-Visible Buffers", noremap = true, silent = true }
+)
