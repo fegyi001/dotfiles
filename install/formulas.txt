@@ -69,12 +69,11 @@ graphite2
 grpcurl
 harfbuzz
 hdf5
-helm
-helmsman
 highway
 hwloc
 icu4c@76
 icu4c@77
+icu4c@78
 imagemagick
 imath
 isl
@@ -101,6 +100,7 @@ libdeflate
 libdicom
 libevent
 libexif
+libffcall
 libgcrypt
 libgit2
 libgpg-error
@@ -135,6 +135,7 @@ libtasn1
 libtiff
 libtool
 libudfread
+libultrahdr
 libunibreak
 libunistring
 libusb
@@ -166,6 +167,7 @@ lzo
 m4
 maven
 mbedtls
+mbedtls@3
 mozjpeg
 mpdecimal
 mpfr
@@ -211,6 +213,7 @@ pycparser
 python-packaging
 python@3.12
 python@3.13
+python@3.14
 range-v3
 rav1e
 readline
@@ -242,6 +245,7 @@ tmux
 tokei
 tree-sitter
 tree-sitter-cli
+tree-sitter@0.25
 trivy
 trufflehog
 ueberzugpp
@@ -265,7 +269,6 @@ xz
 yazi
 yq
 yyjson
-zellij
 zeromq
 zimg
 zoxide
