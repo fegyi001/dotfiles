@@ -29,32 +29,32 @@ return {
           -- enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
-        vtsls = {
-          enabled = false,
-          cmd = { "typescript-language-server", "--stdio" },
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-          },
-          init_options = {
-            preferences = {
-              includeInlayParameterNameHints = "literals",
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayVariableTypeHints = false,
-              includeInlayFunctionLikeReturnTypeHints = false,
-              includeInlayEnumMemberValueHints = false,
-            },
-          },
-          -- root_dir = function(fname)
-          --   return find_root(fname)
-          -- end,
-        },
+        -- vtsls = {
+        -- enabled = false,
+        -- cmd = { "typescript-language-server", "--stdio" },
+        -- filetypes = {
+        --   "javascript",
+        --   "javascriptreact",
+        --   "javascript.jsx",
+        --   "typescript",
+        --   "typescriptreact",
+        --   "typescript.tsx",
+        -- },
+        -- init_options = {
+        --   preferences = {
+        --     includeInlayParameterNameHints = "literals",
+        --     includeInlayFunctionParameterTypeHints = true,
+        --     includeInlayPropertyDeclarationTypeHints = true,
+        --     includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        --     includeInlayVariableTypeHints = false,
+        --     includeInlayFunctionLikeReturnTypeHints = false,
+        --     includeInlayEnumMemberValueHints = false,
+        --   },
+        -- },
+        -- root_dir = function(fname)
+        --   return find_root(fname)
+        -- end,
+        -- },
         bashls = {
           settings = {
             bashIde = {
