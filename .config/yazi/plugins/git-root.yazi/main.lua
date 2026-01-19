@@ -1,5 +1,3 @@
---- @since 25.5.31
-
 local function get_git_toplevel()
 	local command = "git rev-parse --show-toplevel 2>&1"
 	local handle = io.popen(command)
