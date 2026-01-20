@@ -1,5 +1,6 @@
 return {
   "icholy/lsplinks.nvim",
+  event = "VeryLazy",
   config = function()
     local lsplinks = require("lsplinks")
     lsplinks.setup()
