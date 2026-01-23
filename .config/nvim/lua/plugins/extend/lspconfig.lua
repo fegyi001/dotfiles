@@ -26,7 +26,7 @@ return {
           enabled = false,
         },
         tsserver = {
-          -- enabled = false,
+          enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
         -- vtsls = {
