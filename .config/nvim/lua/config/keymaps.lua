@@ -42,10 +42,16 @@ keymap.set("n", "<leader>ff", LazyVim.pick("files", { root = false, hidden = tru
 keymap.set("n", "<leader><space>", LazyVim.pick("files", { root = false, hidden = true }), { desc = "Find Files" })
 keymap.set("n", "<leader>fF", LazyVim.pick("files"), { desc = "Find Files (cwd)" })
 keymap.set("n", "<leader>/", LazyVim.pick("grep", { root = false, hidden = true }), { desc = "Grep (Root Dir)" })
-keymap.set("n", "<leader>e", LazyVim.pick("explorer", { root = false }), { desc = "Explorer Snacks" })
-keymap.set("n", "<leader>fe", LazyVim.pick("explorer", { root = false }), { desc = "Explorer Snacks" })
-keymap.set("n", "<leader>E", LazyVim.pick("explorer"), { desc = "Explorer Snacks (cwd)" })
-keymap.set("n", "<leader>fE", LazyVim.pick("explorer"), { desc = "Explorer Snacks (cwd)" })
+keymap.set("n", "<leader>e", function()
+  require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+end, {
+  desc = "Open mini.files (Directory of Current File)",
+})
+keymap.set("n", "<leader>E", function()
+  require("mini.files").open(vim.uv.cwd(), true)
+end, {
+  desc = "Open mini.files (cwd)",
+})
 
 keymap.set("n", "<leader>tl", "<cmd>tablast<cr>", { desc = "Last Tab" })
 keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
