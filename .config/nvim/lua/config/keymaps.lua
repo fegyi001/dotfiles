@@ -53,6 +53,9 @@ end, {
   desc = "Open mini.files (cwd)",
 })
 
+-- Toggle Zoom
+Snacks.toggle.zoom():map("<C-z>")
+
 keymap.set("n", "<leader>tl", "<cmd>tablast<cr>", { desc = "Last Tab" })
 keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
 keymap.set("n", "<leader>tf", "<cmd>tabfirst<cr>", { desc = "First Tab" })
