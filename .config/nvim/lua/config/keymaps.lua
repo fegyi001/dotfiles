@@ -43,14 +43,20 @@ keymap.set("n", "<leader><space>", LazyVim.pick("files", { root = false, hidden 
 keymap.set("n", "<leader>fF", LazyVim.pick("files"), { desc = "Find Files (cwd)" })
 keymap.set("n", "<leader>/", LazyVim.pick("grep", { root = false, hidden = true }), { desc = "Grep (Root Dir)" })
 keymap.set("n", "<leader>e", function()
-  require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+  local mf = require("mini.files")
+  if not mf.close() then
+    mf.open(vim.api.nvim_buf_get_name(0), true)
+  end
 end, {
-  desc = "Open mini.files (Directory of Current File)",
+  desc = "Toggle mini.files (Directory of Current File)",
 })
 keymap.set("n", "<leader>E", function()
-  require("mini.files").open(vim.uv.cwd(), true)
+  local mf = require("mini.files")
+  if not mf.close() then
+    mf.open(vim.uv.cwd(), true)
+  end
 end, {
-  desc = "Open mini.files (cwd)",
+  desc = "Toggle mini.files (cwd)",
 })
 
 -- Toggle Zoom
