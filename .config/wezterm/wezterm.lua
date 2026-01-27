@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 local colorscheme = wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/tokyonight_moon.toml")
 -- local backgroundImage = os.getenv("HOME") .. "/.config/wezterm/backgrounds/omarchy.png"
 local backgroundColor = "#222437"
+-- local backgroundColor = "#1C1D2B"
 
 config = {
 	color_schemes = {
