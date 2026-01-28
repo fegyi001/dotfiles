@@ -1,13 +1,5 @@
 theme = "custom"
 
-[editor]
-line-number = "relative"
-bufferline = "multiple"
-
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
 
 [keys.normal.space.b]
 d = ":buffer-close"
@@ -15,3 +7,68 @@ o = ":buffer-close-others"
 
 [keys.normal]
 C-s = ":write"
+
+[editor]
+bufferline = "multiple"
+line-number = "relative"
+cursorline = true
+popup-border = "all"
+color-modes = true
+default-yank-register = "+"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = [
+  "spacer",
+  "separator",
+  "spacer",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
+right = [
+  "spinner",
+  "spacer",
+  "version-control",
+  "spacer",
+  "diagnostics",
+  "register",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+separator = ""
+
+[editor.lsp]
+auto-signature-help = false
+display-messages = true
+
+[editor.indent-guides]
+render = true
+character = "▏"
+
+[keys.normal.space]
+i = ":toggle lsp.display-inlay-hints"
+# replace <space>-e with yazi instead of default file manager
+e = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+# Angular file navigation
+[keys.normal.space.a]
+j = ':open %sh{~/.config/helix/scripts/angular-switch.sh "%{buffer_name}" ts}'
+k = ':open %sh{~/.config/helix/scripts/angular-switch.sh "%{buffer_name}" html}'
+l = ':open %sh{~/.config/helix/scripts/angular-switch.sh "%{buffer_name}" scss}'
+h = ':open %sh{~/.config/helix/scripts/angular-switch.sh "%{buffer_name}" spec.ts}'
