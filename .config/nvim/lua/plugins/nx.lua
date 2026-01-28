@@ -4,7 +4,7 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
-    -- enabled = false,
+    enabled = false,
     event = "VeryLazy",
     opts = {
       nx_cmd_root = "npx nx",
