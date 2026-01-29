@@ -23,14 +23,10 @@ keymap.set("n", ",", "<nop>", { desc = "Disabled for beam.nvim", noremap = true,
 keymap.set("n", "<leader>l", "<nop>", { desc = "Disabled lazy default" })
 keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Open lazy" })
 
-if vim.fn.executable("lazygit") == 1 then
-  keymap.set("n", "<leader>lg", function()
-    Snacks.lazygit({ cwd = LazyVim.root.git() })
-  end, { desc = "Lazygit (Root Dir)" })
-  keymap.set("n", "<leader>lG", function()
-    Snacks.lazygit()
-  end, { desc = "Lazygit (cwd)" })
-end
+-- Helix-like movements
+keymap.set({ "n", "v", "o" }, "gh", "^", { desc = "Go to first non-blank character", noremap = true, silent = true })
+keymap.set({ "n", "v", "o" }, "gl", "$", { desc = "Go to end of line", noremap = true, silent = true })
+keymap.set({ "n", "v", "o" }, "ge", "G", { desc = "Go to end of file", noremap = true, silent = true })
 
 -- Other stuff
 keymap.set("n", "<C-d>", "<C-d>zz")
