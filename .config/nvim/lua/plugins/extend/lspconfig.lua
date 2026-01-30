@@ -29,6 +29,26 @@ return {
           enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
+        angularls = {
+          filetypes = {
+            "typescript",
+            "html",
+            "htmlangular",
+            "typescriptreact",
+            "javascriptreact",
+            "typescript.tsx",
+            "javascript",
+            "javascript.jsx",
+          },
+          on_attach = function(client, _bufnr)
+            client.server_capabilities.definitionProvider = true
+            client.server_capabilities.typeDefinitionProvider = true
+            -- Disable capabilities that conflict with vtsls
+            client.server_capabilities.referencesProvider = false
+            client.server_capabilities.implementationProvider = false
+            client.server_capabilities.renameProvider = false
+          end,
+        },
         -- vtsls = {
         -- enabled = false,
         -- cmd = { "typescript-language-server", "--stdio" },
