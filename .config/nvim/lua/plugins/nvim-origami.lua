@@ -23,7 +23,7 @@ return {
       kinds = { "imports" },
     },
     foldKeymaps = {
-      setup = true, -- modifies `h`, `l`, `^`, and `$`
+      setup = false, -- modifies `h`, `l`, `^`, and `$`
       closeOnlyOnFirstColumn = true, -- `h` and `^` only close in the 1st column
       scrollLeftOnCaret = false, -- `^` should scroll left (basically mapped to `0^`)
     },
