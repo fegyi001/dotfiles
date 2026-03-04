@@ -4,8 +4,8 @@ return {
   opts = {
     label = {
       rainbow = {
-        enabled = false,
-        -- shade = 4,
+        enabled = true,
+        shade = 4,
       },
     },
     modes = {
