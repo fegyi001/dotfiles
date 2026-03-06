@@ -16,9 +16,9 @@ HYPHEN_INSENSITIVE="true"
 
 plugins=(
   git 
-  zsh-autosuggestions 
-  zsh-syntax-highlighting 
-  fast-syntax-highlighting
+  # zsh-autosuggestions 
+  # zsh-syntax-highlighting 
+  # fast-syntax-highlighting
   vi-mode
   web-search
   docker
@@ -31,7 +31,7 @@ plugins=(
 alias zshconfig="nvim ~/.zshrc"
 alias s="source ~/.zshrc"
 alias c="clear"
-alias u="brew update && brew upgrade && brew cleanup"
+# alias u="brew update && brew upgrade && brew cleanup"
 alias n="nvim"
 alias e="exit"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
@@ -95,7 +95,7 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude .git . "$1"
 }
 
-source ~/fzf-git.sh/fzf-git.sh
+# source ~/fzf-git.sh/fzf-git.sh
 
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
@@ -131,15 +131,15 @@ eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Activate syntax highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Disable underline
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+# (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+# ZSH_HIGHLIGHT_STYLES[path]=none
+# ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 # Activate autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # automatically move into the directory I'm in when exiting yazi
 function y() {
@@ -170,3 +170,7 @@ cd() {
 source <(fzf --zsh)
 
 # zprof
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
