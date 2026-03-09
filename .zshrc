@@ -16,9 +16,9 @@ HYPHEN_INSENSITIVE="true"
 
 plugins=(
   git 
-  # zsh-autosuggestions 
-  # zsh-syntax-highlighting 
-  # fast-syntax-highlighting
+  zsh-autosuggestions 
+  zsh-syntax-highlighting 
+  fast-syntax-highlighting
   vi-mode
   web-search
   docker
@@ -31,7 +31,7 @@ plugins=(
 alias zshconfig="nvim ~/.zshrc"
 alias s="source ~/.zshrc"
 alias c="clear"
-# alias u="brew update && brew upgrade && brew cleanup"
+alias u="brew update && brew upgrade && brew cleanup"
 alias n="nvim"
 alias e="exit"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
