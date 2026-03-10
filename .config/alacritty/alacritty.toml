@@ -26,3 +26,6 @@ bindings = [
 
 [terminal]
 osc52 = "CopyPaste"
+
+[colors]
+primary.background = "#222436"
