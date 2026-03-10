@@ -23,3 +23,6 @@ bindings = [
   { key = "N", mods = "Control", chars = "\u001b[B" },   # Ctrl+N for down
   { key = "P", mods = "Control", chars = "\u001b[A" },   # Ctrl+P for up
 ]
+
+[terminal]
+osc52 = "CopyPaste"
