@@ -16,9 +16,6 @@ HYPHEN_INSENSITIVE="true"
 
 plugins=(
   git 
-  zsh-autosuggestions 
-  zsh-syntax-highlighting 
-  fast-syntax-highlighting
   vi-mode
   web-search
   docker
@@ -118,7 +115,7 @@ _fzf_comprun() {
 # Enable vi mode
 bindkey -v
 
-export BAT_THEME="tokyonight_night"
+# export BAT_THEME="tokyonight_night"
 export STARSHIP_CONFIG=~/.config/starship.toml
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 eval "$(starship init zsh)"
@@ -130,16 +127,18 @@ eval "$(zoxide init zsh)"
 # fnm (node version manager)
 eval "$(fnm env --use-on-cd --shell zsh)"
 
+BREW_PREFIX=$(brew --prefix)
+
 # Activate syntax highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Disable underline
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 # Activate autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # automatically move into the directory I'm in when exiting yazi
 function y() {
@@ -170,7 +169,3 @@ cd() {
 source <(fzf --zsh)
 
 # zprof
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
