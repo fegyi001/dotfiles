@@ -6,11 +6,12 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PKG_CONFIG_PATH="/usr/local/opt/proj/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 autoload -Uz compinit
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+# Skip security checks (-C) and only regenerate compdump once per day for faster startup
+# This saves ~30ms by skipping the slow compaudit function
+for dump in ~/.zcompdump(N.mh+24); do
   compinit
-else
-  compinit -C
-fi
+done
+compinit -C
 
 HYPHEN_INSENSITIVE="true"
 
@@ -124,8 +125,27 @@ export SPRING_PROFILES_ACTIVE=local,debug
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
 
-# fnm (node version manager)
-eval "$(fnm env --use-on-cd --shell zsh)"
+# fnm (node version manager) - lazy loaded for faster startup
+fnm() {
+  unset -f fnm node npm npx
+  eval "$(command fnm env --use-on-cd --shell zsh)"
+  fnm "$@"
+}
+node() {
+  unset -f fnm node npm npx
+  eval "$(command fnm env --use-on-cd --shell zsh)"
+  node "$@"
+}
+npm() {
+  unset -f fnm node npm npx
+  eval "$(command fnm env --use-on-cd --shell zsh)"
+  npm "$@"
+}
+npx() {
+  unset -f fnm node npm npx
+  eval "$(command fnm env --use-on-cd --shell zsh)"
+  npx "$@"
+}
 
 BREW_PREFIX=$(brew --prefix)
 
