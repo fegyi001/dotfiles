@@ -1,13 +1,17 @@
 # zmodload zsh/zprof
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
-export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:/$HOME/.local/bin:/$HOME/programs/flutter/bin:/$HOME/development/flutter/bin:$PATH:/$HOME/.cargo/bin:/$HOME/go/bin
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PKG_CONFIG_PATH="/usr/local/opt/proj/lib/pkgconfig:$PKG_CONFIG_PATH"
+# OS-specific environment setup
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS specific paths
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PKG_CONFIG_PATH="/usr/local/opt/proj/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
+export PATH=$HOME/bin:/usr/local/bin:${JAVA_HOME:+$JAVA_HOME/bin:}$HOME/.local/bin:$HOME/programs/flutter/bin:$HOME/development/flutter/bin:$PATH:$HOME/.cargo/bin:$HOME/go/bin
 
 autoload -Uz compinit
 # Skip security checks (-C) and only regenerate compdump once per day for faster startup
-# This saves ~30ms by skipping the slow compaudit function
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
@@ -29,7 +33,7 @@ plugins=(
 alias zshconfig="nvim ~/.zshrc"
 alias s="source ~/.zshrc"
 alias c="clear"
-alias u="brew update && brew upgrade && brew cleanup"
+alias u="[[ '$OSTYPE' == 'darwin'* ]] && brew update && brew upgrade && brew cleanup || yay -Syu"
 alias n="nvim"
 alias e="exit"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
@@ -65,7 +69,7 @@ alias yi="yarn install"
 alias ys="yarn s"
 alias yt="yarn t"
 alias python="python3"
-alias sed="gsed"
+alias sed="[[ '$OSTYPE' == 'darwin'* ]] && gsed || sed"
 alias dc="docker compose"
 alias dcb="docker compose build"
 alias dcd="docker compose down"
@@ -147,18 +151,30 @@ npx() {
   npx "$@"
 }
 
-BREW_PREFIX=$(brew --prefix)
+# OS detection and plugin loading
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # MacOS with Homebrew
+  BREW_PREFIX=$(brew --prefix)
+  source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $BREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+elif [[ -f /etc/arch-release ]]; then
+  # Arch Linux (Omarchy)
+  if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fi
+  if [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  fi
+  if [[ -f /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+    source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+  fi
+fi
 
-# Activate syntax highlighting
-source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Disable underline
+# Disable underline for syntax highlighting
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-
-# Activate autosuggestions
-source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $BREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # automatically move into the directory I'm in when exiting yazi
 function y() {
