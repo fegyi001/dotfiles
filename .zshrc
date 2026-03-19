@@ -129,27 +129,7 @@ export SPRING_PROFILES_ACTIVE=local,debug
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
 
-# fnm (node version manager) - lazy loaded for faster startup
-fnm() {
-  unset -f fnm node npm npx
-  eval "$(command fnm env --use-on-cd --shell zsh)"
-  fnm "$@"
-}
-node() {
-  unset -f fnm node npm npx
-  eval "$(command fnm env --use-on-cd --shell zsh)"
-  node "$@"
-}
-npm() {
-  unset -f fnm node npm npx
-  eval "$(command fnm env --use-on-cd --shell zsh)"
-  npm "$@"
-}
-npx() {
-  unset -f fnm node npm npx
-  eval "$(command fnm env --use-on-cd --shell zsh)"
-  npx "$@"
-}
+eval "$(command fnm env --use-on-cd --shell zsh)"
 
 # OS detection and plugin loading
 if [[ "$OSTYPE" == "darwin"* ]]; then
