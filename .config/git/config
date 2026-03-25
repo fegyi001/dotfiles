@@ -1,6 +1,16 @@
 [user]
   name = "Gergely Padányi-Gulyás"
-  email = "gergely.padanyi-gulyas@idomsoft.hu"
+  email = "work@gpadanyig.com"
+  signingkey = 0C0EB27977EB40CD
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+
+[gpg]
+  program = /opt/homebrew/bin/gpg
 
 [core]
   compression = 9
@@ -66,3 +76,6 @@
 
 [tag]
   sort = -taggerdate
+
+[includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
+  path = ~/.config/git/config-idomsoft

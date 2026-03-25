@@ -1,4 +1,6 @@
 .config/karabiner/automatic_backups
+.config/git/config-*
+!.config/git/config-template
 .DS_Store
 *.bak
 *.bak.*
