@@ -3,7 +3,7 @@
 [user]
 	name = Gergely Padányi-Gulyás
 	email = work@gpadanyig.com
-	signingkey = FB00327ACF12F75A
+	signingkey = 0C0EB27977EB40CD
 [gpg]
 	program = /opt/homebrew/bin/gpg
 [init]
@@ -26,3 +26,7 @@
   # light = true
 [fetch]
 	prune = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
