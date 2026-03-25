@@ -10,5 +10,5 @@
 #   path = ~/.config/git/config-company
 
 [user]
-  email = your.work.email@company.com
-  signingkey = YOUR_WORK_GPG_KEY_ID
+  email = "your.work.email@company.com"
+  signingkey = "YOUR_WORK_GPG_KEY_ID"

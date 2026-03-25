@@ -1,13 +1,11 @@
 [user]
   name = "Gergely Padányi-Gulyás"
-  email = "work@gpadanyig.com"
-  signingkey = 0C0EB27977EB40CD
 
 [commit]
-  gpgsign = true
+  gpgsign = false
 
 [tag]
-  gpgsign = true
+  gpgsign = false
 
 [gpg]
   program = /opt/homebrew/bin/gpg
@@ -77,5 +75,10 @@
 [tag]
   sort = -taggerdate
 
+# Enable GPG signing for github.com repositories
+[includeIf "hasconfig:remote.*.url:*github.com*/**"]
+  path = ~/.config/git/config-github
+
+# Enable GPG signing for GitHub Enterprise repositories
 [includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
-  path = ~/.config/git/config-idomsoft
+  path = ~/.config/git/config-work
