@@ -1,6 +1,6 @@
 [user]
   name = "Gergely Padányi-Gulyás"
-  email = "work@gpadanyig.com"
+  signingkey = "0C0EB27977EB40CD"
 
 [commit]
   gpgsign = true
@@ -81,3 +81,4 @@
 
 [includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
   path = ~/.config/git/config-work
+
