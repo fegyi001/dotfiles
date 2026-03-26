@@ -1,2 +1,4 @@
 services:
   "ghes.idomsoft.hu": "github:ghes.idomsoft.hu"
+git:
+  overrideGpg: true
