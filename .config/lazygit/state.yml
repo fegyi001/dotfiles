@@ -1,0 +1,23 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/padanyig/dotfiles
+    - /Users/padanyig/code/nvr/nvr-frontend
+    - /Users/padanyig/code/nvr/nvr-frontend-future
+    - /Users/padanyig/code/nvr/nvr-docker-tester
+    - /Users/padanyig/code/test/dap-portal-frontend
+    - /Users/padanyig/code/vtr/vtr-frontend
+    - /Users/padanyig/data/schema
+    - /Users/padanyig/code/rust/learn-to-code-with-rust
+    - /Users/padanyig/code/test/LazyVim
+    - /Users/padanyig/code/idomsoft-nginx
+    - /Users/padanyig/data/notes
+    - /Users/padanyig/code/nvr/nvr-backend
+    - /Users/padanyig/code/dkfkft
+    - /Users/padanyig/code/dap-portal/dap-portal-frontend
+startuppopupversion: 5
+didshowhunkstaginghint: true
+lastversion: 0.60.0
+customcommandshistory:
+    - q
+    - qa
+hidecommandlog: false

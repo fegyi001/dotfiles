@@ -10,6 +10,8 @@ fi
 
 export PATH=$HOME/bin:/usr/local/bin:${JAVA_HOME:+$JAVA_HOME/bin:}$HOME/.local/bin:$HOME/programs/flutter/bin:$HOME/development/flutter/bin:$PATH:$HOME/.cargo/bin:$HOME/go/bin
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 autoload -Uz compinit
 # Skip security checks (-C) and only regenerate compdump once per day for faster startup
 for dump in ~/.zcompdump(N.mh+24); do
