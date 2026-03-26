@@ -5,3 +5,5 @@
 
 .local/share
 .local/state
+
+.config/lazygit/state.yml
