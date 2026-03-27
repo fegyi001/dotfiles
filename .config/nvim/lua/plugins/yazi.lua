@@ -26,6 +26,15 @@ return {
       open_for_directories = true,
       floating_window_scaling_factor = 1,
       yazi_floating_window_winblend = 0,
+      open_file_function = function(chosen_file, config, state)
+        -- For PDFs, open with macOS Preview instead of in Neovim
+        if chosen_file:match("%.pdf$") then
+          vim.fn.jobstart({ "open", "-a", "Preview", chosen_file }, { detach = true })
+          return
+        end
+        -- Otherwise use default behavior
+        require("yazi.openers").default_opener(chosen_file, config, state)
+      end,
       keymaps = {
         show_help = "<f1>",
         open_file_in_vertical_split = "<C-v>",
