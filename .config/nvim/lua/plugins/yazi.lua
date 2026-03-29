@@ -33,7 +33,7 @@ return {
           return
         end
         -- Otherwise use default behavior
-        require("yazi.openers").default_opener(chosen_file, config, state)
+        require("yazi.openers").open_file(chosen_file, config, state)
       end,
       keymaps = {
         show_help = "<f1>",

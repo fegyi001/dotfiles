@@ -73,14 +73,14 @@ rules = [
     "open",
     "reveal",
   ] },
-  # PDF (must come before text to avoid being treated as text)
-  { mime = "application/pdf", use = [
-    "pdf",
-    "reveal",
-  ] },
   # Text
   { mime = "text/*", use = [
     "edit",
+    "reveal",
+  ] },
+  # PDF (must come before text to avoid being treated as text)
+  { mime = "application/pdf", use = [
+    "pdf",
     "reveal",
   ] },
   # Image
