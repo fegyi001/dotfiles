@@ -27,7 +27,7 @@ return {
       "shellcheck",
       "shfmt",
       "stylelint",
-      "stylelint-lsp",
+      "stylelint-language-server",
       "stylua",
       "tailwindcss-language-server",
       "vtsls",
