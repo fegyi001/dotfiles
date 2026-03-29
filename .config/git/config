@@ -3,6 +3,9 @@
   email = "work@gpadanyig.com"
   signingkey = "0C0EB27977EB40CD"
 
+[gpg]
+  program = /opt/homebrew/bin/gpg
+
 [commit]
   gpgsign = true
 
@@ -90,12 +93,11 @@
 [tag]
   sort = -taggerdate
 
+; [include]
+;   path = ~/.config/git/config-alarm
+
 [includeIf "hasconfig:remote.*.url:*github.com*/**"]
   path = ~/.config/git/config-github
 
 [includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
   path = ~/.config/git/config-work
-
-[include]
-  path = ~/.config/git/config-alarm
-
