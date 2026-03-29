@@ -9,8 +9,8 @@
 [tag]
   gpgsign = true
 
-[gpg]
-  program = /opt/homebrew/bin/gpg
+[credential]
+	helper = store
 
 [core]
   compression = 9
@@ -36,19 +36,32 @@
   interHunkContext = 10 
 
 [pager]
+  pager = delta
+	editor = vim
+	ignorecase = false
   diff = "diff-so-fancy | $PAGER"
 
 [diff-so-fancy]
   markEmptyLines = false
+
+[delta]
+  navigate = true # Use n and N to move between diff sections
+  side-by-side = true # Start with side-by-side view
+
+[interactive]
+  diffFilter = delta --color-only
 
 [push]
   autoSetupRemote = true
   default = current
   followTags = true
 
+[fetch]
+	prune = true
+
 [pull]
   default = current
-  rebase = true
+  rebase = false
 
 [rebase]
   autoStash = true
@@ -82,4 +95,7 @@
 
 [includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
   path = ~/.config/git/config-work
+
+[include]
+  path = ~/.config/git/config-alarm
 

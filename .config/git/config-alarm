@@ -1,0 +1,7 @@
+[gpg]
+  program = /usr/bin/gpg
+
+[user]
+  name = "Gergely Padányi-Gulyás"
+  email = "work@gpadanyig.com"
+  signingkey = "83283A1F48BD68C5"
