@@ -89,12 +89,6 @@ alias pip=pip3
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-export FZF_DEFAULT_OPTS="--border rounded \
-  --no-info \
-  --pointer='👉' \
-  --marker=' ' \
-  --ansi \
-  --color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic'"
 
 # Use fd to generate the list for path completion
 _fzf_compgen_path() {
