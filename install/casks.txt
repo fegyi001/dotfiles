@@ -9,4 +9,6 @@ google-chrome
 karabiner-elements
 keycastr
 localsend
+obsidian
+signal
 wezterm

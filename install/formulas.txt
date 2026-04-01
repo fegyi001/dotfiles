@@ -1,3 +1,4 @@
+ada-url
 aom
 aribb24
 ast-grep
@@ -29,6 +30,7 @@ devcontainer
 diff-so-fancy
 docker
 docker-completion
+exercism
 eza
 fastfetch
 fd
@@ -69,7 +71,10 @@ graphite2
 grpcurl
 harfbuzz
 hdf5
+hdrhistogram_c
+helix
 highway
+htop
 hwloc
 icu4c@76
 icu4c@77
@@ -95,6 +100,7 @@ libassuan
 libavif
 libb2
 libbluray
+libdatrie
 libde265
 libdeflate
 libdicom
@@ -132,7 +138,9 @@ libspng
 libssh
 libssh2
 libtasn1
+libthai
 libtiff
+libtommath
 libtool
 libudfread
 libultrahdr
@@ -156,6 +164,7 @@ libyaml
 libzip
 lima
 little-cms2
+llhttp
 lpeg
 lua
 lua-language-server
@@ -223,6 +232,7 @@ rubberband
 ruby
 screenresolution
 sdl2
+sesh
 sevenzip
 shared-mime-info
 simdjson
@@ -237,6 +247,7 @@ starship
 stow
 svt-av1
 tbb
+tcl-tk
 tesseract
 texlive
 theora
@@ -245,7 +256,6 @@ tmux
 tokei
 tree-sitter
 tree-sitter-cli
-tree-sitter@0.25
 trivy
 trufflehog
 ueberzugpp
