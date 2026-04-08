@@ -7,5 +7,5 @@ opt.wrap = true
 opt.syntax = "off"
 opt.foldenable = false
 
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level("off")
 vim.o.spell = false
