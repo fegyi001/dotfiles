@@ -10,4 +10,5 @@ npm install -g \
   typescript \
   typescript-language-server \
   http-server \
-  yarn
+  yarn \
+  vscode-langservers-extracted
