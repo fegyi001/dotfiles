@@ -64,7 +64,8 @@
 
 [pull]
   default = current
-  rebase = false
+  # If merge conflict, do this: `git rebase --abort && git pull --no-rebase`, resolve the conflict
+  rebase = true
 
 [rebase]
   autoStash = true
