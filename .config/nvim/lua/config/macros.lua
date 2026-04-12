@@ -17,7 +17,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = "RustLogMacro",
   pattern = { "rust" },
   callback = function()
-    vim.fn.setreg("l", 'yoprintln!("' .. esc .. 'pa: {:?}", ' .. esc .. "pa);" .. esc)
+    vim.fn.setreg("l", 'yoprintln!("' .. esc .. 'pa: {:#?}", ' .. esc .. "pa);" .. esc)
   end,
 })
-
