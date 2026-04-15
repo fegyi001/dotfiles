@@ -18,6 +18,7 @@ return {
       end,
       on_highlights = function(highlights, colors)
         highlights.LspInlayHint = { fg = "#545c7e", bg = colors.NONE }
+        highlights.DiagnosticUnnecessary = { fg = colors.dark5 }
       end,
     },
   },
