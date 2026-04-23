@@ -1,3 +1,10 @@
+[user]
+  name = "Gergely Padányi-Gulyás"
+  email = "work@gpadanyig.com"
+
+; [gpg]
+;   program = /opt/homebrew/bin/gpg
+
 [commit]
   gpgsign = true
 
