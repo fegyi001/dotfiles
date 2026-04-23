@@ -3,8 +3,8 @@
   email = "work@gpadanyig.com"
   signingkey = "0C0EB27977EB40CD"
 
-[gpg]
-  program = /opt/homebrew/bin/gpg
+; [gpg]
+;   program = /opt/homebrew/bin/gpg
 
 [commit]
   gpgsign = true
