@@ -2,6 +2,3 @@
   name = "padanyig"
   email = "gergely.padanyi-gulyas@idomsoft.hu"
   signingkey = "39EBEAC6D0FA79A6"
-
-[gpg]
-  program = /opt/homebrew/bin/gpg
