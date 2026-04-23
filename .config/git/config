@@ -94,11 +94,11 @@
 [tag]
   sort = -taggerdate
 
-; [include]
-;   path = ~/.config/git/config-alarm
+[include]
+  path = ~/.git-config-local
 
-[includeIf "hasconfig:remote.*.url:*github.com*/**"]
-  path = ~/.config/git/config-github
-
-[includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
-  path = ~/.config/git/config-work
+; [includeIf "hasconfig:remote.*.url:*github.com*/**"]
+;   path = ~/.config/git/config-github
+;
+; [includeIf "hasconfig:remote.*.url:*ghes.idomsoft.hu*/**"]
+;   path = ~/.config/git/config-work
