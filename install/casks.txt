@@ -1,5 +1,5 @@
 dbeaver-community
-firefox@developer-edition
+firefox
 font-maple-mono
 font-maple-mono-nf
 font-sf-mono-nerd-font-ligaturized
