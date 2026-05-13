@@ -65,9 +65,9 @@ return {
             })
           end,
         },
-        tailwindcss = {
-          enabled = false,
-        },
+        -- tailwindcss = {
+        --   enabled = false,
+        -- },
         tsserver = {
           enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
