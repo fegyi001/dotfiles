@@ -39,6 +39,10 @@ pdf = [
   { run = "open -a Preview %s", desc = "Open in Preview", for = "macos" },
   { run = "xdg-open %s1", desc = "Open", for = "linux" },
 ]
+image = [
+  { run = "open -a Preview %s", desc = "Open in Preview", for = "macos" },
+  { run = "xdg-open %s1", desc = "Open", for = "linux" },
+]
 play = [
   { run = "xdg-open %s1", desc = "Play", for = "linux", orphan = true },
   { run = "open %s", desc = "Play", for = "macos" },
@@ -86,7 +90,7 @@ rules = [
   ] },
   # Image
   { mime = "image/*", use = [
-    "open",
+    "image",
     "reveal",
   ] },
   # Media

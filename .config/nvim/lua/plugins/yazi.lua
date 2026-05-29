@@ -27,8 +27,18 @@ return {
       floating_window_scaling_factor = 1,
       yazi_floating_window_winblend = 0,
       open_file_function = function(chosen_file, config, state)
-        -- For PDFs, open with macOS Preview instead of in Neovim
-        if chosen_file:match("%.pdf$") then
+        -- For PDFs and images, open with macOS Preview instead of in Neovim
+        if
+          chosen_file:match("%.pdf$")
+          or chosen_file:match("%.png$")
+          or chosen_file:match("%.jpe?g$")
+          or chosen_file:match("%.gif$")
+          or chosen_file:match("%.bmp$")
+          or chosen_file:match("%.tiff?$")
+          or chosen_file:match("%.webp$")
+          or chosen_file:match("%.heic$")
+          or chosen_file:match("%.svg$")
+        then
           vim.fn.jobstart({ "open", "-a", "Preview", chosen_file }, { detach = true })
           return
         end
