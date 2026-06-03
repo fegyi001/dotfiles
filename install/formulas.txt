@@ -3,6 +3,7 @@ aom
 aribb24
 ast-grep
 augeas
+awscli
 bash
 bat
 bc
@@ -30,7 +31,6 @@ devcontainer
 diff-so-fancy
 docker
 docker-completion
-exercism
 eza
 fastfetch
 fd
@@ -177,10 +177,13 @@ m4
 maven
 mbedtls
 mbedtls@3
+merve
+mise
 mozjpeg
 mpdecimal
 mpfr
 mpg123
+nbytes
 ncurses
 neofetch
 neovim
@@ -203,6 +206,7 @@ openslide
 openssl@3
 opus
 p11-kit
+pandoc
 pango
 pcre2
 perl
@@ -219,6 +223,7 @@ potrace
 proj
 pstoedit
 pycparser
+pydantic
 python-packaging
 python@3.12
 python@3.13
@@ -236,6 +241,7 @@ sesh
 sevenzip
 shared-mime-info
 simdjson
+simdutf
 slides
 snappy
 sops
@@ -262,6 +268,7 @@ ueberzugpp
 unar
 unbound
 unibilium
+usage
 utf8proc
 uthash
 uvwasi

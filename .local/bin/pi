@@ -1,2 +1,0 @@
-#!/bin/bash
-exec mise exec node@lts -- npx --yes @mariozechner/pi-coding-agent "$@"

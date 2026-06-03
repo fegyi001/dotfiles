@@ -6,9 +6,11 @@ font-sf-mono-nerd-font-ligaturized
 font-symbols-only-nerd-font
 gimp
 google-chrome
+insomnia
 karabiner-elements
 keycastr
 localsend
 obsidian
 signal
+vacuum
 wezterm
