@@ -30,7 +30,6 @@ dav1d
 devcontainer
 diff-so-fancy
 docker
-docker-completion
 eza
 fastfetch
 fd
