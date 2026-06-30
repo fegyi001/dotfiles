@@ -35,7 +35,7 @@ plugins=(
 alias zshconfig="nvim ~/.zshrc"
 alias s="source ~/.zshrc"
 alias c="clear"
-alias u="[[ '$OSTYPE' == 'darwin'* ]] && brew update && brew upgrade && brew cleanup || yay -Syu"
+alias u="brew update && brew upgrade && brew cleanup"
 alias n="nvim"
 alias e="exit"
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
