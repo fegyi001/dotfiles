@@ -30,6 +30,7 @@ dav1d
 devcontainer
 diff-so-fancy
 docker
+docker-completion
 eza
 fastfetch
 fd
@@ -86,6 +87,7 @@ jbig2dec
 jpeg-turbo
 jpeg-xl
 jq
+json-c
 k6
 kubernetes-cli
 lame
@@ -106,6 +108,7 @@ libdicom
 libevent
 libexif
 libffcall
+libffi
 libgcrypt
 libgit2
 libgpg-error
@@ -235,7 +238,8 @@ ripgrep
 rubberband
 ruby
 screenresolution
-sdl2
+sdl2-compat
+sdl3
 sesh
 sevenzip
 shared-mime-info
