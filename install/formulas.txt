@@ -267,7 +267,6 @@ tree-sitter
 tree-sitter-cli
 trivy
 trufflehog
-ueberzugpp
 unar
 unbound
 unibilium
@@ -297,3 +296,4 @@ zsh-autosuggestions
 zsh-fast-syntax-highlighting
 zsh-syntax-highlighting
 zstd
+jstkdng/programs/ueberzugpp

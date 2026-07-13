@@ -7,17 +7,18 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Backing up Homebrew packages..."
 
 echo "Exporting formulas to ${SCRIPT_DIR}/formulas.txt"
-brew list --formula | while read -r formula; do
+brew list --formula --full-name | while read -r formula; do
   if [ "$formula" = "opencode" ]; then
     echo "sst/tap/opencode"
   else
     echo "$formula"
   fi
-done > "${SCRIPT_DIR}/formulas.txt"
+done >"${SCRIPT_DIR}/formulas.txt"
 
 echo "Exporting casks to ${SCRIPT_DIR}/casks.txt"
-brew list --cask > "${SCRIPT_DIR}/casks.txt"
+brew list --cask >"${SCRIPT_DIR}/casks.txt"
 
 echo "Backup complete!"
-echo "Formulas: $(wc -l < "${SCRIPT_DIR}/formulas.txt") packages"
-echo "Casks: $(wc -l < "${SCRIPT_DIR}/casks.txt") packages"
+echo "Formulas: $(wc -l <"${SCRIPT_DIR}/formulas.txt") packages"
+echo "Casks: $(wc -l <"${SCRIPT_DIR}/casks.txt") packages"
+
