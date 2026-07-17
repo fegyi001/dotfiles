@@ -19,7 +19,6 @@ return {
       "eslint-lsp",
       "hadolint",
       "html-lsp",
-      "js-debug-adapter",
       "json-lsp",
       "lua-language-server",
       "markdown-toc",
