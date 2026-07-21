@@ -1,0 +1,60 @@
+{
+  "version": 3,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "0d5b74a14bdf3ebcd64f352d06376a2ef05ed296",
+      "pluginName": "example-skills",
+      "installedAt": "2026-07-21T14:01:47.608Z",
+      "updatedAt": "2026-07-21T14:01:47.608Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-07-21T14:01:52.888Z",
+      "updatedAt": "2026-07-21T14:01:52.888Z"
+    },
+    "nextjs": {
+      "source": "vercel-labs/vercel-plugin",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/vercel-plugin.git",
+      "skillPath": "skills/nextjs/SKILL.md",
+      "skillFolderHash": "052ae1b11599c44b21fd6eacb9060f4caa51aac8",
+      "installedAt": "2026-07-21T14:05:31.297Z",
+      "updatedAt": "2026-07-21T14:05:31.297Z"
+    },
+    "ai-sdk": {
+      "source": "vercel/ai",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel/ai.git",
+      "skillPath": "skills/use-ai-sdk/SKILL.md",
+      "skillFolderHash": "9c7a408f9821ac144f11d7d60b77a36af3d38671",
+      "installedAt": "2026-07-21T14:08:42.168Z",
+      "updatedAt": "2026-07-21T14:08:42.168Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
+  ]
+}
