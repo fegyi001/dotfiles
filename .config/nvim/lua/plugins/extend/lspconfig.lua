@@ -77,11 +77,6 @@ return {
             "typescript",
             "html",
             "htmlangular",
-            "typescriptreact",
-            "javascriptreact",
-            "typescript.tsx",
-            "javascript",
-            "javascript.jsx",
           },
           on_attach = function(client, _bufnr)
             client.server_capabilities.definitionProvider = true
