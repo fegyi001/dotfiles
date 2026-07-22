@@ -37,6 +37,15 @@
       "skillFolderHash": "9c7a408f9821ac144f11d7d60b77a36af3d38671",
       "installedAt": "2026-07-21T14:08:42.168Z",
       "updatedAt": "2026-07-21T14:08:42.168Z"
+    },
+    "rust-best-practices": {
+      "source": "apollographql/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/apollographql/skills.git",
+      "skillPath": "skills/rust-best-practices/SKILL.md",
+      "skillFolderHash": "73bee942cb621e4ee7f2c3f86de01ab09638ee5d",
+      "installedAt": "2026-07-22T12:41:41.248Z",
+      "updatedAt": "2026-07-22T12:41:41.248Z"
     }
   },
   "dismissed": {
