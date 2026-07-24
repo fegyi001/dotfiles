@@ -68,8 +68,8 @@ prefix = "ctrl+a"
 # detach = "prefix+q"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
-workspace_picker = "prefix+space" # "prefix+w"
-goto = "prefix+s"                 # "prefix+g"
+workspace_picker = "prefix+s" # "prefix+w"
+goto = "prefix+space"         # "prefix+g"
 # new_workspace = "prefix+shift+n"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
@@ -124,6 +124,24 @@ navigate_workspace_down = "j" # "down"
 # key = "prefix+alt+g"
 # type = "popup"
 # command = "lazygit"
+name = "nvr-frontend"
+description = "A frontend for NVR"
+group = "nvr"
+working_dir = "~/code/nvr/nvr-frontend"
+
+[[tabs]]
+name = "nvim"
+command = "nvim"
+
+[[tabs]]
+name = "run/test"
+
+[[tabs.panes]]
+command = ""
+
+[[tabs.panes]]
+command = ""
+split = "right"
 # width = "80%"
 # height = "80%"
 [[keys.command]]
