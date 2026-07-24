@@ -81,6 +81,10 @@ alias dcl="docker compose logs -f"
 alias cr="cargo run"
 alias cw="cargo watch"
 alias cb="cargo build"
+alias h="herdr"
+alias hl="herdr session list"
+alias ha="herdr session attach"
+alias hs="herdr session stop"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias pip=pip3
