@@ -69,7 +69,7 @@ prefix = "ctrl+a"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
 workspace_picker = "prefix+enter" # "prefix+w"
-goto = "prefix+space"             # "prefix+g"
+# goto = "prefix+space"             # "prefix+g"
 new_workspace = "prefix+shift+c"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
@@ -138,6 +138,18 @@ key = "prefix+O"
 type = "plugin_action"
 command = "cloudmanic.herdr-plus.projects"
 description = "herdr-plus: projects"
+
+[[keys.command]]
+key = "prefix+space"
+type = "plugin_action"
+command = "sessionizer.pick"
+description = "fuzzy-switch workspace"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "sessionizer.agents"
+description = "jump to an agent"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.

@@ -1,0 +1,6 @@
+{
+  "template": [{ "tab": "main" }],
+  "git_roots_only": true,
+  "extra_dirs": ["~/code", "~/code/test", "~/dotfiles", "~/dotfiles/.config"],
+  "overrides": []
+}
