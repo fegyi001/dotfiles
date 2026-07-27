@@ -279,9 +279,9 @@
       "kind": "github",
       "owner": "salkhalil",
       "repo": "herdr-sessionizer",
-      "resolved_commit": "09168804ab4f294a8c4e48f78bb5fcbbbe31673f",
+      "resolved_commit": "461a878ca6ccd0240ec8836a338d896cab49bcc2",
       "managed_path": "/Users/padanyig/.config/herdr/plugins/github/sessionizer-66e03d1ff740",
-      "installed_unix_ms": 1785137753791
+      "installed_unix_ms": 1785146875867
     }
   }
 ]
