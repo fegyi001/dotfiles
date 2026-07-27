@@ -76,8 +76,8 @@ goto = "prefix+space"             # "prefix+g"
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 rename_workspace = "prefix+$" # "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
-# previous_workspace = "" # optional, unset by default
-# next_workspace = ""     # optional, unset by default
+previous_workspace = "prefix+shift+p" # optional, unset by default
+next_workspace = "prefix+shift+n"     # optional, unset by default
 # previous_agent = ""     # optional, unset by default
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
@@ -103,7 +103,7 @@ split_vertical = "prefix+v"
 # close_pane = "prefix+x"
 zoom = "prefix+m" # "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
-# toggle_sidebar = "prefix+b"
+toggle_sidebar = "prefix+i"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
@@ -124,24 +124,7 @@ navigate_workspace_down = "j" # "down"
 # key = "prefix+alt+g"
 # type = "popup"
 # command = "lazygit"
-name = "nvr-frontend"
-description = "A frontend for NVR"
-group = "nvr"
-working_dir = "~/code/nvr/nvr-frontend"
 
-[[tabs]]
-name = "nvim"
-command = "nvim"
-
-[[tabs]]
-name = "run/test"
-
-[[tabs.panes]]
-command = ""
-
-[[tabs.panes]]
-command = ""
-split = "right"
 # width = "80%"
 # height = "80%"
 [[keys.command]]
