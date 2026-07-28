@@ -141,7 +141,7 @@ command = "sessionizer.agents"
 description = "jump to an agent"
 
 [[keys.command]]
-key = "prefix+p"
+key = "prefix+s"
 type = "plugin_action"
 command = "herdr-lazy.manage"
 description = "manage plugins"
