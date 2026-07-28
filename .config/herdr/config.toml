@@ -205,7 +205,7 @@ description = "jump to previous workspace"
 # mouse_scroll_lines = 3
 
 # Ask for confirmation before closing a workspace
-# confirm_close = true
+confirm_close = false
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
@@ -257,6 +257,7 @@ hide_tab_bar_when_single_tab = true
 # accent = "cyan"
 
 # Background notification popup delivery
+agent_panel_sort = "spaces"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
