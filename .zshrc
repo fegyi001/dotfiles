@@ -189,6 +189,8 @@ cd() {
 }
 
 # fzf, this is needed for C-r and C-t and so on
-source <(fzf --zsh)
+if command -v fzf &> /dev/null && fzf --zsh &> /dev/null; then
+  source <(fzf --zsh)
+fi
 
 # zprof
