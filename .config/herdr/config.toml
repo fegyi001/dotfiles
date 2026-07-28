@@ -151,6 +151,18 @@ type = "plugin_action"
 command = "sessionizer.agents"
 description = "jump to an agent"
 
+[[keys.command]]
+key = "prefix+shift+l"
+type = "plugin_action"
+command = "herdr-lazy.manage"
+description = "manage plugins"
+
+[[keys.command]]
+key = "prefix+f"
+type = "plugin_action"
+command = "thomasschafer.herdr-kiosk.open-picker"
+description = "open repo picker"
+
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
@@ -184,7 +196,7 @@ description = "jump to an agent"
 # Capture mouse input for Herdr's mouse UI.
 # Set false to let the terminal handle normal clicks, such as Cmd-clicking URLs.
 # Pane apps like lazygit and btop can still receive mouse when they request it.
-# mouse_capture = true
+mouse_capture = false
 
 # Automatically copy text selected by mouse drag.
 # Set false to keep drag selection visible without copying; double-click still copies a word.
