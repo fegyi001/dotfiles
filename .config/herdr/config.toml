@@ -129,7 +129,7 @@ navigate_workspace_down = "j" # "down"
 # height = "80%"
 
 [[keys.command]]
-key = "prefix+space"
+key = "prefix+t"
 type = "plugin_action"
 command = "sessionizer.pick"
 description = "fuzzy-switch workspace"
@@ -141,7 +141,7 @@ command = "sessionizer.agents"
 description = "jump to an agent"
 
 [[keys.command]]
-key = "prefix+shift+l"
+key = "prefix+p"
 type = "plugin_action"
 command = "herdr-lazy.manage"
 description = "manage plugins"
@@ -151,6 +151,18 @@ key = "prefix+f"
 type = "plugin_action"
 command = "thomasschafer.herdr-kiosk.open-picker"
 description = "open repo picker"
+
+[[keys.command]]
+key = "prefix+space"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
+
+[[keys.command]]
+key = "prefix+shift+l"
+type = "plugin_action"
+command = "herdr-navigator.jump-back"
+description = "jump to previous workspace"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
@@ -185,7 +197,7 @@ description = "open repo picker"
 # Capture mouse input for Herdr's mouse UI.
 # Set false to let the terminal handle normal clicks, such as Cmd-clicking URLs.
 # Pane apps like lazygit and btop can still receive mouse when they request it.
-mouse_capture = false
+# mouse_capture = false
 
 # Automatically copy text selected by mouse drag.
 # Set false to keep drag selection visible without copying; double-click still copies a word.
