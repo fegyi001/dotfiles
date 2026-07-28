@@ -1,3 +1,0 @@
-name = "Update homebrew packages"
-description = "Update homebrew packages"
-command = "brew update && brew upgrade && brew cleanup"

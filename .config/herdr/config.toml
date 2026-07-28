@@ -127,17 +127,6 @@ navigate_workspace_down = "j" # "down"
 
 # width = "80%"
 # height = "80%"
-[[keys.command]]
-key = "prefix+y"
-type = "plugin_action"
-command = "cloudmanic.herdr-plus.quick-actions"
-description = "herdr-plus: quick actions"
-
-[[keys.command]]
-key = "prefix+O"
-type = "plugin_action"
-command = "cloudmanic.herdr-plus.projects"
-description = "herdr-plus: projects"
 
 [[keys.command]]
 key = "prefix+space"
