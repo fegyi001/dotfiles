@@ -208,23 +208,23 @@ description = "jump to previous workspace"
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
-# prompt_new_tab_name = true
+prompt_new_tab_name = false
 
 # Ask for a workspace name before interactive creation.
 # prompt_new_workspace_name = false
 
 # Draw borders around split panes.
-# pane_borders = true
+pane_borders = true
 
 # Keep split panes visually separated instead of sharing divider borders.
-# pane_gaps = true
+pane_gaps = false
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
 show_agent_labels_on_pane_borders = true
 
 # Hide the tab row when a workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
-# hide_tab_bar_when_single_tab = false
+hide_tab_bar_when_single_tab = true
 
 # Agent panel ordering: "spaces" (grouped by space) or "priority" (attention queue).
 # "workspaces" is accepted as an alias for "spaces".
@@ -261,7 +261,7 @@ show_agent_labels_on_pane_borders = true
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
-delivery = "off"
+delivery = "herdr"
 # delay_seconds = 1
 
 [ui.toast.herdr]
@@ -273,7 +273,7 @@ delivery = "off"
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
-enabled = false
+enabled = true
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
 # path = "sounds/notification.mp3"   # one mp3 file for all sound notifications
 # done_path = "sounds/done.mp3"      # overrides only finished notifications
@@ -307,7 +307,7 @@ resume_agents_on_restore = true
 # Requires a Kitty graphics-compatible outer terminal.
 # kitty_graphics = false
 # Save recent pane screen history across full server restarts.
-pane_history = false
+pane_history = true
 # While prefix mode is active, temporarily switch the macOS host input
 # source to an ASCII-capable keyboard layout so prefix commands register
 # even when a CJK IME is active, then restore the previous input source
