@@ -1,0 +1,4 @@
+name = "Startpage"
+description = "Open https://startpage.com"
+type = "command"
+command = "open https://www.startpage.com"

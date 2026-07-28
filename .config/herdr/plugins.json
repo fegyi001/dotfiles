@@ -1,5 +1,238 @@
 [
   {
+    "plugin_id": "cloudmanic.herdr-plus",
+    "name": "Herdr Plus",
+    "version": "0.1.20",
+    "min_herdr_version": "0.7.0",
+    "description": "An extension for herdr — a collection of tools that make it better. Projects: fuzzy-pick a declarative template to spin up a whole workspace — every tab, pane, and startup command. Quick Actions: a fuzzy launcher for one-off scripts, run in the directory you launched from.",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos",
+      "windows"
+    ],
+    "build": [
+      {
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "sh",
+          "scripts/build.sh"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "go",
+          "build",
+          "-o",
+          "bin/herdr-plus.exe",
+          "."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "ping",
+        "title": "Herdr Plus: ping",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "ping"
+        ]
+      },
+      {
+        "id": "ping-windows",
+        "title": "Herdr Plus: ping",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe ping"
+        ]
+      },
+      {
+        "id": "projects",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "projects"
+        ]
+      },
+      {
+        "id": "projects-windows",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe projects"
+        ]
+      },
+      {
+        "id": "quick-actions",
+        "title": "Herdr Plus: Quick Actions",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "quick-actions"
+        ]
+      },
+      {
+        "id": "quick-actions-windows",
+        "title": "Herdr Plus: Quick Actions",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe quick-actions"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "worktree.created",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "on-worktree"
+        ]
+      },
+      {
+        "on": "worktree.created",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe on-worktree"
+        ]
+      },
+      {
+        "on": "worktree.opened",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "on-worktree"
+        ]
+      },
+      {
+        "on": "worktree.opened",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe on-worktree"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "picker",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "placement": "zoomed",
+        "command": [
+          "./bin/herdr-plus",
+          "projects-ui"
+        ]
+      },
+      {
+        "id": "picker-windows",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "windows"
+        ],
+        "placement": "zoomed",
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe projects-ui"
+        ]
+      },
+      {
+        "id": "quick-actions-picker",
+        "title": "Quick Actions",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "placement": "overlay",
+        "command": [
+          "./bin/herdr-plus",
+          "quick-actions-ui"
+        ]
+      },
+      {
+        "id": "quick-actions-picker-windows",
+        "title": "Quick Actions",
+        "platforms": [
+          "windows"
+        ],
+        "placement": "overlay",
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe quick-actions-ui"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "cloudmanic",
+      "repo": "herdr-plus",
+      "resolved_commit": "a9aca9da3ca6d7406f3d878a1df1c1b9775e2723",
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+      "installed_unix_ms": 1785228673881
+    }
+  },
+  {
     "plugin_id": "herdr-lazy",
     "name": "herdr-lazy",
     "version": "0.20.0",
@@ -323,185 +556,6 @@
       "resolved_commit": "03b803a00341d58382b6cda70a7cd618af5b8806",
       "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
       "installed_unix_ms": 1785226427805
-    }
-  },
-  {
-    "plugin_id": "sessionizer",
-    "name": "Sessionizer",
-    "version": "0.5.0",
-    "min_herdr_version": "0.7.0",
-    "description": "tmux-sessionizer for herdr: fzf over open workspaces and zoxide directories, create-or-focus with template tabs",
-    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/sessionizer-66e03d1ff740/herdr-plugin.toml",
-    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/sessionizer-66e03d1ff740",
-    "enabled": true,
-    "platforms": [
-      "macos",
-      "linux"
-    ],
-    "actions": [
-      {
-        "id": "agents",
-        "title": "Open agent view",
-        "command": [
-          "bash",
-          "bin/open-picker",
-          "--agents"
-        ]
-      },
-      {
-        "id": "pick",
-        "title": "Open workspace picker",
-        "command": [
-          "bash",
-          "bin/open-picker"
-        ]
-      }
-    ],
-    "panes": [
-      {
-        "id": "picker",
-        "title": "Sessionizer",
-        "placement": "overlay",
-        "command": [
-          "bash",
-          "bin/sessionizer"
-        ]
-      }
-    ],
-    "source": {
-      "kind": "github",
-      "owner": "salkhalil",
-      "repo": "herdr-sessionizer",
-      "resolved_commit": "461a878ca6ccd0240ec8836a338d896cab49bcc2",
-      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/sessionizer-66e03d1ff740",
-      "installed_unix_ms": 1785146875867
-    }
-  },
-  {
-    "plugin_id": "thomasschafer.herdr-kiosk",
-    "name": "Kiosk",
-    "version": "0.1.0",
-    "min_herdr_version": "0.7.4",
-    "description": "Fuzzy-find Git repos and branches — or any folder — and open them as Herdr workspaces/worktrees.",
-    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/thomasschafer.herdr-kiosk-bf045ede9938/herdr-plugin.toml",
-    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/thomasschafer.herdr-kiosk-bf045ede9938",
-    "enabled": true,
-    "platforms": [
-      "linux",
-      "macos",
-      "windows"
-    ],
-    "build": [
-      {
-        "platforms": [
-          "linux",
-          "macos"
-        ],
-        "command": [
-          "sh",
-          "scripts/fetch-or-build.sh"
-        ]
-      },
-      {
-        "platforms": [
-          "windows"
-        ],
-        "command": [
-          "powershell.exe",
-          "-NoLogo",
-          "-NoProfile",
-          "-NonInteractive",
-          "-ExecutionPolicy",
-          "Bypass",
-          "-File",
-          "scripts/fetch-or-build.ps1"
-        ]
-      }
-    ],
-    "actions": [
-      {
-        "id": "open-picker",
-        "title": "Open repo picker",
-        "contexts": [
-          "workspace",
-          "global"
-        ],
-        "platforms": [
-          "linux",
-          "macos"
-        ],
-        "command": [
-          "sh",
-          "scripts/open-picker.sh"
-        ]
-      },
-      {
-        "id": "open-picker-windows",
-        "title": "Open repo picker",
-        "contexts": [
-          "workspace",
-          "global"
-        ],
-        "platforms": [
-          "windows"
-        ],
-        "command": [
-          "powershell.exe",
-          "-NoLogo",
-          "-NoProfile",
-          "-NonInteractive",
-          "-ExecutionPolicy",
-          "Bypass",
-          "-File",
-          "scripts/open-picker.ps1"
-        ]
-      }
-    ],
-    "panes": [
-      {
-        "id": "picker",
-        "title": "Repos",
-        "platforms": [
-          "linux",
-          "macos"
-        ],
-        "placement": "popup",
-        "width": "90%",
-        "height": "90%",
-        "command": [
-          "sh",
-          "-c",
-          "exec \"$HERDR_PLUGIN_ROOT/target/release/herdr-kiosk\""
-        ]
-      },
-      {
-        "id": "picker-windows",
-        "title": "Repos",
-        "platforms": [
-          "windows"
-        ],
-        "placement": "popup",
-        "width": "90%",
-        "height": "90%",
-        "command": [
-          "powershell.exe",
-          "-NoLogo",
-          "-NoProfile",
-          "-NonInteractive",
-          "-ExecutionPolicy",
-          "Bypass",
-          "-File",
-          "scripts/run-picker.ps1"
-        ]
-      }
-    ],
-    "source": {
-      "kind": "github",
-      "owner": "thomasschafer",
-      "repo": "herdr-kiosk",
-      "resolved_commit": "e7fd1f7500cb16d224c3c2032f415d45c3c44149",
-      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/thomasschafer.herdr-kiosk-bf045ede9938",
-      "installed_unix_ms": 1785220878269
     }
   }
 ]

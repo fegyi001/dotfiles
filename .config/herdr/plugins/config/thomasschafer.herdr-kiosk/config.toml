@@ -1,5 +1,0 @@
-include_non_git = false
-search_dirs = [
-  { path = "~/code", depth = 2, include_non_git = false },
-  { path = "~/dotfiles", depth = 3, include_non_git = true },
-]

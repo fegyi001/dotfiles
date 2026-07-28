@@ -1,0 +1,6 @@
+name = "Test workspace"
+description = "Test workspace"
+working_dir = "~/code/test"
+
+[[tabs]]
+name = "terminal"

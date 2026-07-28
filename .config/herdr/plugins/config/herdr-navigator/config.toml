@@ -19,7 +19,16 @@ engine = "nucleo"
 
 # Source priority controls initial ordering and tie/near-tie ranking.
 # Accepted names: agent, server/remote, workspace/open, project, session, zoxide, root, quick, plugin.
-source_order = ["workspace", "agent", "project", "session", "zoxide", "root", "server", "quick", "plugin"]
+source_order = [
+  "workspace",
+  "agent",
+  "server",
+  "project",
+  "quick",
+  "zoxide",
+  "plugin",
+  "root",
+]
 
 # How strongly source_order influences search ranking.
 # Set 0 for pure matcher score.
@@ -52,6 +61,7 @@ vim_filter_search = false
 # Defaults: server=ctrl-s, agent=ctrl-a, quick=ctrl-q, workspace=ctrl-w, project=ctrl-p,
 # zoxide=ctrl-z, root=ctrl-r, session=ctrl-l.
 # [picker.filter_keys]
+# zoxide=ctrl-z, root=ctrl-r, session=ctrl-l
 # server = "ctrl-g"
 
 [notifications]
@@ -94,8 +104,9 @@ agents = true
 
 # Remote Herdr targets from remote entries in [sessions] below.
 servers = true
+
 # Local Herdr sessions from `herdr session list --json` and local [sessions] entries below.
-sessions = true
+sessions = false
 
 # Herdr Plus Quick Actions. Selecting opens the Quick Actions picker.
 herdr_plus_quick_actions = true
@@ -107,11 +118,11 @@ inherit_herdr = true
 
 # Keep roots short; zoxide should handle most frequent directories.
 [[roots]]
-path = "~/workspace"
+path = "~/code"
 max_depth = 3
 
 [[roots]]
-path = "~/projects"
+path = "~/dotfiles"
 max_depth = 3
 
 # Optional agent aliases. All match fields are optional and matched as text contains.
