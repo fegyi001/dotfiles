@@ -2,8 +2,6 @@
 # Each `owner/repo@commit` reproduces exactly via `plugin install --ref`.
 # Commits come from herdr's own `source.resolved_commit`.
 
-thomasschafer/herdr-kiosk@e7fd1f7500cb16d224c3c2032f415d45c3c44149
 natori-hrj/herdr-lazy@af04940905852b29bc2ecbf9067eeb42cdb83ee3
-salkhalil/herdr-sessionizer@461a878ca6ccd0240ec8836a338d896cab49bcc2
 thanhdat77/herdr-navigator@03b803a00341d58382b6cda70a7cd618af5b8806
 cloudmanic/herdr-plus@a9aca9da3ca6d7406f3d878a1df1c1b9775e2723
