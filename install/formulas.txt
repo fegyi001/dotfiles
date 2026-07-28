@@ -73,6 +73,7 @@ harfbuzz
 hdf5
 hdrhistogram_c
 helix
+herdr
 highway
 htop
 hwloc
