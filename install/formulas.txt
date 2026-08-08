@@ -30,7 +30,6 @@ dav1d
 devcontainer
 diff-so-fancy
 docker
-docker-completion
 eza
 fastfetch
 fd
@@ -224,6 +223,7 @@ pngpaste
 poppler
 potrace
 proj
+prrte
 pstoedit
 pycparser
 pydantic
