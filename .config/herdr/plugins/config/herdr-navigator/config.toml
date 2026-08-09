@@ -125,6 +125,10 @@ max_depth = 3
 path = "~/dotfiles"
 max_depth = 3
 
+[[roots]]
+path = "~/data"
+max_depth = 2
+
 # Optional agent aliases. All match fields are optional and matched as text contains.
 # Aliases become extra search terms for matching agent panes.
 #
