@@ -1,6 +1,7 @@
 #!/bin/bash
 
 npm install -g \
+  @astrojs/language-server \
   @angular/cli \
   @angular/language-server \
   @github/copilot \
