@@ -6,6 +6,7 @@ return {
   opts = {
     ensure_installed = {
       "angular-language-server",
+      "astro-language-server",
       "bash-language-server",
       "biome",
       "codelldb",
