@@ -72,6 +72,7 @@ harfbuzz
 hdf5
 hdrhistogram_c
 helix
+helm
 herdr
 highway
 htop
@@ -89,6 +90,7 @@ jpeg-xl
 jq
 json-c
 k6
+kind
 kubernetes-cli
 lame
 lazydocker
