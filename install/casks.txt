@@ -9,7 +9,6 @@ google-chrome
 insomnia
 karabiner-elements
 keycastr
-localsend
 obsidian
 signal
 vacuum
