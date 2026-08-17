@@ -1,0 +1,8 @@
+theme = TokyoNight Moon
+font-family = JetBrains Mono Regular
+font-family-italic = Maple Mono
+font-size = 15
+adjust-cell-height = 10
+confirm-close-surface = false
+macos-icon = custom
+macos-custom-icon = ~/dotfiles/.config/ghostty/terminal.icns 

@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PKG_CONFIG_PATH="/usr/local/opt/proj/lib/pkgconfig:$PKG_CONFIG_PATH"
 fi
 
-export PATH=$HOME/bin:/usr/local/bin:${JAVA_HOME:+$JAVA_HOME/bin:}$HOME/.local/bin:$HOME/programs/flutter/bin:$HOME/development/flutter/bin:$PATH:$HOME/.cargo/bin:$HOME/go/bin
+export PATH=$HOME/bin:/usr/local/bin:${JAVA_HOME:+$JAVA_HOME/bin:}$HOME/.local/bin:$HOME/programs/flutter/bin:$HOME/development/flutter/bin:$PATH:$HOME/.cargo/bin:$HOME/go/bin:/Applications/Ghostty.app/Contents/MacOS
 
 export XDG_CONFIG_HOME="$HOME/.config"
 

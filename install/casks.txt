@@ -4,6 +4,7 @@ font-maple-mono
 font-maple-mono-nf
 font-sf-mono-nerd-font-ligaturized
 font-symbols-only-nerd-font
+ghostty
 gimp
 google-chrome
 insomnia
