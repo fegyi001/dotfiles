@@ -6,3 +6,4 @@ adjust-cell-height = 10
 confirm-close-surface = false
 macos-icon = custom
 macos-custom-icon = ~/dotfiles/.config/ghostty/terminal.icns 
+macos-titlebar-style = hidden
