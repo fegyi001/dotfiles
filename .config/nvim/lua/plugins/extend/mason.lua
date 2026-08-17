@@ -35,7 +35,6 @@ return {
       "stylua",
       "tailwindcss-language-server",
       "taplo",
-      "tsgo",
       "vtsls",
       "yaml-language-server",
     },

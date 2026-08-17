@@ -11,4 +11,8 @@ return {
     "nvim-neotest/neotest",
     enabled = false,
   },
+  {
+    "mistweaverco/kulala.nvim",
+    enabled = false,
+  },
 }

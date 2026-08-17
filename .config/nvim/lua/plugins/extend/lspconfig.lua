@@ -72,6 +72,18 @@ return {
           enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
+        -- Explicitly disable tsc LSP (we use vtsls instead)
+        tsc = {
+          enabled = false,
+        },
+        -- Explicitly disable tsgo LSP (deprecated, replaced by tsc)
+        tsgo = {
+          enabled = false,
+        },
+        -- Explicitly disable ts_ls LSP (we use vtsls instead)
+        ts_ls = {
+          enabled = false,
+        },
         angularls = {
           filetypes = {
             "typescript",
