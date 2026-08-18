@@ -65,23 +65,20 @@ return {
             })
           end,
         },
-        -- tailwindcss = {
-        --   enabled = false,
-        -- },
+        tailwindcss = {
+          enabled = false,
+        },
         tsserver = {
           enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
-        -- Explicitly disable tsc LSP (we use vtsls instead)
-        tsc = {
-          enabled = false,
-        },
-        -- Explicitly disable tsgo LSP (deprecated, replaced by tsc)
-        tsgo = {
-          enabled = false,
-        },
-        -- Explicitly disable ts_ls LSP (we use vtsls instead)
+        -- tsc = {
+        --   enabled = false,
+        -- },
         ts_ls = {
+          enabled = false,
+        },
+        vtsls = {
           enabled = false,
         },
         angularls = {

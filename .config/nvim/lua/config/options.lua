@@ -9,5 +9,3 @@ opt.foldenable = false
 
 vim.lsp.log.set_level("off")
 vim.o.spell = false
-
--- vim.g.lazyvim_ts_lsp = "vtsls"
