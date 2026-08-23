@@ -65,3 +65,5 @@ keymap.set("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New Tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+keymap.set("n", "<leader>mp", "<cmd>RenderMarkdown preview<cr>", { desc = "Markdown preview" })
