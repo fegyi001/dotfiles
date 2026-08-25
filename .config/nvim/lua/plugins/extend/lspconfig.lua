@@ -72,14 +72,14 @@ return {
           enabled = false,
           cmd = { "typescript-language-server", "--stdio" },
         },
-        -- tsc = {
-        -- enabled = false,
-        -- },
+        tsc = {
+          enabled = false,
+        },
         ts_ls = {
           enabled = false,
         },
         vtsls = {
-          enabled = false,
+          -- enabled = false,
         },
         angularls = {
           filetypes = {
