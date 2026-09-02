@@ -18,9 +18,9 @@
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
 
 -- Application bindings
-o.bind("SUPER + RETURN", "Terminal", 'uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd)"')
-o.bind("SUPER + SHIFT + RETURN", "Browser", "omarchy-launch-browser")
-o.bind("SUPER + SHIFT + F", "File manager", "uwsm-app -- nautilus --new-window")
+-- o.bind("SUPER + RETURN", "Terminal", 'uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd)"')
+-- o.bind("SUPER + SHIFT + RETURN", "Browser", "omarchy-launch-browser")
+-- o.bind("SUPER + SHIFT + F", "File manager", "uwsm-app -- nautilus --new-window")
 
 -- Screenshot / Screen recording / Color picker
 hl.unbind(", PRINT")
@@ -31,7 +31,7 @@ hl.unbind("SUPER, PRINT")
 o.bind("SUPER + SHIFT + C", "Color picker", "pkill hyprpicker || hyprpicker -a")
 
 -- Launch apps
-o.bind("SUPER + SPACE", "Launch apps", "fuzzel")
+-- o.bind("SUPER + SPACE", "Launch apps", "fuzzel")
 hl.unbind("SUPER + ALT, SPACE")
 o.bind("SUPER + M", "Omarchy menu", "omarchy-menu")
 
@@ -62,9 +62,9 @@ o.bind("SUPER + CTRL + ALT + K", "Foot", 'omarchy-launch-or-focus foot "uwsm-app
 o.bind("SUPER + CTRL + ALT + SHIFT + K", "Foot", 'omarchy-launch-or-focus foot "uwsm-app -- alacritty"')
 o.bind("SUPER + CTRL + ALT + M", "Microsoft Teams", 'omarchy-launch-or-focus teams "uwsm-app -- teams-for-linux"')
 o.bind(
-  "SUPER + CTRL + ALT + SHIFT + M",
-  "Microsoft Teams",
-  'omarchy-launch-or-focus teams "uwsm-app -- teams-for-linux"'
+	"SUPER + CTRL + ALT + SHIFT + M",
+	"Microsoft Teams",
+	'omarchy-launch-or-focus teams "uwsm-app -- teams-for-linux"'
 )
 
 -- Screenshot variants
