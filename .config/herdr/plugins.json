@@ -5,8 +5,8 @@
     "version": "0.1.24",
     "min_herdr_version": "0.7.0",
     "description": "An extension for herdr — a collection of tools that make it better. Projects: fuzzy-pick a declarative template to spin up a whole workspace — every tab, pane, and startup command. Quick Actions: a fuzzy launcher for one-off scripts, run in the directory you launched from.",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
     "enabled": true,
     "platforms": [
       "linux",
@@ -227,9 +227,9 @@
       "kind": "github",
       "owner": "cloudmanic",
       "repo": "herdr-plus",
-      "resolved_commit": "0ede9c763e0feb7800b6d2e3a7401f9198684caf",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
-      "installed_unix_ms": 1788354068754
+      "resolved_commit": "87bbaa2a48b178a935b1d74f719f2e9d3f5047eb",
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+      "installed_unix_ms": 1788424505091
     }
   },
   {
@@ -238,8 +238,8 @@
     "version": "0.37.0",
     "min_herdr_version": "0.7.5",
     "description": "Be lazy: a curated, batteries-included plugin distro & manager for herdr",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
     "enabled": true,
     "platforms": [
       "linux",
@@ -515,8 +515,8 @@
       "owner": "natori-hrj",
       "repo": "herdr-lazy",
       "resolved_commit": "c4ca5dab79c5c741e2278a77e01eea1679a6a5cb",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
-      "installed_unix_ms": 1788354093261
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
+      "installed_unix_ms": 1788424708593
     }
   },
   {
@@ -525,8 +525,8 @@
     "version": "0.3.3",
     "min_herdr_version": "0.7.3",
     "description": "Jump to any Herdr workspace, agent, project, session, remote, directory, or action from one fuzzy navigator.",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
     "enabled": true,
     "platforms": [
       "linux",
@@ -606,8 +606,8 @@
       "repo": "herdr-navigator",
       "requested_ref": "v0.3.3",
       "resolved_commit": "03b803a00341d58382b6cda70a7cd618af5b8806",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
-      "installed_unix_ms": 1788354102908
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+      "installed_unix_ms": 1788424639498
     }
   },
   {
@@ -616,8 +616,8 @@
     "version": "0.1.0",
     "min_herdr_version": "0.7.0",
     "description": "Vim-aware Herdr pane navigation for ctrl+h/j/k/l.",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator",
     "enabled": true,
     "platforms": [
       "linux",
@@ -675,8 +675,8 @@
       "repo": "nvim-herdr-navigation",
       "subdir": "herdr-vim-navigator",
       "resolved_commit": "7798a2f027465698cb1a51695327e138319f61f3",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077",
-      "installed_unix_ms": 1788354146871
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077",
+      "installed_unix_ms": 1788424480385
     }
   }
 ]
