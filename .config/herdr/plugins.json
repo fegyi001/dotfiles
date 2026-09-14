@@ -227,15 +227,15 @@
       "kind": "github",
       "owner": "cloudmanic",
       "repo": "herdr-plus",
-      "resolved_commit": "87bbaa2a48b178a935b1d74f719f2e9d3f5047eb",
+      "resolved_commit": "f38df3570bea8f7ca71dc1ba11bce3b123d14402",
       "managed_path": "/Users/padanyig/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
-      "installed_unix_ms": 1788424505091
+      "installed_unix_ms": 1789109788246
     }
   },
   {
     "plugin_id": "herdr-lazy",
     "name": "herdr-lazy",
-    "version": "0.37.0",
+    "version": "0.38.0",
     "min_herdr_version": "0.7.5",
     "description": "Be lazy: a curated, batteries-included plugin distro & manager for herdr",
     "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3/herdr-plugin.toml",
@@ -262,9 +262,12 @@
           "windows"
         ],
         "command": [
-          "cargo",
-          "build",
-          "--release"
+          "powershell",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "scripts/fetch-or-build.ps1"
         ]
       }
     ],
@@ -514,15 +517,15 @@
       "kind": "github",
       "owner": "natori-hrj",
       "repo": "herdr-lazy",
-      "resolved_commit": "c4ca5dab79c5c741e2278a77e01eea1679a6a5cb",
+      "resolved_commit": "65414af74cc5e3a1b2c8d45e106d7b71cb423ae8",
       "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
-      "installed_unix_ms": 1788424708593
+      "installed_unix_ms": 1789109566184
     }
   },
   {
     "plugin_id": "herdr-navigator",
     "name": "Herdr Navigator",
-    "version": "0.3.3",
+    "version": "0.3.6",
     "min_herdr_version": "0.7.3",
     "description": "Jump to any Herdr workspace, agent, project, session, remote, directory, or action from one fuzzy navigator.",
     "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
@@ -604,10 +607,10 @@
       "kind": "github",
       "owner": "thanhdat77",
       "repo": "herdr-navigator",
-      "requested_ref": "v0.3.3",
-      "resolved_commit": "03b803a00341d58382b6cda70a7cd618af5b8806",
+      "requested_ref": "v0.3.6",
+      "resolved_commit": "e12a97c5d9ddcd76ba18c985909ffeb4827afa6a",
       "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
-      "installed_unix_ms": 1788424639498
+      "installed_unix_ms": 1789109510552
     }
   },
   {
