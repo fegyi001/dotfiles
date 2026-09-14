@@ -31,8 +31,11 @@ return {
   {
     "kawre/neotab.nvim",
     event = "InsertEnter",
-    opts = {
-      -- configuration goes here
-    },
+    enabled = false,
+    config = function()
+      require("neotab").setup({
+        tabkey = "<C-Tab>",
+      })
+    end,
   },
 }
