@@ -31,7 +31,8 @@ hl.unbind("SUPER, PRINT")
 o.bind("SUPER + SHIFT + C", "Color picker", "pkill hyprpicker || hyprpicker -a")
 
 -- Launch apps
--- o.bind("SUPER + SPACE", "Launch apps", "fuzzel")
+hl.unbind("SUPER, SPACE")
+o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu")
 hl.unbind("SUPER + ALT, SPACE")
 o.bind("SUPER + M", "Omarchy menu", "omarchy-menu")
 
