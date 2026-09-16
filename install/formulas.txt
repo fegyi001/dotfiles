@@ -96,6 +96,7 @@ imath
 isl
 jasper
 jbig2dec
+jemalloc
 jpeg-turbo
 jpeg-xl
 jq
@@ -211,7 +212,6 @@ nspr
 nss
 oniguruma
 open-mpi
-sst/tap/opencode
 opencore-amr
 openexr
 openjdk
@@ -235,7 +235,6 @@ pmix
 pngpaste
 poppler
 potrace
-proj
 prrte
 pstoedit
 pycparser
@@ -285,7 +284,6 @@ trufflehog
 unar
 unbound
 unibilium
-usage
 utf8proc
 uthash
 uvwasi
@@ -311,4 +309,5 @@ zsh-autosuggestions
 zsh-fast-syntax-highlighting
 zsh-syntax-highlighting
 zstd
+anomalyco/tap/opencode
 jstkdng/programs/ueberzugpp
