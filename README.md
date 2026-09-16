@@ -4,15 +4,15 @@ Personal configuration for my daily setup across macOS and Linux (Hyprland/Omarc
 
 ## What's inside
 
-| Category         | Tools                                                      |
-| ---------------- | ---------------------------------------------------------- |
-| Shell & terminal | `zsh` (`.zshrc`), `starship`, `tmux`, `ghostty`, `wezterm` |
-| Editors          | `nvim` (LazyVim), `helix`, `.ideavimrc`                    |
-| Git tooling      | `git`, `lazygit`                                           |
-| Window manager   | `hypr` (Hyprland), `waybar`                                |
-| Input remapping  | `karabiner`, `keyd`                                        |
-| CLI utilities    | `bat`, `btop`, `yazi`                                      |
-| AI / agents      | `opencode`, `herdr`                                        |
+| Category         | Tools                                                 |
+| ---------------- | ----------------------------------------------------- |
+| Shell & terminal | `zsh`, `starship`, `tmux`, `ghostty`, `herdr`, `tmux` |
+| Editors          | `nvim` (LazyVim), `helix`                             |
+| Git tooling      | `git`, `lazygit`                                      |
+| Window manager   | `hypr` (Hyprland), `waybar`                           |
+| Input remapping  | `karabiner`, `keyd`                                   |
+| CLI utilities    | `bat`, `btop`, `yazi`                                 |
+| AI / agents      | `opencode`                                            |
 
 ## Install
 
