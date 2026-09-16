@@ -5,8 +5,8 @@
     "version": "0.1.24",
     "min_herdr_version": "0.7.0",
     "description": "An extension for herdr — a collection of tools that make it better. Projects: fuzzy-pick a declarative template to spin up a whole workspace — every tab, pane, and startup command. Quick Actions: a fuzzy launcher for one-off scripts, run in the directory you launched from.",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
     "enabled": true,
     "platforms": [
       "linux",
@@ -228,18 +228,18 @@
       "owner": "cloudmanic",
       "repo": "herdr-plus",
       "resolved_commit": "f38df3570bea8f7ca71dc1ba11bce3b123d14402",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
-      "installed_unix_ms": 1789454189764
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+      "installed_unix_ms": 1789558691803
     }
   },
   {
     "plugin_id": "herdr-lazy",
     "name": "herdr-lazy",
-    "version": "0.41.0",
+    "version": "0.43.0",
     "min_herdr_version": "0.7.5",
     "description": "Be lazy: a curated, batteries-included plugin distro & manager for herdr",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
     "enabled": true,
     "platforms": [
       "linux",
@@ -461,6 +461,39 @@
           "-Command",
           "& .\\target\\release\\herdr-lazy.exe sync"
         ]
+      },
+      {
+        "id": "update",
+        "title": "Lazy: update unpinned plugins",
+        "contexts": [
+          "workspace"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./target/release/herdr-lazy",
+          "update"
+        ]
+      },
+      {
+        "id": "update-windows",
+        "title": "Lazy: update unpinned plugins",
+        "contexts": [
+          "workspace"
+        ],
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-Command",
+          "& .\\target\\release\\herdr-lazy.exe update"
+        ]
       }
     ],
     "events": [
@@ -579,9 +612,9 @@
       "kind": "github",
       "owner": "natori-hrj",
       "repo": "herdr-lazy",
-      "resolved_commit": "f3f5512cf4f472f579f27f8865eb4581bfe0a1a7",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
-      "installed_unix_ms": 1789454177466
+      "resolved_commit": "1d860a60263ed91f72f297edb0fcbfcc3f0ce6ec",
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-lazy-7e53bfc3c6d3",
+      "installed_unix_ms": 1789558708618
     }
   },
   {
@@ -590,8 +623,8 @@
     "version": "0.3.6",
     "min_herdr_version": "0.7.3",
     "description": "Jump to any Herdr workspace, agent, project, session, remote, directory, or action from one fuzzy navigator.",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
     "enabled": true,
     "platforms": [
       "linux",
@@ -671,8 +704,91 @@
       "repo": "herdr-navigator",
       "requested_ref": "v0.3.6",
       "resolved_commit": "e12a97c5d9ddcd76ba18c985909ffeb4827afa6a",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
-      "installed_unix_ms": 1789454147358
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+      "installed_unix_ms": 1789558636500
+    }
+  },
+  {
+    "plugin_id": "herdr-nvim-nav",
+    "name": "Vim Nav",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "Ctrl+h/j/k/l across herdr panes and Neovim splits, without a per-key process for detection",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-nvim-nav-37d546a0d32b/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-nvim-nav-37d546a0d32b",
+    "enabled": true,
+    "platforms": [
+      "macos",
+      "linux"
+    ],
+    "build": [
+      {
+        "platforms": [
+          "macos",
+          "linux"
+        ],
+        "command": [
+          "cc",
+          "-O2",
+          "-o",
+          "herdr-nvim-nav",
+          "herdr-nvim-nav.c"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "down",
+        "title": "Navigate down",
+        "contexts": [
+          "global"
+        ],
+        "command": [
+          "./herdr-nvim-nav",
+          "down"
+        ]
+      },
+      {
+        "id": "left",
+        "title": "Navigate left",
+        "contexts": [
+          "global"
+        ],
+        "command": [
+          "./herdr-nvim-nav",
+          "left"
+        ]
+      },
+      {
+        "id": "right",
+        "title": "Navigate right",
+        "contexts": [
+          "global"
+        ],
+        "command": [
+          "./herdr-nvim-nav",
+          "right"
+        ]
+      },
+      {
+        "id": "up",
+        "title": "Navigate up",
+        "contexts": [
+          "global"
+        ],
+        "command": [
+          "./herdr-nvim-nav",
+          "up"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "aimdevlee",
+      "repo": "herdr-nvim-nav",
+      "resolved_commit": "ec047fd6d8d0269d54a34e9405af28d8aad4c8f0",
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-nvim-nav-37d546a0d32b",
+      "installed_unix_ms": 1789558719961
     }
   },
   {
