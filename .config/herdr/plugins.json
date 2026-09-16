@@ -709,96 +709,13 @@
     }
   },
   {
-    "plugin_id": "herdr-nvim-nav",
-    "name": "Vim Nav",
-    "version": "0.1.0",
-    "min_herdr_version": "0.7.0",
-    "description": "Ctrl+h/j/k/l across herdr panes and Neovim splits, without a per-key process for detection",
-    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-nvim-nav-37d546a0d32b/herdr-plugin.toml",
-    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/herdr-nvim-nav-37d546a0d32b",
-    "enabled": true,
-    "platforms": [
-      "macos",
-      "linux"
-    ],
-    "build": [
-      {
-        "platforms": [
-          "macos",
-          "linux"
-        ],
-        "command": [
-          "cc",
-          "-O2",
-          "-o",
-          "herdr-nvim-nav",
-          "herdr-nvim-nav.c"
-        ]
-      }
-    ],
-    "actions": [
-      {
-        "id": "down",
-        "title": "Navigate down",
-        "contexts": [
-          "global"
-        ],
-        "command": [
-          "./herdr-nvim-nav",
-          "down"
-        ]
-      },
-      {
-        "id": "left",
-        "title": "Navigate left",
-        "contexts": [
-          "global"
-        ],
-        "command": [
-          "./herdr-nvim-nav",
-          "left"
-        ]
-      },
-      {
-        "id": "right",
-        "title": "Navigate right",
-        "contexts": [
-          "global"
-        ],
-        "command": [
-          "./herdr-nvim-nav",
-          "right"
-        ]
-      },
-      {
-        "id": "up",
-        "title": "Navigate up",
-        "contexts": [
-          "global"
-        ],
-        "command": [
-          "./herdr-nvim-nav",
-          "up"
-        ]
-      }
-    ],
-    "source": {
-      "kind": "github",
-      "owner": "aimdevlee",
-      "repo": "herdr-nvim-nav",
-      "resolved_commit": "ec047fd6d8d0269d54a34e9405af28d8aad4c8f0",
-      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/herdr-nvim-nav-37d546a0d32b",
-      "installed_unix_ms": 1789558719961
-    }
-  },
-  {
     "plugin_id": "local.vim-navigator",
     "name": "Vim Navigator",
     "version": "0.1.0",
     "min_herdr_version": "0.7.0",
     "description": "Vim-aware Herdr pane navigation for ctrl+h/j/k/l.",
-    "manifest_path": "/home/pgg/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator/herdr-plugin.toml",
-    "plugin_root": "/home/pgg/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator",
+    "manifest_path": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator/herdr-plugin.toml",
+    "plugin_root": "/Users/padanyig/dotfiles/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator",
     "enabled": true,
     "platforms": [
       "linux",
@@ -856,8 +773,8 @@
       "repo": "nvim-herdr-navigation",
       "subdir": "herdr-vim-navigator",
       "resolved_commit": "7798a2f027465698cb1a51695327e138319f61f3",
-      "managed_path": "/home/pgg/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077",
-      "installed_unix_ms": 1789454127357
+      "managed_path": "/Users/padanyig/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077",
+      "installed_unix_ms": 1789562559792
     }
   }
 ]
