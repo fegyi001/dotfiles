@@ -73,13 +73,13 @@ return {
           cmd = { "typescript-language-server", "--stdio" },
         },
         tsc = {
-          enabled = false,
+          -- enabled = false,
         },
         ts_ls = {
           enabled = false,
         },
         vtsls = {
-          -- enabled = false,
+          enabled = false,
         },
         angularls = {
           filetypes = {
