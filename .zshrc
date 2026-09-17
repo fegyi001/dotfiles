@@ -38,7 +38,6 @@ alias c="clear"
 alias u="brew update && brew upgrade && brew cleanup"
 alias n="nvim"
 alias e="exit"
-alias v="fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim"
 alias y="yarn"
 alias yy="yazi"
 alias t="tmux a"
@@ -103,8 +102,6 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude .git . "$1"
 }
-
-source ~/fzf-git.sh/fzf-git.sh
 
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
