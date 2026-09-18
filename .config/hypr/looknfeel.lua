@@ -1,5 +1,15 @@
 -- Change the default Omarchy look'n'feel.
 
+-- Restore classic dwindle split behavior (mouse-follow, alternating
+-- horizontal/vertical splits) instead of Omarchy's default of always
+-- splitting new windows to the right (force_split = 2), which stacks
+-- windows in a row and pushes older ones off-screen.
+-- hl.config({
+-- 	dwindle = {
+-- 		force_split = 2,
+-- 	},
+-- })
+
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
 -- hl.config({
 --   general = {
