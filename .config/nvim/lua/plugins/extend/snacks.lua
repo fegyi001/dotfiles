@@ -14,10 +14,19 @@ return {
         ]],
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          -- { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = "󰏖 ", key = "m", desc = "Mason", action = ":Mason" },
+          {
+            icon = " ",
+            key = "g",
+            desc = "Lazygit",
+            action = function()
+              Snacks.lazygit()
+            end,
+          },
+          { icon = " ", key = "x", desc = "Extras", action = ":LazyExtras" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
