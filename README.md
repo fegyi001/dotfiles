@@ -28,7 +28,7 @@ Personal configuration for my daily setup across macOS and Linux (Hyprland/Omarc
 Clone the repo, then use Stow to symlink whichever packages you want into `$HOME`:
 
 ```sh
-git clone <this-repo> ~/dotfiles
+git clone https://github.com/fegyi001/dotfiles ~/dotfiles
 cd ~/dotfiles
 stow .
 ```
