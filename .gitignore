@@ -1,9 +1,6 @@
-.config/karabiner/automatic_backups
 .DS_Store
 *.bak
 *.bak.*
 
 .local/share
 .local/state
-
-.config/lazygit/state.yml
