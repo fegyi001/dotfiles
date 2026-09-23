@@ -6,10 +6,9 @@ This is a personal dotfiles repository with no build system. No tests or package
 
 ## Code Style
 
-- **Lua**: 2 spaces, 120 char width (stylua.toml), LazyVim conventions
+- **Lua**: 2 spaces, 120 char width (.config/nvim/stylua.toml), LazyVim conventions
 - **Shell**: Follow existing .zshrc style, use proper shebang headers
 - **TOML/YAML**: 2-space indentation, follow existing config patterns
-- **TypeScript**: Prettier formatting
 
 ## File Organization
 
@@ -24,10 +23,5 @@ This is a personal dotfiles repository with no build system. No tests or package
 
 ## Naming
 
-- Kebab-case for config files and directories
-- Snake_case for shell scripts and executables
+- Kebab-case for config files, directories, and shell scripts (e.g., `install-npm-packages.sh`)
 - Follow tool-specific naming conventions (e.g., `init.lua`)
-
-## No Build/Test Commands
-
-This repository contains personal configuration files only - no compilation, testing, or linting commands exist.
