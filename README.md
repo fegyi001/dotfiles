@@ -16,7 +16,7 @@ Personal configuration for my daily setup across macOS and Linux (Hyprland/Omarc
 | Category         | Tools                                                 |
 | ---------------- | ----------------------------------------------------- |
 | Shell & terminal | `zsh`, `starship`, `tmux`, `ghostty`, `herdr`, `tmux` |
-| Editors          | `nvim` (LazyVim), `helix`                             |
+| Editors          | `nvim` (LazyVim)                                      |
 | Git tooling      | `git`, `lazygit`                                      |
 | Window manager   | `hypr` (Hyprland), `waybar`                           |
 | Input remapping  | `karabiner`, `keyd`                                   |
