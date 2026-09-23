@@ -9,19 +9,19 @@
 ████████▀   ▀██████▀     ▄████▀     ███        █▀   █████▄▄██   ██████████  ▄████████▀
 ```
 
-Personal configuration for my daily setup across macOS and Linux (Hyprland/Omarchy). Managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Personal configuration for my daily setup across macOS and Linux ([Hyprland/Omarchy](https://omarchy.org/)). Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## What's inside
 
-| Category         | Tools                                                 |
-| ---------------- | ----------------------------------------------------- |
-| Shell & terminal | `zsh`, `starship`, `tmux`, `ghostty`, `herdr`, `tmux` |
-| Editors          | `nvim` (LazyVim)                                      |
-| Git tooling      | `git`, `lazygit`                                      |
-| Window manager   | `hypr` (Hyprland), `waybar`                           |
-| Input remapping  | `karabiner`, `keyd`                                   |
-| CLI utilities    | `bat`, `btop`, `yazi`                                 |
-| AI / agents      | `opencode`                                            |
+| Category         | Tools                                         |
+| ---------------- | --------------------------------------------- |
+| Shell & terminal | `zsh`, `starship`, `tmux`, `ghostty`, `herdr` |
+| Editors          | `nvim` (LazyVim)                              |
+| Git tooling      | `git`, `lazygit`                              |
+| Window manager   | `hypr` (Hyprland), `waybar`                   |
+| Input remapping  | `karabiner`, `keyd`                           |
+| CLI utilities    | `bat`, `btop`, `yazi`                         |
+| AI / agents      | `opencode`                                    |
 
 ## Install
 
@@ -33,16 +33,23 @@ cd ~/dotfiles
 stow .
 ```
 
-`install/` and `voyager/` are excluded from stowing (see `.stow-local-ignore`) since they're not meant to be symlinked into `$HOME`.
-
 ### macOS package bootstrap
 
-Homebrew formulas and casks are tracked in `install/formulas.txt` and `install/casks.txt`:
+Homebrew formulas and casks are tracked in `install/mac/formulas.txt` and `install/mac/casks.txt`:
 
 ```sh
-install/install-formulas.sh   # install tracked formulas
-install/install-casks.sh      # install tracked casks (GUI apps)
-install/backup-brew.sh        # regenerate the tracked lists from current brew state
+install/mac/install-formulas.sh   # install tracked formulas
+install/mac/install-casks.sh      # install tracked casks (GUI apps)
+install/mac/backup-brew.sh        # regenerate the tracked lists from current brew state
+```
+
+### Omarchy (Arch/Hyprland) bootstrap
+
+`install/omarchy/setup-omarchy.sh` bootstraps a fresh Omarchy install: installs required packages, symlinks `keyd`, sets up keyboard layout, stows the dotfiles, switches the default shell to `zsh`, and installs `herdr` with its plugins.
+
+```sh
+git clone https://github.com/fegyi001/dotfiles.git ~/dotfiles
+~/dotfiles/install/omarchy/setup-omarchy.sh
 ```
 
 ## Notes
