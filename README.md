@@ -49,6 +49,4 @@ install/backup-brew.sh        # regenerate the tracked lists from current brew s
 
 These are personal configs tuned for my own workflow — feel free to borrow anything useful, but expect some assumptions specific to my machines (paths, hardware, app choices).
 
-## My desktop
-
 ![Desktop screenshot](images/desktop_omarchy.png)
