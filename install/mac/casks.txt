@@ -16,4 +16,3 @@ obsidian
 signal
 temurin@17
 vacuum
-wezterm

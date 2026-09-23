@@ -83,6 +83,7 @@ grpcurl
 harfbuzz
 hdf5
 hdrhistogram_c
+helix
 helm
 herdr
 highway

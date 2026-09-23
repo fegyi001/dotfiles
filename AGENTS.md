@@ -26,7 +26,7 @@ This is a personal dotfiles repository with no build system. No tests or package
 
 - Kebab-case for config files and directories
 - Snake_case for shell scripts and executables
-- Follow tool-specific naming conventions (e.g., `wezterm.lua`, `init.lua`)
+- Follow tool-specific naming conventions (e.g., `init.lua`)
 
 ## No Build/Test Commands
 
