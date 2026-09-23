@@ -44,9 +44,6 @@ return {
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
           { icon = "󰇥 ", key = "y", desc = "Yazi", action = ":Yazi" },
-          -- { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-          { icon = "󰏖 ", key = "m", desc = "Mason", action = ":Mason" },
           {
             icon = " ",
             key = "g",
@@ -55,6 +52,8 @@ return {
               Snacks.lazygit()
             end,
           },
+          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = "󰏖 ", key = "m", desc = "Mason", action = ":Mason" },
           { icon = " ", key = "x", desc = "Extras", action = ":LazyExtras" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
