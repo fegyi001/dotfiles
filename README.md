@@ -9,7 +9,7 @@
 ████████▀   ▀██████▀     ▄████▀     ███        █▀   █████▄▄██   ██████████  ▄████████▀
 ```
 
-Personal configuration for my daily setup across macOS and Linux ([Hyprland/Omarchy](https://omarchy.org/)). Managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Personal configuration for my daily setup across macOS and Linux ([Omarchy](https://omarchy.org/)). Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## What's inside
 
