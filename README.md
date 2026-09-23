@@ -25,7 +25,7 @@ Personal configuration for my daily setup across macOS and Linux ([Omarchy](http
 
 ## Install
 
-Clone the repo, then use Stow to symlink whichever packages you want into `$HOME`:
+Clone the repo, then use Stow to symlink the configs/settings into `$HOME`:
 
 ```sh
 git clone https://github.com/fegyi001/dotfiles ~/dotfiles
