@@ -48,8 +48,8 @@ install/mac/backup-brew.sh        # regenerate the tracked lists from current br
 `install/omarchy/setup-omarchy.sh` bootstraps a fresh Omarchy install: installs required packages, symlinks `keyd`, sets up keyboard layout, stows the dotfiles, switches the default shell to `zsh`, and installs `herdr` with its plugins.
 
 ```sh
-git clone https://github.com/fegyi001/dotfiles.git ~/dotfiles
-~/dotfiles/install/omarchy/setup-omarchy.sh
+cd ~/dotfiles
+./install/omarchy/setup-omarchy.sh
 ```
 
 ## Notes
