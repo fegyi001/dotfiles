@@ -1,3 +1,4 @@
+caskhub
 dbeaver-community
 firefox
 firefox@developer-edition
