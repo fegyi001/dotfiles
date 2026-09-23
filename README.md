@@ -11,6 +11,8 @@
 
 Personal configuration for my daily setup across macOS and Linux (Hyprland/Omarchy). Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
+![Desktop screenshot](images/desktop_omarchy.png)
+
 ## What's inside
 
 | Category         | Tools                                                 |
