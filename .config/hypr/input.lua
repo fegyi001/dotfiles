@@ -5,10 +5,10 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 hl.config({
 	input = {
-		-- Use multiple keyboard layouts and switch between them with Alt(Option)+Shift
+		-- Use multiple keyboard layouts, switched via ALT+SHIFT+N binding (bindings.lua)
 		kb_layout = "us,hu",
 		kb_variant = ",qwertz_keyd",
-		kb_options = "compose:caps,grp:alt_shift_toggle",
+		kb_options = "compose:caps",
 
 		-- Change speed of keyboard repeat.
 		repeat_rate = 40,
