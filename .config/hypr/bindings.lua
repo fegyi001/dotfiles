@@ -74,9 +74,6 @@ o.bind("SUPER + SHIFT + F10", "Screenshot Window", "omarchy-cmd-screenshot windo
 o.bind("SUPER + SHIFT + F11", "Screenshot Region", "omarchy-cmd-screenshot")
 o.bind("SUPER + SHIFT + F12", "Screenshot Display", "omarchy-cmd-screenshot output")
 
--- Keyboard layout switching
-o.bind("ALT + SHIFT + N", "Switch keyboard layout", "hyprctl switchxkblayout all next")
-
 -- Volume
 hl.unbind("SUPER + F10")
 hl.unbind("SUPER + F11")
