@@ -78,6 +78,7 @@ alias cr="cargo run"
 alias cw="cargo watch"
 alias cb="cargo build"
 alias h="herdr"
+alias rmswap="rm -f ~/.local/state/nvim/swap/*.swp"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias pip=pip3

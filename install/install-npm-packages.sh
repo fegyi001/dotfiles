@@ -6,6 +6,7 @@ npm install -g \
   @angular/language-server \
   @github/copilot \
   @mermaid-js/mermaid-cli \
+  npm \
   corepack \
   prettier \
   typescript \

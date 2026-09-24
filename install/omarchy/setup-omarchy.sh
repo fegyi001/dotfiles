@@ -1,9 +1,13 @@
 #!/bin/bash
 
-# git clone https://github.com/fegyi001/dotfiles.git ~/dotfiles
+# git clone https://github.com/fegyi001/dotfiles.git ~/dotfiles && \
+# chmod +x ~/dotfiles/install/setup-omarchy.sh && \
+# chmod +x ~/dotfiles/install/install-hungarian-keyboard.sh && \
+# chmod +x ~/dotfiles/install/install-npm-packages.sh && \
+# chmod +x ~/dotfiles/install/install-herdr-plugins.sh
 
 echo "Installing packages"
-sudo pacman -S stow keyd zsh yazi fnm which firefox tokei rust lazygit
+sudo pacman -S stow keyd zsh yazi firefox fnm which tokei rust lazygit || exit 1
 cd ~/dotfiles || exit 1
 
 echo "Setting up keyd"
@@ -24,7 +28,7 @@ stow .
 hyprctl reload
 
 echo "Setting up zsh as default shell"
-chsh -s "$(which zsh)"
+sudo chsh -s "$(which zsh)"
 
 echo "Installing npm packages"
 cd ~/dotfiles/install || exit 1
@@ -35,7 +39,6 @@ curl -fsSL https://herdr.dev/install.sh | sh
 echo "Installing herdr plugins"
 ./install-herdr-plugins.sh
 
-mkdir -p ~/code
 cd ~/dotfiles || exit 1
 
 echo "Opening neovim"
