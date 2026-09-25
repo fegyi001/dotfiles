@@ -37,15 +37,16 @@
   renames = copies
   interHunkContext = 10 
 
-[pager]
-  diff = "diff-so-fancy | less --tabs=4 -RF"
+; [pager]
+  ; diff = "diff-so-fancy | less --tabs=4 -RF"
 
-[diff-so-fancy]
-  markEmptyLines = false
+; [diff-so-fancy]
+;   markEmptyLines = false
 
 [delta]
-  navigate = true # Use n and N to move between diff sections
-  side-by-side = true # Start with side-by-side view
+  navigate = true
+  side-by-side = true
+  line-numbers = true
 
 [interactive]
   diffFilter = delta --color-only
