@@ -12,6 +12,9 @@
 	helper = store
 
 [core]
+  pager = delta
+	editor = nvim
+	ignorecase = false
   compression = 9
   whiteSpace = "error"
   preloadindex = true
@@ -35,10 +38,7 @@
   interHunkContext = 10 
 
 [pager]
-  pager = delta
-	editor = vim
-	ignorecase = false
-  diff = "diff-so-fancy | $PAGER"
+  diff = "diff-so-fancy | less --tabs=4 -RF"
 
 [diff-so-fancy]
   markEmptyLines = false
