@@ -1,4 +1,4 @@
-# clipboard.yazi
+# system-clipboard.yazi
 
 Synchronize files between the Yazi file manager and your system clipboard. Supports both copy and paste on Linux, macOS, and Windows desktops.
 
@@ -18,13 +18,13 @@ Synchronize files between the Yazi file manager and your system clipboard. Suppo
 
 ## Installation
 
-Install the plugin via the package manager:
+This copy is stored as `plugins/system-clipboard.yazi` to avoid a name collision with Yazi's built-in `clipboard` plugin. To install the upstream plugin under its original name:
 
 ```bash
 ya pkg add XYenon/clipboard
 ```
 
-This clones the repository, adds it to `~/.config/yazi/package.toml`, and pins the current revision.
+The package manager installs it as `plugins/clipboard.yazi`; rename that directory to `plugins/system-clipboard.yazi` and remove the `XYenon/clipboard` entry from `package.toml` to keep the renamed copy local.
 
 ## Usage
 
@@ -34,19 +34,19 @@ Add shortcuts in `~/.config/yazi/keymap.toml`:
 # Copy yanked files to the system clipboard
 [[mgr.prepend_keymap]]
 on  = "y"
-run = [ "yank", 'plugin clipboard -- --action=copy' ]
+run = [ "yank", 'plugin system-clipboard -- --action=copy' ]
 desc = "Yank selected files (copy)"
 
 # Keep behaviour consistent with cut
 [[mgr.prepend_keymap]]
 on  = "x"
-run = [ "yank --cut", 'plugin clipboard -- --action=copy' ]
+run = [ "yank --cut", 'plugin system-clipboard -- --action=copy' ]
 desc = "Yank selected files (cut)"
 
 # Paste files from the system clipboard into the current directory
 [[mgr.prepend_keymap]]
 on  = "<C-p>"
-run = [ 'plugin clipboard -- --action=paste' ]
+run = [ 'plugin system-clipboard -- --action=paste' ]
 desc = "Paste yanked system clipboard files"
 ```
 
@@ -62,7 +62,7 @@ Example invocation:
 ```toml
 [[mgr.prepend_keymap]]
 on  = "y"
-run = [ "yank", 'plugin clipboard -- --action=copy --notify-unknown-display-server' ]
+run = [ "yank", 'plugin system-clipboard -- --action=copy --notify-unknown-display-server' ]
 ```
 
 ## Troubleshooting
