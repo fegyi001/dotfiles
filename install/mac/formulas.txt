@@ -142,6 +142,7 @@ libngtcp2
 libogg
 libomp
 libpng
+libpsl
 libraw
 librist
 librsvg
@@ -202,7 +203,6 @@ mpfr
 mpg123
 nbytes
 ncurses
-neofetch
 neovim
 nettle
 nlohmann-json
@@ -220,6 +220,7 @@ openjpeg
 openjph
 openslide
 openssl@3
+openssl@4
 opus
 p11-kit
 pandoc
