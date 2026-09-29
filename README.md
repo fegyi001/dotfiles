@@ -50,8 +50,8 @@ install/mac/backup-brew.sh        # regenerate the tracked lists from current br
 ```sh
 cd ~/dotfiles
 # Make sure the scripts are executable
-chmod +x ~/dotfiles/install/setup-omarchy.sh && \
-  chmod +x ~/dotfiles/install/install-hungarian-keyboard.sh && \
+chmod +x ~/dotfiles/install/omarchy/setup-omarchy.sh && \
+  chmod +x ~/dotfiles/install/omarchy/install-hungarian-keyboard.sh && \
   chmod +x ~/dotfiles/install/install-npm-packages.sh && \
   chmod +x ~/dotfiles/install/install-herdr-plugins.sh
 # Run the setup script
