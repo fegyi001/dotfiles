@@ -96,7 +96,8 @@
   big-objects = !"git rev-list --all \
                 | parallel git ls-tree -r --long "{}" \
                 | sort -uk3 \
-                | sort -nk4"
+                | sort -nrk4 \
+                | head -n 10" \
 
 [include]
   path = ~/.git-local.config
