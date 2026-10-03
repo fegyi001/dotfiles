@@ -56,6 +56,7 @@ o.bind("SUPER + J", "Focus on below window", hl.dsp.focus({ direction = "d" }))
 o.bind("SUPER + SLASH", "Show key bindings", "omarchy-menu-keybindings")
 
 -- Switch apps
+o.bind("ALT + SHIFT + N", "Next keyboard layout", "hyprctl switchxkblayout all next")
 o.bind("SUPER + CTRL + ALT + J", "Firefox", 'omarchy-launch-or-focus firefox "uwsm-app -- firefox"')
 o.bind("SUPER + CTRL + ALT + SHIFT + J", "Firefox", 'omarchy-launch-or-focus firefox "uwsm-app -- firefox"')
 o.bind("SUPER + CTRL + ALT + I", "Chromium", 'omarchy-launch-or-focus chromium "uwsm-app -- chromium"')

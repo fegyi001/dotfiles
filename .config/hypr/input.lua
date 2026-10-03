@@ -8,7 +8,7 @@ hl.config({
 		-- Use multiple keyboard layouts and switch between them with Alt(Option)+Shift
 		kb_layout = "us,hu",
 		kb_variant = ",qwertz_keyd",
-		kb_options = "compose:caps,grp:alt_shift_toggle",
+		kb_options = "compose:caps",
 
 		-- Change speed of keyboard repeat.
 		repeat_rate = 40,
