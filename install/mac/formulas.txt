@@ -225,6 +225,7 @@ opus
 p11-kit
 pandoc
 pango
+parallel
 pcre2
 perl
 pinentry
