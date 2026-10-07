@@ -1,3 +1,13 @@
+local colors = {
+  red = "#F7768E",
+  green = "#9ECE6A",
+  orange = "#E0AF68",
+  blue_dark = "#7AA2F7",
+  purple = "#BB9AF7",
+  blue_light = "#7DCFFF",
+  grey = "#24283B",
+}
+
 local headers = {
   -- https://patorjk.com/software/taag/#p=display&f=Delta+Corps+Priest+1&t=fegyivim%0A&x=none&v=4&h=4&w=80&we=false
   fegyivim_omarchy = [[
@@ -29,7 +39,7 @@ local headers = {
                        ▀▀▀        ▐▌                                 
   ]],
   simple = [[
-  enjoy the ride
+  enjoy • the • ride
   ]],
 }
 
@@ -69,8 +79,8 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#9ECE6A", bold = true })
-      vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = "#7AA2F7", bold = false })
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green, bold = true })
+      vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = colors.blue_dark, bold = false })
     end
     set_dashboard_header_hl()
     vim.api.nvim_create_autocmd("ColorScheme", {
