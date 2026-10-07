@@ -9,8 +9,6 @@ local headers = {
   ███          ███    █▄    ███    ███ ███   ███ ███  ███    ███ ███  ███   ███   ███ 
   ███          ███    ███   ███    ███ ███   ███ ███  ███    ███ ███  ███   ███   ███ 
   ███          ██████████   ████████▀   ▀█████▀  █▀    ▀██████▀  █▀    ▀█   ███   █▀  
-
-  enjoy the ride
   ]],
   neovim_omarchy = [[
 ███▄▄▄▄      ▄████████  ▄██████▄   ▄█    █▄   ▄█    ▄▄▄▄███▄▄▄▄   
@@ -22,6 +20,13 @@ local headers = {
 ███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███ 
  ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀  
   ]],
+  enjoy_the_ride = [[
+▗▞▀▚▖▄▄▄▄     ▗▖ ▄▄▄  ▄   ▄        ■  ▐▌   ▗▞▀▚▖     ▄▄▄ ▄    ▐▌▗▞▀▚▖
+▐▛▀▀▘█   █    ▗▖█   █ █   █     ▗▄▟▙▄▖▐▌   ▐▛▀▀▘    █    ▄    ▐▌▐▛▀▀▘
+▝▚▄▄▖█   █ ▄  ▐▌▀▄▄▄▀  ▀▀▀█       ▐▌  ▐▛▀▚▖▝▚▄▄▖    █    █ ▗▞▀▜▌▝▚▄▄▖
+           ▀▄▄▞▘      ▄   █       ▐▌  ▐▌ ▐▌              █ ▝▚▄▟▌     
+                       ▀▀▀        ▐▌                                 
+  ]],
   simple = [[
   NEOVIM
   ]],
@@ -32,6 +37,12 @@ return {
   keys = {},
   opts = {
     dashboard = {
+      sections = {
+        { section = "header", padding = 1 },
+        { text = { { headers.enjoy_the_ride, hl = "SnacksDashboardSubHeader", align = "center" } }, padding = 2 },
+        { section = "keys", gap = 1, padding = 1 },
+        { section = "startup" },
+      },
       preset = {
         header = headers.fegyivim_omarchy,
         keys = {
@@ -58,6 +69,7 @@ return {
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
       vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#9ECE6A", bold = true })
+      vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = "#7AA2F7", bold = true })
     end
     set_dashboard_header_hl()
     vim.api.nvim_create_autocmd("ColorScheme", {
