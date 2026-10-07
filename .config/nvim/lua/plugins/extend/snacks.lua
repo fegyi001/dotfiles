@@ -20,6 +20,7 @@ local headers = {
 ███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███ 
  ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀  
   ]],
+  -- https://patorjk.com/software/taag/#p=display&f=DiamFont&t=enjoy+the+ride%0A&x=none&v=4&h=4&w=80&we=false
   enjoy_the_ride = [[
 ▗▞▀▚▖▄▄▄▄     ▗▖ ▄▄▄  ▄   ▄        ■  ▐▌   ▗▞▀▚▖     ▄▄▄ ▄    ▐▌▗▞▀▚▖
 ▐▛▀▀▘█   █    ▗▖█   █ █   █     ▗▄▟▙▄▖▐▌   ▐▛▀▀▘    █    ▄    ▐▌▐▛▀▀▘
@@ -28,7 +29,7 @@ local headers = {
                        ▀▀▀        ▐▌                                 
   ]],
   simple = [[
-  NEOVIM
+  enjoy the ride
   ]],
 }
 
@@ -39,7 +40,7 @@ return {
     dashboard = {
       sections = {
         { section = "header", padding = 1 },
-        { text = { { headers.enjoy_the_ride, hl = "SnacksDashboardSubHeader", align = "center" } }, padding = 2 },
+        { text = { { headers.simple, hl = "SnacksDashboardSubHeader", align = "center" } }, padding = 2 },
         { section = "keys", gap = 1, padding = 1 },
         { section = "startup" },
       },
@@ -69,7 +70,7 @@ return {
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
       vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#9ECE6A", bold = true })
-      vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = "#7AA2F7", bold = true })
+      vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = "#7AA2F7", bold = false })
     end
     set_dashboard_header_hl()
     vim.api.nvim_create_autocmd("ColorScheme", {
