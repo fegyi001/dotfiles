@@ -1,6 +1,9 @@
 *.log
 *.sock
+sessions
+session-snapshots
 session.json
 session-history.json
 release-notes.json
 plugins.json
+herdr.sock.agent
