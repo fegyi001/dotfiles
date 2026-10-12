@@ -21,6 +21,8 @@ local headers = {
   ███          ██████████   ████████▀   ▀█████▀  █▀    ▀██████▀  █▀    ▀█   ███   █▀  
   ]],
   neovim_omarchy = [[
+Fegyi's                                                           
+
 ███▄▄▄▄      ▄████████  ▄██████▄   ▄█    █▄   ▄█    ▄▄▄▄███▄▄▄▄   
 ███▀▀▀██▄   ███    ███ ███    ███ ███    ███ ███  ▄██▀▀▀███▀▀▀██▄ 
 ███   ███   ███    █▀  ███    ███ ███    ███ ███▌ ███   ███   ███ 
@@ -49,9 +51,6 @@ local headers = {
            ▀▄▄▞▘      ▄   █       ▐▌  ▐▌ ▐▌              █ ▝▚▄▟▌     
                        ▀▀▀        ▐▌                                 
   ]],
-  intro = [[
-  Fegyi's
-  ]],
   simple = [[
   enjoy • the • ride
   ]],
@@ -63,7 +62,6 @@ return {
   opts = {
     dashboard = {
       sections = {
-        { text = { { headers.intro, hl = "SnacksDashboardIntroHeader", align = "left" } }, padding = 0 },
         { section = "header", padding = 1 },
         { text = { { headers.simple, hl = "SnacksDashboardSubHeader", align = "center" } }, padding = 0 },
         { section = "keys", gap = 1, padding = 1 },
@@ -94,8 +92,7 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
-      vim.api.nvim_set_hl(0, "SnacksDashboardIntroHeader", { fg = colors.green, bold = false })
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green, bold = true })
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green, bold = false })
       vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = colors.blue_dark, bold = false })
     end
     set_dashboard_header_hl()
