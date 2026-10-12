@@ -30,28 +30,6 @@ local headers = {
 ███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███ 
  ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀  
   ]],
-  lazyvim_omarchy = [[
- ▄█          ▄████████  ▄███████▄  ▄██   ▄    ▄█    █▄   ▄█    ▄▄▄▄███▄▄▄▄   
-███         ███    ███ ██▀     ▄██ ███   ██▄ ███    ███ ███  ▄██▀▀▀███▀▀▀██▄ 
-███         ███    ███       ▄███▀ ███▄▄▄███ ███    ███ ███▌ ███   ███   ███ 
-███         ███    ███  ▀█▀▄███▀▄▄ ▀▀▀▀▀▀███ ███    ███ ███▌ ███   ███   ███ 
-███       ▀███████████   ▄███▀   ▀ ▄██   ███ ███    ███ ███▌ ███   ███   ███ 
-███         ███    ███ ▄███▀       ███   ███ ███    ███ ███  ███   ███   ███ 
-███▌    ▄   ███    ███ ███▄     ▄█ ███   ███ ███    ███ ███  ███   ███   ███ 
-█████▄▄██   ███    █▀   ▀████████▀  ▀█████▀   ▀██████▀  █▀    ▀█   ███   █▀  
-▀                                                                            
-  ]],
-  -- https://patorjk.com/software/taag/#p=display&f=DiamFont&t=enjoy+the+ride%0A&x=none&v=4&h=4&w=80&we=false
-  enjoy_the_ride = [[
-▗▞▀▚▖▄▄▄▄     ▗▖ ▄▄▄  ▄   ▄        ■  ▐▌   ▗▞▀▚▖     ▄▄▄ ▄    ▐▌▗▞▀▚▖
-▐▛▀▀▘█   █    ▗▖█   █ █   █     ▗▄▟▙▄▖▐▌   ▐▛▀▀▘    █    ▄    ▐▌▐▛▀▀▘
-▝▚▄▄▖█   █ ▄  ▐▌▀▄▄▄▀  ▀▀▀█       ▐▌  ▐▛▀▚▖▝▚▄▄▖    █    █ ▗▞▀▜▌▝▚▄▄▖
-           ▀▄▄▞▘      ▄   █       ▐▌  ▐▌ ▐▌              █ ▝▚▄▟▌     
-                       ▀▀▀        ▐▌                                 
-  ]],
-  intro = [[
-Fegyi's                                                           
-  ]],
   simple = [[
   enjoy • the • ride
   ]],
@@ -63,7 +41,6 @@ return {
   opts = {
     dashboard = {
       sections = {
-        { text = { { headers.intro, hl = "SnacksDashboardSupHeader", align = "center" } }, padding = 0 },
         { section = "header", padding = 1 },
         { text = { { headers.simple, hl = "SnacksDashboardSubHeader", align = "center" } }, padding = 0 },
         { section = "keys", gap = 1, padding = 1 },
@@ -94,7 +71,6 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
-      vim.api.nvim_set_hl(0, "SnacksDashboardSupHeader", { fg = colors.blue_dark, bold = false })
       vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green, bold = false })
       vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = colors.blue_dark, bold = false })
     end
