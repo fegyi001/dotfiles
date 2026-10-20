@@ -6,7 +6,7 @@
 # chmod +x ~/dotfiles/install/install-npm-packages.sh && \
 # chmod +x ~/dotfiles/install/install-herdr-plugins.sh
 
-setupecho "Installing packages"
+echo "Installing packages"
 sudo pacman -S stow keyd zsh yazi fnm which tokei rust lazygit cowsay || exit 1
 cd ~/dotfiles || exit 1
 
