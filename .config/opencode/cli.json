@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "tokyonight"
+  },
+  "scroll": {
+    "speed": 3,
+    "acceleration": true
+  },
+  "diffs": {},
+  "mouse": true
+}
