@@ -1,6 +1,10 @@
 local colors = {
+  green1 = "#DAECC6",
+  green2 = "#BBDD97",
+  green3 = "#9ECE6A",
+  green4 = "#678549",
+  green5 = "#39482E",
   red = "#F7768E",
-  green = "#9ECE6A",
   orange = "#E0AF68",
   blue_dark = "#7AA2F7",
   purple = "#BB9AF7",
@@ -8,8 +12,8 @@ local colors = {
   grey = "#24283B",
 }
 
--- local header_colors = { "#DAECC6", "#BBDD97", "#9ECE6A", "#678549", "#39482E" }
-local header_colors = { colors.green, colors.green, colors.green, colors.green, colors.green }
+-- local header_colors = { colors.green1, colors.green2, colors.green3, colors.green4, colors.green5 }
+local header_colors = { colors.green3, colors.green3, colors.green3, colors.green3, colors.green3 }
 local header_bands = { 1, 1, 2, 3, 3, 4, 5, 5 }
 
 local headers = {
@@ -85,7 +89,7 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green, bold = false })
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green3, bold = false })
       for band, color in ipairs(header_colors) do
         vim.api.nvim_set_hl(0, "SnacksDashboardHeader" .. band, { fg = color, bold = false })
       end
