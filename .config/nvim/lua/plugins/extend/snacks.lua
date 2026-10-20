@@ -8,7 +8,8 @@ local colors = {
   grey = "#24283B",
 }
 
-local header_colors = { "#DAECC6", "#BBDD97", "#9ECE6A", "#678549", "#39482E" }
+-- local header_colors = { "#DAECC6", "#BBDD97", "#9ECE6A", "#678549", "#39482E" }
+local header_colors = { colors.green, colors.green, colors.green, colors.green, colors.green }
 local header_bands = { 1, 1, 2, 3, 3, 4, 5, 5 }
 
 local headers = {
