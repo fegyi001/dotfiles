@@ -28,7 +28,7 @@ stow .
 hyprctl reload
 
 echo "Setting up zsh as default shell"
-sudo chsh -s "$(which zsh)"
+chsh -s "$(which zsh)"
 
 echo "Installing npm packages"
 cd ~/dotfiles/install || exit 1
