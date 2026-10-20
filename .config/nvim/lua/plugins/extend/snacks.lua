@@ -8,6 +8,9 @@ local colors = {
   grey = "#24283B",
 }
 
+local header_colors = { "#DAECC6", "#BBDD97", "#9ECE6A", "#678549", "#39482E" }
+local header_bands = { 1, 1, 2, 3, 3, 4, 5, 5 }
+
 local headers = {
   -- https://patorjk.com/software/taag/#p=display&f=Delta+Corps+Priest+1&t=fegyivim%0A&x=none&v=4&h=4&w=80&we=false
   fegyivim_omarchy = [[
@@ -41,7 +44,17 @@ return {
   opts = {
     dashboard = {
       sections = {
-        { section = "header", padding = 1 },
+        function(self)
+          local lines = vim.split(self.opts.preset.header:gsub("\n[ \t]*$", ""), "\n", { plain = true })
+          local text = {}
+          for row, line in ipairs(lines) do
+            text[#text + 1] = {
+              line .. (row < #lines and "\n" or ""),
+              hl = "SnacksDashboardHeader" .. (header_bands[row] or 5),
+            }
+          end
+          return { text = text, align = "center", padding = 1 }
+        end,
         { text = { { headers.simple, hl = "SnacksDashboardSubHeader", align = "center" } }, padding = 0 },
         { section = "keys", gap = 1, padding = 1 },
         { section = "startup" },
@@ -72,6 +85,9 @@ return {
     require("snacks").setup(opts)
     local function set_dashboard_header_hl()
       vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.green, bold = false })
+      for band, color in ipairs(header_colors) do
+        vim.api.nvim_set_hl(0, "SnacksDashboardHeader" .. band, { fg = color, bold = false })
+      end
       vim.api.nvim_set_hl(0, "SnacksDashboardSubHeader", { fg = colors.blue_dark, bold = false })
     end
     set_dashboard_header_hl()
