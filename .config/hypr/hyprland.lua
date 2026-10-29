@@ -11,6 +11,11 @@ dofile((os.getenv("OMARCHY_PATH") or "/usr/share/omarchy") .. "/default/hypr/boo
 -- omarchy_preinstalled_bindings = false
 
 -- Load Omarchy defaults.
+-- Temporary Hyprland 0.57 compatibility fix; remove this override once
+-- Omarchy's qconsole module no longer uses on_created_empty.
+package.preload["default.hypr.qconsole"] = function()
+	return require("hypr.qconsole")
+end
 require("default.hypr.omarchy")
 
 -- Put your personal overrides in these files. They're loaded after Omarchy's
