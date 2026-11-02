@@ -8,5 +8,6 @@
     "acceleration": true
   },
   "diffs": {},
-  "mouse": true
+  "mouse": true,
+  "plugins": ["./herdr-opencode"]
 }
