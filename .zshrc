@@ -32,15 +32,14 @@ plugins=(
   fzf
 )
 
-alias zshconfig="nvim ~/.zshrc"
 alias s="source ~/.zshrc"
+alias e="exit"
 alias c="clear"
 alias u="brew update && brew upgrade && brew cleanup"
 alias n="nvim"
-alias e="exit"
 alias y="yarn"
 alias yy="yazi"
-# alias t="tmux a"
+alias t="tmux a"
 alias f="fastfetch"
 alias o="opencode"
 # alias th="tmux new -A -s HOME"
