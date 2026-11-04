@@ -1,0 +1,5 @@
+.zsh_history
+.zshenv
+.zprofile
+.zprofile.bak
+.zcompdump

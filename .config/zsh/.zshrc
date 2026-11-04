@@ -32,7 +32,7 @@ plugins=(
   fzf
 )
 
-alias s="source ~/.zshrc"
+alias s="source ~/dotfiles/.config/zsh/.zshrc"
 alias e="exit"
 alias c="clear"
 alias u="brew update && brew upgrade && brew cleanup"
