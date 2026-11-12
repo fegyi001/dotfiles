@@ -16,8 +16,11 @@ return {
     { "<C-l>", "<Cmd><C-U>TmuxNavigateRight<CR>" },
     { "<C-\\>", "<Cmd><C-U>TmuxNavigatePrevious<CR>" },
   },
-  -- Disable the plugin when running inside a Herdr pane
+  -- Only own navigation inside tmux, not Rex or Herdr.
   cond = function()
-    return vim.env.HERDR_PANE_ID == nil
+    return vim.env.TMUX ~= nil
+      and vim.env.TMUX ~= ""
+      and (vim.env.REX_SESSION == nil or vim.env.REX_SESSION == "")
+      and vim.env.HERDR_PANE_ID == nil
   end,
 }
