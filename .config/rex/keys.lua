@@ -1,4 +1,3 @@
--- Tmux-style prefix: Ctrl+A
 rex.bind("ctrl+a>c", "new_indexed_tab")
 rex.bind("ctrl+a>,", "client.tab.rename")
 rex.bind("ctrl+a>n", "client.tab.next")
@@ -10,7 +9,7 @@ for i = 1, 9 do
 	rex.bind("ctrl+a>" .. i, "client.tab.goto", { index = i })
 end
 
--- Workspaces (Rex sessions)
+-- Workspaces
 rex.bind("ctrl+a>shift+n", "session.new")
 rex.bind("ctrl+a>space", "session.switch")
 rex.bind("ctrl+a>shift+l", "session.previous")

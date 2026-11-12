@@ -36,6 +36,11 @@ rex.action({
         options = { cwd = cwd },
       }),
     }))
+
+    -- Let Rex deliver the new window to the GUI before asking it to select it.
+    -- Work around the new_window/session.select race without a persistent helper.
+    local yielded, err = rex.exec({ "sleep", "0" }, { timeout = 1 })
+    assert(yielded and yielded.ok, err or "Could not yield before selecting the new tab")
     rex.client.queue("session.select", { session_id = ctx.session_id, window_id = window.window_id })
   end,
 })
