@@ -33,6 +33,7 @@ plugins=(
 )
 
 alias s="source ~/dotfiles/.config/zsh/.zshrc"
+alias r="rex config reload"
 alias e="exit"
 alias c="clear"
 alias u="brew update && brew upgrade && brew cleanup"
