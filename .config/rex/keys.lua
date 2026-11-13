@@ -3,6 +3,7 @@ rex.bind("ctrl+a>,", "client.tab.rename")
 rex.bind("ctrl+a>n", "client.tab.next")
 rex.bind("ctrl+a>p", "client.tab.previous")
 rex.bind("ctrl+a>x", "client.tab.close")
+rex.bind("ctrl+a>w", "client.window.new")
 
 -- Select tabs 1 through 9
 for i = 1, 9 do
