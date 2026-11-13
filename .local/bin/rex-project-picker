@@ -1,0 +1,256 @@
+#!/usr/bin/env python3
+"""Find local project directories and open their Rex sessions."""
+
+import argparse
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+
+def load_config(path: Path) -> dict:
+    config = json.loads(path.read_text())
+    if not isinstance(config, dict) or not isinstance(config.get("roots"), list) or not config["roots"]:
+        raise ValueError("projects.json must contain a nonempty roots list")
+    exclude = config.get("exclude", ["node_modules", "vendor", "__pycache__"])
+    if not isinstance(exclude, list) or any(not isinstance(name, str) or not name for name in exclude):
+        raise ValueError("exclude must be a list of directory names")
+    roots = []
+    for root in config["roots"]:
+        if not isinstance(root, dict) or not isinstance(root.get("path"), str) or not root["path"]:
+            raise ValueError("each root needs a nonempty path")
+        if type(root.get("depth")) is not int or root["depth"] < 1:
+            raise ValueError("each root needs a positive integer depth")
+        expanded = Path(root["path"]).expanduser()
+        if not expanded.is_absolute():
+            raise ValueError("root paths must be absolute or start with ~/")
+        try:
+            canonical = expanded.resolve()
+        except (OSError, RuntimeError) as error:
+            print(f"Warning: skipping unusable root {str(expanded)!r}: {error}", file=sys.stderr)
+            continue
+        roots.append({"path": str(canonical), "depth": root["depth"]})
+    return {"roots": roots, "exclude": exclude}
+
+
+def discover(config: dict) -> list[str]:
+    found = set()
+    excluded = set(config["exclude"])
+    for root in config["roots"]:
+        base = Path(root["path"])
+        if not base.is_dir():
+            print(f"Warning: skipping missing root {str(base)!r}", file=sys.stderr)
+            continue
+        pending = [(base, 0)]
+        while pending:
+            directory, depth = pending.pop()
+            try:
+                with os.scandir(directory) as entries:
+                    for entry in entries:
+                        if entry.name.startswith(".") or entry.name in excluded or not entry.is_dir(follow_symlinks=False):
+                            continue
+                        path = Path(entry.path).resolve()
+                        found.add(str(path))
+                        if depth + 1 < root["depth"]:
+                            pending.append((path, depth + 1))
+            except OSError as error:
+                print(f"Warning: cannot read {str(directory)!r}: {error}", file=sys.stderr)
+    return sorted(found)
+
+
+def pick(paths: list[str]) -> str | None:
+    if not paths:
+        print("No project directories found. Check your Rex projects.json roots.", file=sys.stderr)
+        return None
+    env = {key: value for key, value in os.environ.items() if not key.startswith("FZF_")}
+    result = subprocess.run(
+        ["fzf", "--read0", "--print0", "--no-multi", "--layout=reverse",
+         "--prompt=Project> ", "--border", "--header=Enter: open workspace | Esc: cancel"],
+        input=os.fsencode("\0".join(paths) + "\0"), stdout=subprocess.PIPE, env=env,
+    )
+    if result.returncode in (1, 130):
+        return None
+    if result.returncode:
+        raise RuntimeError(f"fzf failed with exit status {result.returncode}")
+    if not result.stdout:
+        return None
+    selected = os.fsdecode(result.stdout.removesuffix(b"\0"))
+    if selected not in paths:
+        raise RuntimeError("fzf returned an unexpected selection")
+    return selected
+
+
+def rex(*args):
+    # This picker manages local folders only, even when called from a remote context.
+    env = dict(os.environ)
+    env.pop("REX_SERVER", None)
+    try:
+        result = subprocess.run(["rex", *args], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                text=True, timeout=30, env=env)
+    except subprocess.TimeoutExpired as error:
+        raise RuntimeError("Rex command timed out; inspect sessions before retrying creation") from error
+    if result.returncode:
+        raise RuntimeError(result.stderr.strip() or f"Rex exited with status {result.returncode}")
+    try:
+        return json.loads(result.stdout) if result.stdout.strip() else None
+    except ValueError as error:
+        raise RuntimeError("Rex returned invalid JSON; inspect sessions before retrying creation") from error
+
+
+def resolve_client(client: str | None) -> str:
+    requested = client or os.environ.get("REX_CLIENT")
+    apps = [app for app in rex("client", "ls", "--json").get("clients") or []
+            if app.get("info", {}).get("kind") == "app"
+            and app.get("connection_state") == "connected"]
+    if requested:
+        matches = [app for app in apps if app["client_id"] == requested]
+    else:
+        matches = apps
+    if len(matches) != 1:
+        raise RuntimeError("Choose exactly one connected Rex app with --client CLIENT_ID (rex client ls)")
+    return matches[0]["client_id"]
+
+
+def read_state(path: Path) -> dict:
+    state = json.loads(path.read_text()) if path.exists() else {}
+    if not isinstance(state, dict) or any(
+        not isinstance(mapping, dict) or any(not isinstance(sid, str) or not sid for sid in mapping.values())
+        for mapping in state.values()
+    ):
+        raise ValueError(f"Invalid project-session registry: {path}")
+    return state
+
+
+def save_state(path: Path, state: dict):
+    # Replace atomically while holding the separate lock file, never the replaced inode.
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", dir=path.parent, delete=False) as handle:
+            temporary = Path(handle.name)
+            json.dump(state, handle, indent=2)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        temporary.replace(path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def matching_sessions(path: str, sessions: list[dict], host: str, picker_block: str | None) -> list[str]:
+    matches = []
+    for session in sessions:
+        sid = session["session_id"]
+        view = rex("session", "inspect", sid, "--json")
+        matched = False
+        for window in view.get("windows") or []:
+            for layer in window.get("layers") or []:
+                for block in layer.get("blocks") or []:
+                    if (block.get("block_id") == picker_block
+                            or block.get("creator_name") != "com.superlogical.terminal"
+                            or not host or block.get("host_id") != host):
+                        continue
+                    process = rex("block", "call", "-s", sid, "-b", block["block_id"], "process")
+                    cwd = (process.get("foreground") or {}).get("cwd")
+                    if not cwd:
+                        cwd = next((p["cwd"] for p in process.get("ancestors") or [] if p.get("cwd")), None)
+                    if cwd and str(Path(cwd).resolve()) == path:
+                        matched = True
+        if matched:
+            matches.append(sid)
+    return matches
+
+
+def project_label(path: str, sessions: list[dict]) -> str:
+    base = "".join(c if c.isprintable() else " " for c in Path(path).name).strip() or "project"
+    # Rex treats leading hyphens as CLI options, and reserves -- for the shell command.
+    if base.startswith("-"):
+        base = "project-" + base
+    base = base.encode("utf-8")[:100].decode("utf-8", errors="ignore")
+    occupied = {session["label"] for session in sessions}
+    if base not in occupied:
+        return base
+    suffix = hashlib.sha256(os.fsencode(path)).hexdigest()[:8]
+    label = f"{base}-{suffix}"
+    number = 2
+    while label in occupied:
+        label = f"{base}-{suffix}-{number}"
+        number += 1
+    return label
+
+
+def open_project(path: str, client: str | None, *, picker_block: str | None = None) -> str:
+    directory = Path(path).expanduser().resolve()
+    if not directory.is_dir():
+        raise ValueError(f"Project directory no longer exists: {str(directory)!r}")
+    path = str(directory)
+    client = resolve_client(client)
+    status = rex("api", "call", "server.status", "{}")
+    endpoint = next((listener["endpoint"] for listener in status.get("listeners") or []
+                     if listener.get("primary")), status["instance_id"])
+    scope = f"{status.get('host_id', '')}|{endpoint}"
+    state_home = Path(os.environ.get("XDG_STATE_HOME") or Path.home() / ".local/state")
+    state_file = state_home / "rex/project-sessions.json"
+    state_file.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    with state_file.with_suffix(".lock").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        state = read_state(state_file)
+        mapping = state.setdefault(scope, {})
+        sessions = rex("ls", "--json").get("sessions") or []
+        sid = mapping.get(path)
+        if sid not in {session["session_id"] for session in sessions}:
+            matches = matching_sessions(path, sessions, status.get("host_id", ""), picker_block)
+            if len(matches) > 1:
+                raise RuntimeError("Multiple Rex sessions have terminals in this directory; select one manually")
+            if matches:
+                sid = matches[0]
+            else:
+                # Check again: a directory can disappear while the picker or lock waits.
+                if not directory.is_dir():
+                    raise ValueError(f"Project directory no longer exists: {path!r}")
+                created = rex("new", project_label(path, sessions), "-c", path,
+                              "--window", "Terminal", "--json")
+                sid = created["session_id"]
+            mapping[path] = sid
+            save_state(state_file, state)
+    # A refused switch leaves the durable association intact for a safe retry.
+    rex("-C", client, "do", "session.select", f"session_id={sid}")
+    return sid
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("directory", nargs="?", help="open a folder without showing fzf")
+    config_home = Path(os.environ.get("XDG_CONFIG_HOME") or Path.home() / ".config")
+    parser.add_argument("--config", type=Path, default=config_home / "rex/projects.json")
+    parser.add_argument("--client", help="full ID of the Rex app to switch")
+    parser.add_argument("--picker-tab", action="store_true", help=argparse.SUPPRESS)
+    args = parser.parse_args()
+    try:
+        path = args.directory
+        if path is None:
+            paths = discover(load_config(args.config))
+            if not paths:
+                raise RuntimeError("No project directories found. Check your Rex projects.json roots.")
+            path = pick(paths)
+        if path is not None:
+            open_project(path, args.client, picker_block=os.environ.get("REX_BLOCK") if args.picker_tab else None)
+        return 0
+    except (OSError, ValueError, RuntimeError) as error:
+        print(f"rex-project-picker: {error}", file=sys.stderr)
+        if args.picker_tab:
+            try:
+                input("Press Enter to close the picker… ")
+            except (EOFError, KeyboardInterrupt):
+                pass
+        return 1
+    except KeyboardInterrupt:
+        return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

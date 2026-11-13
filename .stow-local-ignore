@@ -26,4 +26,6 @@ _darcs
 
 install
 voyager
+^/tests
+__pycache__
 .DS_Store
