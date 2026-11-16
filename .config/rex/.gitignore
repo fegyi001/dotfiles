@@ -1,3 +1,1 @@
-session-history.json
-session-history.lock
-.session-history-*
+state/

@@ -7,7 +7,7 @@ local function command(ctx, operation)
   end
   return {
     "/bin/sh",
-    config .. "/rex/session-picker.sh",
+    config .. "/rex/scripts/session-picker.sh",
     operation,
     "--client",
     ctx.client_id,

@@ -1,5 +1,34 @@
 # Session switching
 
+## Layout
+
+```text
+rex/
+├── init.lua             # Rex entrypoint; loads lua/ modules
+├── projects.json        # Editable project roots and exclusions
+├── README.md
+├── lua/                 # Keybindings and custom Rex actions
+│   ├── keys.lua
+│   ├── navigation.lua
+│   ├── projects.lua
+│   ├── sessions.lua
+│   └── tabs.lua
+├── scripts/             # Node.js helpers and shell launchers
+│   ├── node.sh
+│   ├── project-picker.mjs
+│   ├── rex-runtime.mjs
+│   ├── session-picker.mjs
+│   └── session-picker.sh
+└── state/               # Git-ignored runtime data
+    ├── session-history.json
+    └── session-history.lock
+```
+
+The root also contains Git/editor settings. Reload Rex after changing Lua module
+locations; the public `rex-project-picker` command remains at the same path.
+
+## Shortcuts and requirements
+
 - **Ctrl+A, Space** opens an fzf session picker.
 - **Ctrl+A, Shift+L** toggles the last two sessions selected through the session
   picker or project picker (**Ctrl+A, F**).
@@ -11,7 +40,7 @@ twice: it should return to A, then B.
 Both pickers use Node.js 20 or newer, `fzf`, `rex`, and macOS's built-in
 `/usr/bin/lockf`. No Python, npm packages, or build step are needed.
 
-The launchers share `node.sh`, which checks PATH for Node, then stable fnm default
+The launchers share `scripts/node.sh`, which checks PATH for Node, then stable fnm default
 aliases and standard local/Homebrew locations. The shared Node runtime checks Rex's managed
 macOS installation and local/Homebrew locations for Rex/fzf, since app-launched
 actions may have a minimal PATH. It does not source shell startup files.
@@ -23,8 +52,10 @@ picker errors remain in their tab until Enter is pressed.
 
 ## History and limits
 
-`session-picker.mjs` stores session IDs (not names) in `session-history.json`
-beside this configuration, or under `$XDG_CONFIG_HOME/rex` when set. History
+`scripts/session-picker.mjs` stores session IDs (not names) in
+`state/session-history.json` under this configuration directory, or under
+`$XDG_CONFIG_HOME/rex/state` when set. Existing root-level history was moved there
+without changing its contents. History
 is separated by host and client ID, written atomically under a file lock,
 and ignored by Git. Existing history from the Python implementation is preserved
 without conversion. Kernel locking uses the same lock file and automatically
@@ -50,7 +81,7 @@ picker does not record a switch.
 
 ## Project directories
 
-**Ctrl+A, F** uses `project-picker.mjs` through the existing
+**Ctrl+A, F** uses `scripts/project-picker.mjs` through the existing
 `~/.local/bin/rex-project-picker` command. It reads `projects.json` beside this
 configuration (or pass `--config FILE` when using the command directly).
 Roots accept absolute paths or `~/...`; their depth limits traversal.

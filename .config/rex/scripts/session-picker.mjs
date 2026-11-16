@@ -48,7 +48,7 @@ function readHistory(path) {
 export function switchSession(client, current, target) {
   const path = join(
     process.env.XDG_CONFIG_HOME || join(homedir(), ".config"),
-    "rex/session-history.json",
+    "rex/state/session-history.json",
   );
   return withJsonLock(path, target === undefined ? 0 : 20, () => {
     const apps = rex("client", "ls", "--json").clients || [];

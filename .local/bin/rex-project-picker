@@ -3,4 +3,4 @@
 set -eu
 
 config="${XDG_CONFIG_HOME:-$HOME/.config}/rex"
-exec /bin/sh "$config/node.sh" "$config/project-picker.mjs" "$@"
+exec /bin/sh "$config/scripts/node.sh" "$config/scripts/project-picker.mjs" "$@"
