@@ -67,20 +67,37 @@ export function switchSession(client, current, target) {
     const status = rex("api", "call", "server.status", "{}");
     const scope = status.host_id || status.instance_id;
     const state = readHistory(path);
-    const entry = state[scope]?.[client];
-    if (target === undefined) {
-      if (!entry)
-        throw new Error(
-          "No previous session yet; first switch with the session or project picker",
-        );
-      // The invoking session is authoritative after an untracked native switch.
-      target = entry.current === current ? entry.previous : entry.current;
-    }
     const available = new Set(
       (rex("ls", "--json").sessions || []).map((session) => session.session_id),
     );
     if (!available.has(current))
       throw new Error("The source session no longer exists; reopen the picker");
+    const entry = state[scope]?.shared;
+    if (target === undefined) {
+      if (entry) {
+        // The invoking session is authoritative after an untracked native switch.
+        target = entry.current === current ? entry.previous : entry.current;
+      } else {
+        // Old client IDs change on reconnect. Recover only when live legacy
+        // pairs containing this session agree; JSON order is not recency.
+        const candidates = new Set();
+        for (const legacy of Object.values(state[scope] || {})) {
+          const other = legacy.current === current
+            ? legacy.previous
+            : legacy.previous === current ? legacy.current : undefined;
+          if (other !== current && available.has(other)) candidates.add(other);
+        }
+        if (candidates.size > 1)
+          throw new Error(
+            "Legacy session history is ambiguous; choose a session with the session or project picker",
+          );
+        [target] = candidates;
+      }
+      if (target === undefined)
+        throw new Error(
+          "No previous session yet; first switch with the session or project picker",
+        );
+    }
     if (!available.has(target))
       throw new Error(
         "The previous or selected session was closed; choose another session with the picker",
@@ -88,7 +105,7 @@ export function switchSession(client, current, target) {
     if (target === current) return;
     rex("-C", client, "do", "session.select", `session_id=${target}`);
     state[scope] ??= {};
-    state[scope][client] = { current: target, previous: current };
+    state[scope].shared = { current: target, previous: current };
     try {
       saveJson(path, state);
     } catch (error) {

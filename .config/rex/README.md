@@ -55,12 +55,20 @@ picker errors remain in their tab until Enter is pressed.
 `scripts/session-picker.mjs` stores session IDs (not names) in
 `state/session-history.json` under this configuration directory, or under
 `$XDG_CONFIG_HOME/rex/state` when set. Existing root-level history was moved there
-without changing its contents. History
-is separated by host and client ID, written atomically under a file lock,
-and ignored by Git. Existing history from the Python implementation is preserved
-without conversion. Kernel locking uses the same lock file and automatically
-releases when the helper exits. Renaming a session is safe. A new client ID, such as after
-restarting the app, starts with no history: switch using a picker to seed it.
+without changing its contents. History is separated by host, written atomically
+under a file lock, and ignored by Git. All apps connected to the same host share
+one last-used pair, so restarting the app or changing its connection ID does not
+reset history. The current client ID is used only to address the connected app.
+Kernel locking uses the same lock file and automatically releases when the helper
+exits. Renaming a session is safe.
+
+New pairs are saved as the host's `shared` entry. Older per-client entries,
+including Python-created history, are retained. Before a shared entry exists,
+the toggle recovers an old pair only when it contains the invoking session and
+all eligible pairs agree on one still-existing destination. Conflicting histories
+require a picker selection rather than guessing which is newest. Recovery is
+saved only after a successful switch; no standalone migration is needed. Once a
+shared entry exists it is authoritative, even if its remembered session closes.
 
 Cancelling the picker or selecting the current session leaves history alone.
 If the remembered session was closed, or no history exists yet, the toggle
