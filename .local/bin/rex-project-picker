@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Find local project directories and open their Rex sessions."""
 
+from __future__ import annotations
+
 import argparse
 import fcntl
 import hashlib
@@ -184,6 +186,9 @@ def project_label(path: str, sessions: list[dict]) -> str:
 
 
 def open_project(path: str, client: str | None, *, picker_block: str | None = None) -> str:
+    current = os.environ.get("REX_SESSION")
+    if not current:
+        raise RuntimeError("Open the project picker from an existing Rex session (REX_SESSION is not set)")
     directory = Path(path).expanduser().resolve()
     if not directory.is_dir():
         raise ValueError(f"Project directory no longer exists: {str(directory)!r}")
@@ -218,7 +223,17 @@ def open_project(path: str, client: str | None, *, picker_block: str | None = No
             mapping[path] = sid
             save_state(state_file, state)
     # A refused switch leaves the durable association intact for a safe retry.
-    rex("-C", client, "do", "session.select", f"session_id={sid}")
+    config_home = Path(os.environ.get("XDG_CONFIG_HOME") or Path.home() / ".config")
+    try:
+        result = subprocess.run(
+            [sys.executable, str(config_home / "rex/session-picker.py"), "select", "--client", client,
+             "--current", current, "--session", sid],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=60,
+        )
+    except subprocess.TimeoutExpired as error:
+        raise RuntimeError("Session switch timed out; inspect the Rex app before retrying") from error
+    if result.returncode:
+        raise RuntimeError(result.stderr.strip() or f"Session switch exited with status {result.returncode}")
     return sid
 
 

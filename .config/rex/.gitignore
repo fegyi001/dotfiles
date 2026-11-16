@@ -1,0 +1,4 @@
+__pycache__/
+session-history.json
+session-history.lock
+.session-history-*

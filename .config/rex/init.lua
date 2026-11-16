@@ -1,4 +1,5 @@
 require("tabs")
 require("projects")
+require("sessions")
 require("keys")
 require("navigation")

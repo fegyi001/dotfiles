@@ -1,9 +1,11 @@
 .DS_Store
 *.bak
 *.bak.*
-__pycache__/
 
 .local/share
 .local/state
 
 docs
+tests
+
+__pycache__/
