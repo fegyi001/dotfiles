@@ -6,8 +6,8 @@ local function command(ctx, operation)
     config = assert(os.getenv("HOME"), "HOME is not set") .. "/.config"
   end
   return {
-    "python3",
-    config .. "/rex/session-picker.py",
+    "/bin/sh",
+    config .. "/rex/session-picker.sh",
     operation,
     "--client",
     ctx.client_id,

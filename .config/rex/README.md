@@ -8,10 +8,13 @@ Reload through Rex's **Reload Config** command, or run `rex config reload`.
 Then switch from session A to B with either picker. Press **Ctrl+A, Shift+L**
 twice: it should return to A, then B.
 
-The pickers need Python 3.9 or newer (`python3`), `fzf`, and `rex` on PATH.
-The system Python included with the macOS command-line tools is supported.
-The helper checks PATH first, then Rex's managed macOS installation and standard
-local/Homebrew executable locations, since app-launched actions may have a minimal PATH.
+Both pickers use Node.js 20 or newer, `fzf`, `rex`, and macOS's built-in
+`/usr/bin/lockf`. No Python, npm packages, or build step are needed.
+
+The launchers share `node.sh`, which checks PATH for Node, then stable fnm default
+aliases and standard local/Homebrew locations. The shared Node runtime checks Rex's managed
+macOS installation and local/Homebrew locations for Rex/fzf, since app-launched
+actions may have a minimal PATH. It does not source shell startup files.
 Each session row includes its ID so duplicate labels can be distinguished.
 Session selection uses
 Rex Remote Control, which must be enabled in the app (the project picker
@@ -20,10 +23,12 @@ picker errors remain in their tab until Enter is pressed.
 
 ## History and limits
 
-`session-picker.py` stores session IDs (not names) in `session-history.json`
+`session-picker.mjs` stores session IDs (not names) in `session-history.json`
 beside this configuration, or under `$XDG_CONFIG_HOME/rex` when set. History
 is separated by host and client ID, written atomically under a file lock,
-and ignored by Git. Renaming a session is safe. A new client ID, such as after
+and ignored by Git. Existing history from the Python implementation is preserved
+without conversion. Kernel locking uses the same lock file and automatically
+releases when the helper exits. Renaming a session is safe. A new client ID, such as after
 restarting the app, starts with no history: switch using a picker to seed it.
 
 Cancelling the picker or selecting the current session leaves history alone.
@@ -43,14 +48,40 @@ multiple server instances sharing one configuration directory are not supported.
 No background process is needed, and merely opening or cancelling either
 picker does not record a switch.
 
+## Project directories
+
+**Ctrl+A, F** uses `project-picker.mjs` through the existing
+`~/.local/bin/rex-project-picker` command. It reads `projects.json` beside this
+configuration (or pass `--config FILE` when using the command directly).
+Roots accept absolute paths or `~/...`; their depth limits traversal.
+Hidden directories, excluded directory names, files, and directory symlinks are
+not offered. Overlapping roots are canonicalized and deduplicated.
+
+The picker reuses the project/session associations in
+`$XDG_STATE_HOME/rex/project-sessions.json` (default `~/.local/state/rex`).
+Existing Python-created associations are read without conversion. If an association
+is stale or missing, local terminal working directories are checked before a new
+session is created; ambiguous matches require manual selection. Creation and
+registry updates are locked to avoid duplicate sessions during concurrent opens.
+Project opens wait up to 20 seconds for the registry lock rather than wait indefinitely.
+An association survives a refused switch, so retrying does not duplicate the session.
+
+To open a directory directly:
+
+```sh
+rex-project-picker ~/code/my-project
+```
+
 ## Tests
 
 From the dotfiles root, run:
 
 ```sh
-python3 -m unittest discover -s tests -v
+node --test tests/*.test.mjs
 rex config check .config/rex/init.lua
 ```
 
-The suite uses temporary history files, fake external Rex/fzf responses, and a
-Lua action harness (requires `lua`). It does not change live sessions.
+The Node suites run the real pickers and launchers against fake Rex/fzf executables,
+temporary project trees, and temporary state files, including real kernel-lock
+contention and GUI PATH checks. A Lua action harness requires `lua` for the
+configuration integration test. Tests do not create or switch live sessions.
