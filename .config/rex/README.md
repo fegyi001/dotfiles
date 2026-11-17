@@ -32,10 +32,11 @@ locations; the public `rex-project-picker` command remains at the same path.
 
 - **Ctrl+A, Space** opens an fzf session picker in a focused floating pane over
   the invoking tab, centered at 70% of its width and 60% of its height. It creates
-  no temporary tab. The current session is excluded; other sessions are
-  alphabetical, ignoring case. The left half lists sessions; the right half
+  no temporary tab. The current session is excluded; the last-used destination
+  comes first, marked `(last used)`, followed by other sessions alphabetically,
+  ignoring case. The left half lists sessions; the right half
   previews a terminal text snapshot. Typing ranks matches by fuzzy relevance;
-  clearing the query restores alphabetical order.
+  clearing the query restores last-used-first order.
   Esc cancels and closes the pane; selecting a session switches and closes it.
 - **Ctrl+A, F** opens the project picker in the same centered, focused 70% × 60%
   floating pane. Esc cancels; opening a project closes the pane after creating
@@ -92,6 +93,14 @@ Actual UI responsiveness and preview cancellation need manual confirmation in
 the app; regression tests use fake terminal data and installed fzf.
 
 ## History and limits
+
+The picker's first item uses the same remembered destination as the last-used
+toggle. If that target is missing/closed, history is missing/unreadable/ambiguous,
+or the optional host-status lookup fails, the list stays alphabetical. Opening
+the picker only reads an atomic history snapshot without locking or rewriting it.
+When nonempty history exists, ordering adds at most one host-status request with
+a 500 ms timeout; no ordering-status request is made without history. Switch-time
+validation is still strict: malformed history is never silently overwritten.
 
 `scripts/session-picker.mjs` stores session IDs (not names) in
 `state/session-history.json` under this configuration directory, or under

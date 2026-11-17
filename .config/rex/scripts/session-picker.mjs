@@ -16,6 +16,13 @@ import {
 
 const rex = (...args) => callRex(args);
 
+function historyPath() {
+  return join(
+    process.env.XDG_CONFIG_HOME || join(homedir(), ".config"),
+    "rex/state/session-history.json",
+  );
+}
+
 function readHistory(path) {
   if (!existsSync(path)) return {};
   let state;
@@ -45,11 +52,48 @@ function readHistory(path) {
   return state;
 }
 
+function lastUsedSession(clients, current, available) {
+  const entry = clients?.shared;
+  // The invoking session is authoritative after an untracked native switch.
+  if (entry) return entry.current === current ? entry.previous : entry.current;
+  // Old client IDs change on reconnect. Recover only when live legacy pairs
+  // containing this session agree; JSON order is not recency.
+  const candidates = new Set();
+  for (const legacy of Object.values(clients || {})) {
+    const other =
+      legacy.current === current
+        ? legacy.previous
+        : legacy.previous === current
+          ? legacy.current
+          : undefined;
+    if (other !== current && available.has(other)) candidates.add(other);
+  }
+  if (candidates.size > 1)
+    throw new Error(
+      "Legacy session history is ambiguous; choose a session with the session or project picker",
+    );
+  return candidates.values().next().value;
+}
+
+function pickerLastUsed(current, available) {
+  try {
+    const state = readHistory(historyPath());
+    if (!Object.values(state).some((clients) => Object.keys(clients).length > 0)) return;
+    // Ordering is only a hint: do not make a slow/unavailable status endpoint
+    // block the picker for the normal switching request's ten-second timeout.
+    const status = callRex(["api", "call", "server.status", "{}"], 500);
+    const scope = status?.host_id || status?.instance_id;
+    if (typeof scope !== "string" || scope === "") return;
+    const target = lastUsedSession(state[scope], current, available);
+    if (target !== current && available.has(target)) return target;
+  } catch {
+    // Leave the list usable when optional history is unreadable or ambiguous.
+    // Actual switching retains strict validation and never overwrites bad data.
+  }
+}
+
 export function switchSession(client, current, target) {
-  const path = join(
-    process.env.XDG_CONFIG_HOME || join(homedir(), ".config"),
-    "rex/state/session-history.json",
-  );
+  const path = historyPath();
   return withJsonLock(path, target === undefined ? 0 : 20, () => {
     const apps = rex("client", "ls", "--json").clients || [];
     if (
@@ -72,30 +116,8 @@ export function switchSession(client, current, target) {
     );
     if (!available.has(current))
       throw new Error("The source session no longer exists; reopen the picker");
-    const entry = state[scope]?.shared;
     if (target === undefined) {
-      if (entry) {
-        // The invoking session is authoritative after an untracked native switch.
-        target = entry.current === current ? entry.previous : entry.current;
-      } else {
-        // Old client IDs change on reconnect. Recover only when live legacy
-        // pairs containing this session agree; JSON order is not recency.
-        const candidates = new Set();
-        for (const legacy of Object.values(state[scope] || {})) {
-          const other =
-            legacy.current === current
-              ? legacy.previous
-              : legacy.previous === current
-                ? legacy.current
-                : undefined;
-          if (other !== current && available.has(other)) candidates.add(other);
-        }
-        if (candidates.size > 1)
-          throw new Error(
-            "Legacy session history is ambiguous; choose a session with the session or project picker",
-          );
-        [target] = candidates;
-      }
+      target = lastUsedSession(state[scope], current, available);
       if (target === undefined)
         throw new Error(
           "No previous session yet; first switch with the session or project picker",
@@ -126,13 +148,21 @@ function pick(sessions, current) {
     .map(({ session_id: id, label }) => ({
       id,
       label: label.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " "),
-    }))
-    .sort((a, b) =>
+    }));
+  if (ordered.length === 0) throw new Error("No other sessions available");
+  const lastUsed = pickerLastUsed(current, new Set(ordered.map(({ id }) => id)));
+  ordered.sort(
+    (a, b) =>
+      Number(b.id === lastUsed) - Number(a.id === lastUsed) ||
       collator.compare(a.label, b.label) ||
       (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
-    );
-  if (ordered.length === 0) throw new Error("No other sessions available");
-  const records = new Map(ordered.map(({ id, label }) => [`${id}\t${label}  [${id}]`, id]));
+  );
+  const records = new Map(
+    ordered.map(({ id, label }) => [
+      `${id}\t${label}${id === lastUsed ? " (last used)" : ""}  [${id}]`,
+      id,
+    ]),
+  );
   const quote = (text) => `'${text.replaceAll("'", "'\\''")}'`;
   const worker = fileURLToPath(new URL("./session-preview.mjs", import.meta.url));
   // fzf shell-quotes the selected first field. Never interpolate a label.
