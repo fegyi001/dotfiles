@@ -1,6 +1,0 @@
-#!/bin/sh
-# Keep the existing Stow-managed command while using Rex's embedded Lua.
-set -eu
-
-config="${XDG_CONFIG_HOME:-$HOME/.config}/rex"
-exec /bin/sh "$config/rex-navigation/scripts/navigation.sh" project "$@"

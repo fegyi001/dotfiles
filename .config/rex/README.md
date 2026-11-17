@@ -1,20 +1,29 @@
 # Rex configuration
 
-This directory owns keybindings, editable navigation settings, and host runtime
+This directory owns keybindings, inline navigation settings, and host runtime
 state. Reusable navigation code and its tests live in
-`/Users/padanyig/code/github/rex-navigation`, linked here as `rex-navigation/`.
-See [the plugin README](rex-navigation/README.md) for usage, architecture, limits,
+`/Users/padanyig/code/github/rex-navigator`, linked here as `rex-navigator/`.
+See [the plugin README](rex-navigator/README.md) for usage, architecture, limits,
 dependencies, and test commands.
 
-`init.lua` registers navigation actions with:
+`init.lua` registers navigation actions and supplies project settings directly:
 
 ```lua
-require("rex-navigation.lua.navigation").setup()
+require("rex-navigator").setup({
+  projects = {
+    roots = {
+      { path = "~/code", depth = 2 },
+      { path = "~/dotfiles", depth = 1 },
+      { path = "~/data", depth = 1 },
+    },
+    exclude = { "node_modules" },
+  },
+})
 ```
 
-Edit `navigation-config.lua` to change project roots, traversal depths, or excluded
-directory names. Both the keyboard actions and `rex-project-picker` read it;
-`projects.json` is no longer used. Keybindings remain in `lua/keys.lua`:
+Edit the `setup()` table in `init.lua` to change project roots, traversal depths,
+or excluded directory names. No `navigation-config.lua` or `projects.json` is
+needed. Use the plugin through the keybindings in `lua/keys.lua`:
 
 - Ctrl+A, Space: session picker.
 - Ctrl+A, F: project picker.
@@ -24,9 +33,10 @@ directory names. Both the keyboard actions and `rex-project-picker` read it;
 The separate `lua/navigation.lua` file integrates editor/terminal pane navigation;
 it is unrelated to the extracted session/project plugin and remains host-owned.
 
-The Stow-managed `~/.local/bin/rex-project-picker` forwards to the linked plugin.
-`scripts/picker.sh` is a compatibility bridge for actions loaded before extraction,
-so those actions continue to work until a manual reload. No reload is automatic.
+Reload Rex's configuration once to activate the inline project settings. Actions
+loaded before this change do not have those settings, and their project discovery
+would look for the now-removed `navigation-config.lua`. No reload is automatic.
+`scripts/picker.sh` preserves the old action entrypoint path, not its configuration.
 `scripts/session-picker.sh` preserves the original session CLI path as a forwarder.
 
 History stays under `$XDG_CONFIG_HOME/rex/state/`; project associations stay under
