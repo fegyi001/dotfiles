@@ -38,6 +38,7 @@ cmake
 coreutils
 cowsay
 cryptography
+curl
 dav1d
 devcontainer
 diff-so-fancy
@@ -85,19 +86,18 @@ hdf5
 hdrhistogram_c
 helix
 helm
-herdr
 highway
 htop
 hwloc
 icu4c@76
 icu4c@77
 icu4c@78
+icu4c@79
 imagemagick
 imath
 isl
 jasper
 jbig2dec
-jemalloc
 jpeg-turbo
 jpeg-xl
 jq
@@ -245,7 +245,7 @@ pydantic
 python-packaging
 python@3.12
 python@3.13
-python@3.14
+python@3.15
 range-v3
 rav1e
 readline
@@ -278,7 +278,6 @@ tesseract
 texlive
 theora
 tlrc
-tmux
 tokei
 tree-sitter
 tree-sitter-cli
@@ -312,5 +311,5 @@ zsh-autosuggestions
 zsh-fast-syntax-highlighting
 zsh-syntax-highlighting
 zstd
-anomalyco/tap/opencode
+anomalyco/tap/opencode-v2
 jstkdng/programs/ueberzugpp
