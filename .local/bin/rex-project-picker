@@ -3,4 +3,4 @@
 set -eu
 
 config="${XDG_CONFIG_HOME:-$HOME/.config}/rex"
-exec /bin/sh "$config/scripts/picker.sh" project "$@"
+exec /bin/sh "$config/rex-navigation/scripts/navigation.sh" project "$@"

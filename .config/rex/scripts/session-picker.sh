@@ -1,4 +1,4 @@
 #!/bin/sh
-# Keep the session CLI stable while using Rex's embedded Lua.
+# Preserve the original session CLI path while implementation lives in the plugin.
 set -eu
-exec /bin/sh "${0%/*}/picker.sh" session "$@"
+exec /bin/sh "${0%/*}/../rex-navigation/scripts/session-picker.sh" "$@"
