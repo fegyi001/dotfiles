@@ -15,7 +15,7 @@ rex.bind("ctrl+a>f", "open_project_picker")
 rex.bind("ctrl+a>shift+d", "session.close")
 rex.bind("ctrl+a>shift+n", "session.new")
 rex.bind("ctrl+a>space", "open_session_picker")
-rex.bind("ctrl+a>shift+l", "last_used_session")
+rex.bind("ctrl+a>enter", "last_used_session")
 rex.bind("ctrl+a>shift+4", "session.rename") -- $ on a US keyboard layout
 
 -- Vim-style pane navigation

@@ -12,8 +12,7 @@ for node_path in \
   "$HOME/Library/Application Support/fnm/aliases/default/bin/node" \
   "$HOME/.local/bin/node" \
   /opt/homebrew/bin/node \
-  /usr/local/bin/node
-do
+  /usr/local/bin/node; do
   if [ -f "$node_path" ] && [ -x "$node_path" ]; then
     exec "$node_path" "$@"
   fi

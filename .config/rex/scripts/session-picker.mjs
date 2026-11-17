@@ -78,7 +78,10 @@ function lastUsedSession(clients, current, available) {
 function pickerLastUsed(current, available) {
   try {
     const state = readHistory(historyPath());
-    if (!Object.values(state).some((clients) => Object.keys(clients).length > 0)) return;
+    if (
+      !Object.values(state).some((clients) => Object.keys(clients).length > 0)
+    )
+      return;
     // Ordering is only a hint: do not make a slow/unavailable status endpoint
     // block the picker for the normal switching request's ten-second timeout.
     const status = callRex(["api", "call", "server.status", "{}"], 500);
@@ -150,7 +153,10 @@ function pick(sessions, current) {
       label: label.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " "),
     }));
   if (ordered.length === 0) throw new Error("No other sessions available");
-  const lastUsed = pickerLastUsed(current, new Set(ordered.map(({ id }) => id)));
+  const lastUsed = pickerLastUsed(
+    current,
+    new Set(ordered.map(({ id }) => id)),
+  );
   ordered.sort(
     (a, b) =>
       Number(b.id === lastUsed) - Number(a.id === lastUsed) ||
@@ -164,7 +170,9 @@ function pick(sessions, current) {
     ]),
   );
   const quote = (text) => `'${text.replaceAll("'", "'\\''")}'`;
-  const worker = fileURLToPath(new URL("./session-preview.mjs", import.meta.url));
+  const worker = fileURLToPath(
+    new URL("./session-preview.mjs", import.meta.url),
+  );
   // fzf shell-quotes the selected first field. Never interpolate a label.
   const preview = `exec ${quote(process.execPath)} ${quote(worker)} {1}`;
   const env = Object.fromEntries(
