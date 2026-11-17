@@ -17,6 +17,7 @@ rex/
 │   ├── node.sh
 │   ├── project-picker.mjs
 │   ├── rex-runtime.mjs
+│   ├── session-preview.mjs
 │   ├── session-picker.mjs
 │   └── session-picker.sh
 └── state/               # Git-ignored runtime data
@@ -31,9 +32,10 @@ locations; the public `rex-project-picker` command remains at the same path.
 
 - **Ctrl+A, Space** opens an fzf session picker in a focused floating pane over
   the invoking tab, centered at 70% of its width and 60% of its height. It creates
-  no temporary tab. The current session is first,
-  marked `(current)`; the rest are alphabetical, ignoring case. Typing ranks
-  matches by fuzzy relevance; clearing the query restores the initial order.
+  no temporary tab. The current session is excluded; other sessions are
+  alphabetical, ignoring case. The left half lists sessions; the right half
+  previews a terminal text snapshot. Typing ranks matches by fuzzy relevance;
+  clearing the query restores alphabetical order.
   Esc cancels and closes the pane; selecting a session switches and closes it.
 - **Ctrl+A, F** opens the project picker in the same centered, focused 70% × 60%
   floating pane. Esc cancels; opening a project closes the pane after creating
@@ -58,6 +60,27 @@ Session selection uses
 Rex Remote Control, which must be enabled in the app (the project picker
 already required it). Errors from the toggle are reported by the Rex action;
 picker errors remain visible in their floating pane until Enter is pressed.
+
+## Session snapshots
+
+Highlighting a session starts a read-only snapshot worker for its focused terminal
+in its active tab. The preview refreshes on highlight changes, not continuously;
+it is text, not an image of the whole session layout. Missing sessions, missing
+focus, non-terminal panes, and failed/slow requests show `Preview unavailable`
+without preventing selection. If no other sessions exist, the picker reports
+`No other sessions available` without changing history.
+
+Previews do not run before the list opens. A worker waits 75 ms for navigation to
+settle, has a two-second total deadline, and terminates pending Rex children when
+cancelled. It retrieves at most a 32 KiB tail of large snapshots rather than
+downloading all scrollback, caps displayed text at 200 lines and the available
+preview rows, and strips terminal control sequences. No snapshots are cached on
+disk, and previewing never switches sessions, sends input, or writes history.
+
+These limits bound client transfer and display, **not Rex's internal formatting
+cost**: Rex may still format full scrollback before returning a bounded result.
+Actual UI responsiveness and preview cancellation need manual confirmation in
+the app; regression tests use fake terminal data and installed fzf.
 
 ## History and limits
 

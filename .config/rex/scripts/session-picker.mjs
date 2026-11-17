@@ -120,27 +120,27 @@ export function switchSession(client, current, target) {
 }
 
 function pick(sessions, current) {
-  if (sessions.length === 0) throw new Error("No Rex sessions available");
   const collator = new Intl.Collator("en", { sensitivity: "accent" });
   const ordered = sessions
+    .filter(({ session_id }) => session_id !== current)
     .map(({ session_id: id, label }) => ({
       id,
       label: label.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " "),
     }))
     .sort((a, b) =>
-      Number(b.id === current) - Number(a.id === current) ||
       collator.compare(a.label, b.label) ||
       (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
     );
-  const records = new Map(
-    ordered.map(({ id, label }) => [
-      `${id}\t${label}${id === current ? " (current)" : ""}  [${id}]`,
-      id,
-    ]),
-  );
+  if (ordered.length === 0) throw new Error("No other sessions available");
+  const records = new Map(ordered.map(({ id, label }) => [`${id}\t${label}  [${id}]`, id]));
+  const quote = (text) => `'${text.replaceAll("'", "'\\''")}'`;
+  const worker = fileURLToPath(new URL("./session-preview.mjs", import.meta.url));
+  // fzf shell-quotes the selected first field. Never interpolate a label.
+  const preview = `exec ${quote(process.execPath)} ${quote(worker)} {1}`;
   const env = Object.fromEntries(
     Object.entries(process.env).filter(([key]) => !key.startsWith("FZF_")),
   );
+  env.SHELL = "/bin/sh";
   const result = spawnSync(
     commandPath("fzf"),
     [
@@ -151,6 +151,9 @@ function pick(sessions, current) {
       "--delimiter=\t",
       "--with-nth=2..",
       "--tiebreak=index",
+      "--preview",
+      preview,
+      "--preview-window=right,50%",
       "--prompt=Session > ",
       "--border",
       "--header=Enter: switch session | Esc: cancel",
