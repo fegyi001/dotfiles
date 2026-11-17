@@ -6,6 +6,3 @@
 .local/state
 
 docs
-tests
-
-__pycache__/

@@ -39,9 +39,10 @@ would look for the now-removed `navigation-config.lua`. No reload is automatic.
 `scripts/picker.sh` preserves the old action entrypoint path, not its configuration.
 `scripts/session-picker.sh` preserves the original session CLI path as a forwarder.
 
-History stays under `$XDG_CONFIG_HOME/rex/state/`; project associations stay under
-`$XDG_STATE_HOME/rex/project-sessions.json`, using the usual home-directory fallbacks.
-Neither is moved into the plugin. Validate config without reloading:
+Session history and its lock live in the plugin's gitignored `state/` directory:
+`/Users/padanyig/code/github/rex-navigator/state/`. Project associations remain in
+`$XDG_STATE_HOME/rex/project-sessions.json`, using the usual home-directory fallback.
+Validate config without reloading:
 
 ```sh
 rex --autostart=false config check ~/.config/rex/init.lua
