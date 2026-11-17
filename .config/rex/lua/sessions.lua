@@ -23,8 +23,18 @@ rex.action({
   run = function(ctx)
     local argv = command(ctx, "pick")
     argv[#argv + 1] = "--picker-tab"
-    local window = assert(rex.session.new_window({
-      window_label = "Sessions",
+    local window_id
+    if ctx.block_id then
+      local description, err = rex.session.describe_block({ block_id = ctx.block_id })
+      assert(description, err or "Could not locate the invoking pane")
+      local block = description.block
+      assert(block and block.placement == "placed", "Open the session picker from a placed pane")
+      window_id = assert(block.window_id, "The invoking pane has no window")
+    end
+    local layer, err = rex.session.new_layer({
+      window_id = window_id,
+      bounds = { 0.15, 0.2, 0.7, 0.6 },
+      focus = true,
       layout = rex.layout.block({
         flavor = "com.superlogical.terminal.shell",
         options = {
@@ -32,11 +42,8 @@ rex.action({
           exit = { on_completion = true, quick_exit_threshold_ms = 0 },
         },
       }),
-    }))
-    -- Match the project picker: deliver the new window before asking the app to select it.
-    local yielded, err = rex.exec({ "sleep", "0" }, { timeout = 1 })
-    assert(yielded and yielded.ok, err or "Could not yield before selecting the session picker")
-    rex.client.queue("session.select", { session_id = ctx.session_id, window_id = window.window_id })
+    })
+    assert(layer, err or "Could not open the floating session picker")
   end,
 })
 

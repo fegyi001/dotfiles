@@ -6,8 +6,18 @@ rex.action({
 		assert(ctx.client_id, "Open the project picker from a Rex app")
 		assert(ctx.session_id, "Open the project picker from an existing workspace")
 		local home = assert(os.getenv("HOME"), "HOME is not set")
-		local window = assert(rex.session.new_window({
-			window_label = "Projects",
+		local window_id
+		if ctx.block_id then
+			local description, err = rex.session.describe_block({ block_id = ctx.block_id })
+			assert(description, err or "Could not locate the invoking pane")
+			local block = description.block
+			assert(block and block.placement == "placed", "Open the project picker from a placed pane")
+			window_id = assert(block.window_id, "The invoking pane has no window")
+		end
+		local layer, err = rex.session.new_layer({
+			window_id = window_id,
+			bounds = { 0.15, 0.2, 0.7, 0.6 },
+			focus = true,
 			layout = rex.layout.block({
 				flavor = "com.superlogical.terminal.shell",
 				options = {
@@ -16,10 +26,7 @@ rex.action({
 					exit = { on_completion = true, quick_exit_threshold_ms = 0 },
 				},
 			}),
-		}))
-		-- Match tabs.lua: let Rex deliver the new window before asking the app to select it.
-		local yielded, err = rex.exec({ "sleep", "0" }, { timeout = 1 })
-		assert(yielded and yielded.ok, err or "Could not yield before selecting the project picker")
-		rex.client.queue("session.select", { session_id = ctx.session_id, window_id = window.window_id })
+		})
+		assert(layer, err or "Could not open the floating project picker")
 	end,
 })

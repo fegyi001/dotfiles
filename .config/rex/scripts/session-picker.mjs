@@ -82,9 +82,12 @@ export function switchSession(client, current, target) {
         // pairs containing this session agree; JSON order is not recency.
         const candidates = new Set();
         for (const legacy of Object.values(state[scope] || {})) {
-          const other = legacy.current === current
-            ? legacy.previous
-            : legacy.previous === current ? legacy.current : undefined;
+          const other =
+            legacy.current === current
+              ? legacy.previous
+              : legacy.previous === current
+                ? legacy.current
+                : undefined;
           if (other !== current && available.has(other)) candidates.add(other);
         }
         if (candidates.size > 1)
@@ -116,13 +119,24 @@ export function switchSession(client, current, target) {
   });
 }
 
-function pick(sessions) {
+function pick(sessions, current) {
   if (sessions.length === 0) throw new Error("No Rex sessions available");
+  const collator = new Intl.Collator("en", { sensitivity: "accent" });
+  const ordered = sessions
+    .map(({ session_id: id, label }) => ({
+      id,
+      label: label.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " "),
+    }))
+    .sort((a, b) =>
+      Number(b.id === current) - Number(a.id === current) ||
+      collator.compare(a.label, b.label) ||
+      (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
+    );
   const records = new Map(
-    sessions.map(({ session_id: id, label }) => {
-      const safeLabel = label.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " ");
-      return [`${id}\t${safeLabel}  [${id}]`, id];
-    }),
+    ordered.map(({ id, label }) => [
+      `${id}\t${label}${id === current ? " (current)" : ""}  [${id}]`,
+      id,
+    ]),
   );
   const env = Object.fromEntries(
     Object.entries(process.env).filter(([key]) => !key.startsWith("FZF_")),
@@ -136,7 +150,8 @@ function pick(sessions) {
       "--layout=reverse",
       "--delimiter=\t",
       "--with-nth=2..",
-      "--prompt=Session> ",
+      "--tiebreak=index",
+      "--prompt=Session > ",
       "--border",
       "--header=Enter: switch session | Esc: cancel",
     ],
@@ -197,7 +212,7 @@ function main() {
       throw new Error("--session is only valid with select");
     let target = values.session;
     if (command === "pick") {
-      target = pick(rex("ls", "--json").sessions || []);
+      target = pick(rex("ls", "--json").sessions || [], values.current);
       if (target === null) return 0;
     }
     switchSession(values.client, values.current, target);

@@ -29,11 +29,20 @@ locations; the public `rex-project-picker` command remains at the same path.
 
 ## Shortcuts and requirements
 
-- **Ctrl+A, Space** opens an fzf session picker.
+- **Ctrl+A, Space** opens an fzf session picker in a focused floating pane over
+  the invoking tab, centered at 70% of its width and 60% of its height. It creates
+  no temporary tab. The current session is first,
+  marked `(current)`; the rest are alphabetical, ignoring case. Typing ranks
+  matches by fuzzy relevance; clearing the query restores the initial order.
+  Esc cancels and closes the pane; selecting a session switches and closes it.
+- **Ctrl+A, F** opens the project picker in the same centered, focused 70% × 60%
+  floating pane. Esc cancels; opening a project closes the pane after creating
+  or reusing its session and switching to it. No temporary tab is created.
 - **Ctrl+A, Shift+L** toggles the last two sessions selected through the session
   picker or project picker (**Ctrl+A, F**).
 
-Reload through Rex's **Reload Config** command, or run `rex config reload`.
+Reload through Rex's **Reload Config** command, or run `rex config reload`, to
+activate the floating-picker Lua actions.
 Then switch from session A to B with either picker. Press **Ctrl+A, Shift+L**
 twice: it should return to A, then B.
 
@@ -48,7 +57,7 @@ Each session row includes its ID so duplicate labels can be distinguished.
 Session selection uses
 Rex Remote Control, which must be enabled in the app (the project picker
 already required it). Errors from the toggle are reported by the Rex action;
-picker errors remain in their tab until Enter is pressed.
+picker errors remain visible in their floating pane until Enter is pressed.
 
 ## History and limits
 

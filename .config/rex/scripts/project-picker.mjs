@@ -133,7 +133,7 @@ function pick(paths) {
       "--print0",
       "--no-multi",
       "--layout=reverse",
-      "--prompt=Project> ",
+      "--prompt=Project > ",
       "--border",
       "--header=Enter: open workspace | Esc: cancel",
     ],
