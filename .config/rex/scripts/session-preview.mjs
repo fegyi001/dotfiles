@@ -60,24 +60,35 @@ async function snapshot(session) {
   const terminal = (method, args) => call([
     "block", "call", "-s", session, "-b", block.block_id, method, JSON.stringify(args),
   ]);
+  const modes = await terminal("modes", {});
+  if (!isObject(modes) || typeof modes.screen !== "string") throw new Error("No terminal screen mode");
+  const alternate = modes.screen === "alternate";
   const formatted = await terminal("format", { format: "text", trim: true, max_bytes: 4096 });
   if (!isObject(formatted) || typeof formatted.content !== "string") throw new Error("No terminal text");
   let text = formatted.content;
+  let truncated = false;
   if (formatted.id !== undefined) {
     if (!Number.isSafeInteger(formatted.id) || formatted.id < 0 ||
       !Number.isSafeInteger(formatted.total) || formatted.total <= 0)
       throw new Error("Invalid snapshot metadata");
-    const offset = Math.max(0, formatted.total - TAIL_BYTES);
-    // max_bytes counts JSON-encoded bytes: allow worst-case escaping of the
-    // bounded source tail. This does not bound Rex's internal formatting cost.
+    const offset = alternate ? 0 : Math.max(0, formatted.total - TAIL_BYTES);
+    // Alternate screens need the head, not shell scrollback's tail. max_bytes
+    // counts encoded bytes; the head budget also bounds its source bytes.
+    // Neither budget bounds Rex's internal formatting cost.
     const tail = await terminal("blob_read", {
-      id: formatted.id, offset, max_bytes: TAIL_BYTES * 6,
+      id: formatted.id, offset, max_bytes: alternate ? TAIL_BYTES : TAIL_BYTES * 6,
     });
     if (!isObject(tail) || tail.id !== formatted.id || tail.total !== formatted.total ||
-      tail.eof !== true || typeof tail.data !== "string") throw new Error("Incomplete snapshot");
+      typeof tail.eof !== "boolean" || (!alternate && !tail.eof) ||
+      typeof tail.data !== "string") throw new Error("Incomplete snapshot");
     text = tail.data;
     if (Buffer.byteLength(text) > TAIL_BYTES + 3) throw new Error("Snapshot too large");
-    if (offset > 0) {
+    if (alternate && !tail.eof) {
+      truncated = true;
+      // blob_read preserves UTF-8 but may stop mid-line. Keep only complete
+      // leading lines so editor code is never shown with a chopped line.
+      text = text.slice(0, Math.max(0, text.lastIndexOf("\n") + 1));
+    } else if (offset > 0) {
       // The byte offset can split a UTF-8 character or a line. Never display
       // the leading fragment; remaining complete lines retain valid Unicode.
       const newline = text.indexOf("\n");
@@ -93,6 +104,12 @@ async function snapshot(session) {
     .replace(/\r\n?/g, "\n")
     .replace(/[\u0000-\u0008\u000b-\u001f\u007f-\u009f]/g, "")
     .replace(/\n+$/, "");
+  if (alternate) {
+    const lines = safe ? safe.split("\n") : [];
+    if (truncated || lines.length > 200)
+      return [...lines.slice(0, 199), "[Preview truncated]"].join("\n");
+    return safe || "(Terminal is empty)";
+  }
   return safe.split("\n").slice(-rows).join("\n") || "(Terminal is empty)";
 }
 

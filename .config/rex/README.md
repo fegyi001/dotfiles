@@ -70,12 +70,21 @@ focus, non-terminal panes, and failed/slow requests show `Preview unavailable`
 without preventing selection. If no other sessions exist, the picker reports
 `No other sessions available` without changing history.
 
+Snapshots are screen-aware: ordinary shells show recent output, while alternate-
+screen apps such as Neovim are shown from the top instead of losing the upper
+part of the screen. Use **Ctrl+U / Ctrl+D** to page the preview up/down; these keys
+scroll fzf's snapshot only and never send input to the target terminal. The preview
+is plain text, not a rescaled screenshot, so wide editor layouts may not fit.
+
 Previews do not run before the list opens. A worker waits 75 ms for navigation to
 settle, has a two-second total deadline, and terminates pending Rex children when
-cancelled. It retrieves at most a 32 KiB tail of large snapshots rather than
-downloading all scrollback, caps displayed text at 200 lines and the available
-preview rows, and strips terminal control sequences. No snapshots are cached on
-disk, and previewing never switches sessions, sends input, or writes history.
+cancelled. It retrieves a bounded 32 KiB tail for shell output, or a head with a
+32 KiB encoded-byte budget for alternate screens, rather than downloading all
+scrollback. Shell output is capped to 200 lines and the available preview rows;
+alternate-screen output keeps up to 200 lines for scrolling and shows
+`[Preview truncated]` if byte/line limits cut it short. Terminal control sequences
+are stripped. No snapshots are cached on disk, and previewing never switches
+sessions, sends input, or writes history.
 
 These limits bound client transfer and display, **not Rex's internal formatting
 cost**: Rex may still format full scrollback before returning a bounded result.

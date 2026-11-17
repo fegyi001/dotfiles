@@ -154,9 +154,10 @@ function pick(sessions, current) {
       "--preview",
       preview,
       "--preview-window=right,50%",
+      "--bind=ctrl-u:preview-page-up,ctrl-d:preview-page-down",
       "--prompt=Session > ",
       "--border",
-      "--header=Enter: switch session | Esc: cancel",
+      "--header=Enter: switch session | Esc: cancel | Ctrl+U/D: scroll preview",
     ],
     {
       env,
