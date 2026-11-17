@@ -1,4 +1,4 @@
 #!/bin/sh
-# Keep the session CLI stable while sharing Node resolution with the project picker.
+# Keep the session CLI stable while using Rex's embedded Lua.
 set -eu
-exec /bin/sh "${0%/*}/node.sh" "${0%/*}/session-picker.mjs" "$@"
+exec /bin/sh "${0%/*}/picker.sh" session "$@"

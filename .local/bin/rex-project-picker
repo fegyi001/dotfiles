@@ -1,6 +1,6 @@
 #!/bin/sh
-# Keep the existing Stow-managed command while running the picker on Node.js.
+# Keep the existing Stow-managed command while using Rex's embedded Lua.
 set -eu
 
 config="${XDG_CONFIG_HOME:-$HOME/.config}/rex"
-exec /bin/sh "$config/scripts/node.sh" "$config/scripts/project-picker.mjs" "$@"
+exec /bin/sh "$config/scripts/picker.sh" project "$@"
