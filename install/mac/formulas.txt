@@ -271,6 +271,7 @@ sqlite
 srt
 starship
 stow
+stylua
 svt-av1
 tbb
 tcl-tk
