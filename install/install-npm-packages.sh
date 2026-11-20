@@ -9,6 +9,7 @@ npm install -g \
   npm \
   corepack \
   prettier \
+  neovim \
   typescript \
   typescript-language-server \
   http-server \
