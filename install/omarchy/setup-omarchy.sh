@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# git clone --recurse-submodules https://github.com/fegyi001/dotfiles.git ~/dotfiles && \
+# git clone --recurse-submodules=.config/rex/rex-navigator https://github.com/fegyi001/dotfiles.git ~/dotfiles && \
 # chmod +x ~/dotfiles/install/omarchy/setup-omarchy.sh && \
 # chmod +x ~/dotfiles/install/omarchy/install-hungarian-keyboard.sh && \
 # chmod +x ~/dotfiles/install/install-npm-packages.sh && \
 # chmod +x ~/dotfiles/install/install-herdr-plugins.sh
 
 cd ~/dotfiles || exit 1
-git submodule update --init --recursive || exit 1
+git submodule update --init --recursive -- .config/rex/rex-navigator || exit 1
 
 echo "Installing packages"
 sudo pacman -S stow keyd zsh yazi fnm which tokei rust lazygit cowsay || exit 1

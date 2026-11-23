@@ -28,7 +28,7 @@ Personal configuration for my daily setup across macOS and Linux ([Omarchy](http
 Clone the repo, then use Stow to symlink the configs/settings into `$HOME`:
 
 ```sh
-git clone --recurse-submodules https://github.com/fegyi001/dotfiles ~/dotfiles
+git clone --recurse-submodules=.config/rex/rex-navigator https://github.com/fegyi001/dotfiles ~/dotfiles
 cd ~/dotfiles
 stow .
 ```
@@ -37,9 +37,11 @@ For an existing checkout, after pulling the latest dotfiles, run:
 
 ```sh
 cd ~/dotfiles
-git submodule update --init --recursive
+git submodule update --init --recursive -- .config/rex/rex-navigator
 stow .
 ```
+
+Initialize only Rex Navigator: this repo also contains legacy Git links that aren't registered in `.gitmodules`.
 
 ### macOS package bootstrap
 
