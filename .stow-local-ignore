@@ -23,6 +23,8 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+^/docs$
+^/\.superpowers$
 
 install
 voyager

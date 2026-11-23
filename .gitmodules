@@ -1,0 +1,3 @@
+[submodule ".config/rex/rex-navigator"]
+	path = .config/rex/rex-navigator
+	url = https://github.com/fegyi001/rex-navigator.git
