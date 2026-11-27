@@ -12,8 +12,8 @@ end
 
 -- Workspaces
 rex.bind("ctrl+a>f", "rex_navigator_create_session")
--- rex.bind("ctrl+a>space", "session.switch")
-rex.bind("ctrl+a>space", "rex_navigator_switch_session")
+rex.bind("ctrl+a>space", "session.switch")
+-- rex.bind("ctrl+a>space", "rex_navigator_switch_session")
 rex.bind("ctrl+a>enter", "rex_navigator_last_used_session")
 rex.bind("ctrl+a>shift+d", "session.close")
 rex.bind("ctrl+a>shift+n", "session.new")
